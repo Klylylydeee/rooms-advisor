@@ -1,5 +1,5 @@
 {
-  "name": "dev-challenge",
+  "name": "rooms-advisor",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
