@@ -1,0 +1,5 @@
+February 09,2021 - E1
+controller.errorStatus overlaying main connection and queries.
+await async function restudy.
+email validation not working (auth.route.user: line 22)
+
