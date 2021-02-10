@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// Forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
 import { SignupComponent } from './Components/signup/signup.component';
@@ -21,7 +23,9 @@ import { PostsComponent } from './Components/posts/posts.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
