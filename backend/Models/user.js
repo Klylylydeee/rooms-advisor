@@ -10,6 +10,9 @@ module.exports = class User{
     static find(email) {
         return db.execute('SELECT * FROM user_information WHERE email = ?', [email]);
     }
+    static login(username) {
+        return db.execute('SELECT * FROM user_information WHERE username = ?', [username]);
+    }
     
     static save(user) {
         return db.execute('INSERT INTO user_information (username, password, email) VALUES (?, ?, ?)', 
