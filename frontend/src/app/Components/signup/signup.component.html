@@ -1,5 +1,6 @@
 <!-- [formGroup] is a reactive form group which uses signUpForm -->
 <!-- novalidate is a reactive form validation -->
+<h1>Sign up Form</h1>
 <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
   <input type="text" placeholder="username" formControlName="username" />
   <input type="text" placeholder="email" formControlName="email" />

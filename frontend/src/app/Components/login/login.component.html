@@ -1,1 +1,9 @@
-<p>login works!</p>
+<!-- [formGroup] is a reactive form group which uses signUpForm -->
+<!-- novalidate is a reactive form validation -->
+<h1>Login Form</h1>
+<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+    <input type="text" placeholder="username" formControlName="username" />
+    <input type="password" placeholder="password" formControlName="password" />
+    <button [disabled]="!loginForm.valid" type="submit">Submit</button>
+  </form>
+  

@@ -11,8 +11,9 @@ export class ErrorHandlerService {
   // operation is a string that describes the function and is currently assigned as operation
   handleError<T>(operation = "operation", result?: T){
     // returns the error that has any type by console logging the operation and msg
-    return (error: any): Observable<T> => {
-      console.log(`${operation} failed: ${error.message}`);
+    return (response: any): Observable<T> => {
+      console.log(response);
+      alert(`${operation} Failed: ${response.error.error.message}`);
       return of(result as T)
     }
   }
