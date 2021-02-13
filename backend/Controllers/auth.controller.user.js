@@ -29,12 +29,12 @@ exports.signUp = async (req, res, next) => {
         res.status(201).json({
             message: 'User has been registered!'
         });
-    } catch(err) {
-        if(!err.statusCode) {
-            err.status = 500
+    } catch(error) {
+        if(!error.statusCode) {
+            error.status = 500
         } 
         // Middleware for catching errors, which is found in controller.errorStatus.js
-        next(err);
+        return next(error);
     }
 }
 
@@ -44,35 +44,35 @@ exports.login = async (req, res, next) => {
     const password = req.body.password;
     try {
         const username = await User.login(accountUsername);
-        // Check if the username exist
+        // If the username length is not equivalent to 1 then username does not exist
         if (username[0].length !== 1){
-            const error = new Error('A user with this email could not be found.');
+            const error = new Error('Username with this email could not be found.');
             error.statusCode = 401;
             throw error;
         }
+        // Store the data results from the query to storedUser variable
         const storedUser = username[0][0];
+
         // Compare the input password from the client and the decrypted password from database
         const isEqual = await bcrypt.compare(password, storedUser.password);
-
+        // If the password doesnt return a true boolean thus it throws it
         if(!isEqual){
             const error = new Error('Wrong password.');
             error.statusCode = 401;
             throw error;
         }
-        // Create token from the gathered data
+        // Create token from the storedUser variable which stores the datas from the query
         const token = jwt.sign({
+            // payload data
             userId: storedUser.userId,
             username: storedUser.username,
             email: storedUser.email,
-        }, 'secretfortoken',{
-            expiresIn: '1h'
+        }, 'secretfortoken',{  //secret or privatekey of the jwt
+            expiresIn: '1h' //option of the token
         });
         
         res.status(200).json({
-            token: token, 
-            userId: storedUser.userId,
-            username: storedUser.username,
-            email: storedUser.email
+            token: token
         });
 
     } catch(err) {
