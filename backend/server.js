@@ -17,8 +17,8 @@ const app = express();
 
 app.use(bodyParser.json({ extend: false }));
 
-app.listen(process.env.SERVER_PORT, () =>
-  console.log(`Running at port http://localhost:${process.env.SERVER_PORT}/`)
+app.listen(process.env.PORT || 5000, () =>
+  console.log(`Running at port http://localhost:${process.env.PORT}/`)
 );
 
 app.use((req, res, next) => {
@@ -37,22 +37,16 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
-app.use("/api/auth", authRoute);
-app.use("/api/properties", propertiesRoute);
-// Controllers
-app.use(errorController.get404);
-app.use(errorController.get500);
-
 // app.get("/test", async (req, res) => {
 app.get("/test/:testid", async (req, res) => {
   // add parameter if specific user
   var id = req.params.testid;
   const test = await helloWorld(id);
   // const test = await helloWorld();
+    res.status(200);
   res.send(test[0]);
 });
-
+  
 function helloWorld(param){
   // return db.execute(`SELECT TIME_FORMAT(properties_posted.dateCreated, "%l:%i:%s %p") AS date_formatted FROM user_information, properties_posted WHERE properties_posted.userId = user_information.userId`);
   // query posts from all the users
@@ -61,3 +55,10 @@ function helloWorld(param){
   // return db.execute(`SELECT user_information.userId, user_information.username, properties_posted.propertyId, properties_posted.propertyTitle, properties_posted.propertyDescription FROM user_information, properties_posted WHERE properties_posted.userId = ? AND user_information.userId = ?`, [param, param]);
   return db.execute(`SELECT user_information.userId, user_information.username, properties_posted.propertyId, properties_posted.propertyTitle, properties_posted.propertyDescription FROM user_information, properties_posted WHERE user_information.userId = ? AND properties_posted.userId = user_information.userId`, [param]);
 }
+
+// Routes
+app.use("/api/auth", authRoute);
+app.use("/api/properties", propertiesRoute);
+// Controllers
+app.use(errorController.get404);
+app.use(errorController.get500);
