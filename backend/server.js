@@ -37,6 +37,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.send(`<div style="padding: 0; margin: 0; min-height: 97vh; display: flex; justify-content: center; align-items: center;"><h1 style="padding: 0; margin: 0; font-family: 'Bungee Inline', cursive; font-size: 2rem;">Authorization key is needed to access RoomsAdvisor API. <br> Pls contact the Developer [Guevarra, Klyde] for further access.</h1></div>`);
+});
+
 // app.get("/test", async (req, res) => {
 app.get("/test/:testid", async (req, res) => {
   // add parameter if specific user
