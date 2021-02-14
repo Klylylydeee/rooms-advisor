@@ -41,8 +41,8 @@ app.use((req, res, next) => {
 app.use("/api/auth", authRoute);
 app.use("/api/properties", propertiesRoute);
 // Controllers
-// app.use(errorController.get404);
-// app.use(errorController.get500);
+app.use(errorController.get404);
+app.use(errorController.get500);
 
 // app.get("/test", async (req, res) => {
 app.get("/test/:testid", async (req, res) => {
