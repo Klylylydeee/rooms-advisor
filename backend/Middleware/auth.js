@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
     // An example of an authHeader is 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
     // .split(' ') creates 2 string array in which Bearer is index 0 and eyJhbGciOi is index 1
     const token = authHeader.split(' ')[1];
-    console.log(token)
+    // console.log(token)
 
     // Variable for storing the data from the token
     let decodedToken;
