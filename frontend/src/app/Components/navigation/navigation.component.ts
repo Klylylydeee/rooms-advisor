@@ -16,11 +16,8 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.authservice.isUserLoggedIn$.subscribe((isLoggedIn) => {
-      console.log(`authenticated: ${this.isAuthenticated}`);
-      console.log(`is logged in: ${isLoggedIn}`);
       this.isAuthenticated = isLoggedIn;
     })
-    this.authservice.getToken(localStorage.getItem('token'));
   }
 
   logout(): void{
