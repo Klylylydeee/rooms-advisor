@@ -42,7 +42,19 @@ export class AuthService {
     const decodedToken = this.helper.decodeToken(storedToken);
     this.userId = decodedToken.userId;
   }
-  // if (this.helper.isTokenExpired(storedToken)) {
+  // isAuthenticated() {
+  //   const token = localStorage.getItem('token');
+  //   try {
+  //     const trya = this.helper.isTokenExpired(token);
+  //     if (trya < (new Date().getTime() + 1) / 1000) {
+  //       return false;
+  //     }
+  //   } catch (err) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
+  // if () {
   //   localStorage.removeItem("token");
   //   this.router.navigate(["Login"]);
   // }

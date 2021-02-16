@@ -16,6 +16,11 @@ export class ErrorHandlerService {
     // returns the error that has any type by console logging the operation and msg
     return (response: any): Observable<T> => {
       alert(`${operation} Failed: ${response.error.error.message}`);
+      if(response.error.error.message === "jwt expired"){
+        localStorage.removeItem("token");
+        window.location.reload();
+        this.router.navigate(["Login"]);
+      }
       return of(result as T)
     }
   }
