@@ -29,9 +29,6 @@ export class PostService {
   fetchAll(): Observable<Properties[]> {
     return this.http
       .get<Properties[]>(this.authUrl, { responseType: "json" })
-      .pipe(
-        catchError(this.errorHandlerService.handleError<Properties[]>("fetchAll", []))
-      );
   }
 
   createPost(formValue: Partial<Properties>, userId: Pick<Username, "userId">): Observable<Properties> {

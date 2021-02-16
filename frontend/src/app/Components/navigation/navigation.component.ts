@@ -18,6 +18,7 @@ export class NavigationComponent implements OnInit {
     this.authservice.isUserLoggedIn$.subscribe((isLoggedIn) => {
       this.isAuthenticated = isLoggedIn;
     })
+    this.authservice.getToken(localStorage.getItem('token'));
   }
 
   logout(): void{

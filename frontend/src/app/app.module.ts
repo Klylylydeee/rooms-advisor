@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 // Auth Services
 import { AuthInterceptorService } from "./Client/services/auth-interceptor.service";
+// Pagination
+import {NgxPaginationModule} from 'ngx-pagination';
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -35,7 +37,8 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
     AppRoutingModule,
     FormsModule,        // Required if using forms
     ReactiveFormsModule,// Required if using forms
-    HttpClientModule    // Http modules to use httpclient
+    HttpClientModule,   // Http modules to use httpclient
+    NgxPaginationModule // Pagination
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

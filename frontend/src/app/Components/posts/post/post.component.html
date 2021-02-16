@@ -1,7 +1,8 @@
 <app-create-posts (create)="createPost()"></app-create-posts>
 
-<ul *ngFor="let post of posts$ | async"> 
-    <li *ngIf="post.userId === userId">DELETE</li>
+<ul *ngFor="let post of (posts$ | async) 
+    | paginate: { itemsPerPage: 3, currentPage: currentPg}"> 
+    <li *ngIf="post.userId === userId" (click)="delete(post.propertyId)">DELETE</li>
     <li> {{ post.userId }} </li>
     <li> {{ post.username }} </li>
     <li> {{ post.email }} </li>
@@ -9,4 +10,9 @@
     <li> {{ post.propertyTitle }} </li>
     <li> {{ post.propertyDescription }} </li>
     <li> {{ post.dateCreated_Formated }} </li>
-</ul>
+</ul> 
+<pagination-controls (pageChange)="currentPg = $event">
+    <button (click)="dec()"></button>
+    <button (click)="inc()"></button>
+    <input type="input" [value]="currentPg">
+</pagination-controls>

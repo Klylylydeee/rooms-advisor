@@ -25,7 +25,6 @@ export class CreatePostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authservice.getToken(localStorage.getItem('token'));
   }
 
   createFormGroup(): FormGroup{
