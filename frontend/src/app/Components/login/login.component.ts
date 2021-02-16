@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // Inject auth service
 import { AuthService } from '../../Client/services/auth.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

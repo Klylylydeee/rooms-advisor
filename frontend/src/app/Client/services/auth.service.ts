@@ -10,18 +10,22 @@ import { first, tap, catchError } from 'rxjs/operators';
 import { Username } from '../Models/Username';
 import { ErrorHandlerService } from './error-handler.service';
 
+import { JwtHelperService } from "@auth0/angular-jwt";
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
   
-  private authUrl = "http://localhost:3000/api/auth";
-
-  // global variable basis for whether the user has logged in or not
-  isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
+  private authUrl = "http://localhost:5000/api/auth";
+  
+  // variable basis for whether the user has logged in or not
+  isUserLoggedIn$ = new BehaviorSubject<boolean>(localStorage.getItem("token") !== null);
   // global variable to user the logged in userId
   userId: Pick<Username, "userId">;
+
+  helper = new JwtHelperService();
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({
@@ -34,6 +38,15 @@ export class AuthService {
     private errorHandlerService: ErrorHandlerService,
     private router: Router) { }
 
+  getToken(storedToken: string): any {
+    const decodedToken = this.helper.decodeToken(storedToken);
+    this.userId = decodedToken.userId;
+  }
+  // if (this.helper.isTokenExpired(storedToken)) {
+  //   localStorage.removeItem("token");
+  //   this.router.navigate(["Login"]);
+  // }
+    // set the userID from the token
   // AuthService.signup()
   // Observable<Username> == Observable of type Usernam
   signup(username: Omit<Username, "id">): Observable<Username> {
@@ -63,14 +76,13 @@ export class AuthService {
           userId: Pick<Username, "userId">;
           email: Pick<Username, "email">;
         }) => {
-          // set the userID from the token
-          this.userId = tokenObject.userId;
+          this.getToken(tokenObject.token);
           // stores the token from the backend into the local storage
           localStorage.setItem("token", tokenObject.token);
           // initiate the global variable to true since the user has logged in
           this.isUserLoggedIn$.next(true);
           // reroutes the user to the posts section of the router, check ln35
-          this.router.navigate(["posts"]);
+          this.router.navigate(["Home"]);
         }),
         // catchError() calls the errorHandlerService.handleError to the passed Username model from the form
         // "signup" replaces the operation string to signup check error-handler.service.ts line 12

@@ -1,0 +1,12 @@
+<app-create-posts (create)="createPost()"></app-create-posts>
+
+<ul *ngFor="let post of posts$ | async"> 
+    <li *ngIf="post.userId === userId">DELETE</li>
+    <li> {{ post.userId }} </li>
+    <li> {{ post.username }} </li>
+    <li> {{ post.email }} </li>
+    <li> {{ post.propertyId }} </li>
+    <li> {{ post.propertyTitle }} </li>
+    <li> {{ post.propertyDescription }} </li>
+    <li> {{ post.dateCreated_Formated }} </li>
+</ul>

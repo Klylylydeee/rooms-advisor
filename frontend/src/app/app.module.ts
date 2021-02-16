@@ -6,14 +6,18 @@ import { AppComponent } from './app.component';
 // Required if using forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Http modules to use httpclient
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+// Auth Services
+import { AuthInterceptorService } from "./Client/services/auth-interceptor.service";
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
-import { PostsComponent } from './Components/posts/posts.component';
+import { CreatePostsComponent } from './Components/posts/create-posts/create-posts.component';
+import { PostComponent } from './Components/posts/post/post.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { PostsComponent } from './Components/posts/posts.component';
     SignupComponent,
     LoginComponent,
     HomeComponent,
-    PostsComponent
+    CreatePostsComponent,
+    PostComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,11 @@ import { PostsComponent } from './Components/posts/posts.component';
     ReactiveFormsModule,// Required if using forms
     HttpClientModule    // Http modules to use httpclient
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
