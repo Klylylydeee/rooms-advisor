@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   // variable loginForm is in type of FormGroup
   loginForm: FormGroup;
 
+  loginMessage: any;
+
   constructor(private authService: AuthService) { }
 
   // assigns the loginForm into a createFormGroup function
@@ -30,6 +32,10 @@ export class LoginComponent implements OnInit {
 
   login(): void{
     this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
-    .subscribe();
+    .subscribe( res=>{
+    },
+    error=>{
+      this.loginMessage = error.error.error.message;
+    });
   }
 }

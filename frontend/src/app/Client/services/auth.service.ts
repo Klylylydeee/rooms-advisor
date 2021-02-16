@@ -18,7 +18,8 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 
 export class AuthService {
   
-  private authUrl = "http://localhost:5000/api/auth";
+  // private authUrl = "http://localhost:5000/api/auth";
+  private authUrl = "https://rooms-advisor.herokuapp.com/api/auth";
   
   // variable basis for whether the user has logged in or not
   isUserLoggedIn$ = new BehaviorSubject<boolean>(localStorage.getItem("token") !== null);
@@ -98,9 +99,10 @@ export class AuthService {
         }),
         // catchError() calls the errorHandlerService.handleError to the passed Username model from the form
         // "signup" replaces the operation string to signup check error-handler.service.ts line 12
-      catchError(this.errorHandlerService.handleError<{
-        token: string; 
-      }>("Login"))
+        // I remvoed this function as it blocks the error to passed into the component
+      // catchError(this.errorHandlerService.handleError<{
+      //   token: string; 
+      // }>("Login"))
     );
   }
 
