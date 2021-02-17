@@ -11,6 +11,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptorService } from "./Client/services/auth-interceptor.service";
 // Pagination
 import {NgxPaginationModule} from 'ngx-pagination';
+// Loading animation
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -38,7 +40,8 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
     FormsModule,        // Required if using forms
     ReactiveFormsModule,// Required if using forms
     HttpClientModule,   // Http modules to use httpclient
-    NgxPaginationModule // Pagination
+    NgxPaginationModule, // Pagination
+    NgxSkeletonLoaderModule.forRoot(), // Loading animation
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

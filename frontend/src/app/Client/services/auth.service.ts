@@ -43,23 +43,7 @@ export class AuthService {
     const decodedToken = this.helper.decodeToken(storedToken);
     this.userId = decodedToken.userId;
   }
-  // isAuthenticated() {
-  //   const token = localStorage.getItem('token');
-  //   try {
-  //     const trya = this.helper.isTokenExpired(token);
-  //     if (trya < (new Date().getTime() + 1) / 1000) {
-  //       return false;
-  //     }
-  //   } catch (err) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
-  // if () {
-  //   localStorage.removeItem("token");
-  //   this.router.navigate(["Login"]);
-  // }
-    // set the userID from the token
+  
   // AuthService.signup()
   // Observable<Username> == Observable of type Usernam
   signup(username: Omit<Username, "id">): Observable<Username> {

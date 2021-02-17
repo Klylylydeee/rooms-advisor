@@ -16,6 +16,8 @@ export class PostService {
   // private authUrl = "http://localhost:5000/api/properties/";
   private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
 
+  loader;
+
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
@@ -27,8 +29,11 @@ export class PostService {
   }
 
   fetchAll(): Observable<Properties[]> {
+    this.loader = true;
     return this.http
-      .get<Properties[]>(this.authUrl, { responseType: "json" })
+      .get<Properties[]>(this.authUrl, { responseType: "json" }).pipe(
+        catchError(this.errorHandlerService.handleError<Properties[]>("fetch error"))
+      );
   }
 
   createPost(formValue: Partial<Properties>, userId: Pick<Username, "userId">): Observable<Properties> {
