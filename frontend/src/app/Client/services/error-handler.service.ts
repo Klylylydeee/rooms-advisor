@@ -18,8 +18,9 @@ export class ErrorHandlerService {
       alert(`${operation} Failed: ${response.error.error.message}`);
       if(response.error.error.message === "jwt expired"){
         localStorage.removeItem("token");
-        window.location.reload();
-        this.router.navigate(["Login"]);
+        this.router.navigate(["Home"]).then(() => {
+          window.location.reload();
+        });
       }
       return of(result as T)
     }
