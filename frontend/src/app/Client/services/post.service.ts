@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize } from 'rxjs/operators';
 
 import { Username } from '../Models/Username';
 import { Properties } from '../Models/Properties';
@@ -16,7 +16,7 @@ export class PostService {
   // private authUrl = "http://localhost:5000/api/properties/";
   private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
 
-  loader;
+  loader: boolean;
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({
@@ -32,6 +32,11 @@ export class PostService {
     this.loader = true;
     return this.http
       .get<Properties[]>(this.authUrl, { responseType: "json" }).pipe(
+        finalize(()=>{
+          setTimeout(()=>{
+            this.loader = false;
+          },2000)
+        }),
         catchError(this.errorHandlerService.handleError<Properties[]>("fetch error"))
       );
   }

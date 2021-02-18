@@ -26,9 +26,6 @@ export class PostComponent implements OnInit {
     this.authservice.getToken(localStorage.getItem('token'));
     this.userId = this.authservice.userId;
     this.posts$ = this.fetchAll(); 
-    setTimeout(()=>{
-      this.postService.loader = false;
-    },3000)
   }
 
   dec(){
@@ -44,18 +41,12 @@ export class PostComponent implements OnInit {
 
   createPost(): void {
     this.posts$ = this.fetchAll();
-    setTimeout(()=>{
-      this.postService.loader = false;
-    }, 1500)
   }
 
   delete(propertyId: Pick<Properties, "propertyId">): void {
-    this.postService
-      .deletePosts(propertyId)
-      .subscribe(() => (this.posts$ = this.fetchAll()));
-      setTimeout(()=>{
-        this.postService.loader = false;
-      }, 1500)
+    this.postService.deletePosts(propertyId).subscribe(() => {
+      this.posts$ = this.fetchAll()
+    });
   }
 
 }

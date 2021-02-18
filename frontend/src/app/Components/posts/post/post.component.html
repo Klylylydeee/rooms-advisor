@@ -1,22 +1,49 @@
 <app-create-posts (create)="createPost()"></app-create-posts>
 
-<ul *ngFor="let post of (posts$ | async)
-    | paginate: { itemsPerPage: 5, currentPage: currentPg}"> 
-    <ngx-skeleton-loader count="3" animation="pulse" *ngIf="this.postService.loader"></ngx-skeleton-loader>
-        <div *ngIf="!this.postService.loader">
-            <li *ngIf="post.userId === userId" (click)="delete(post.propertyId)">DELETE</li>
-        <li> {{ post.userId }} </li>
-        <li> {{ post.username }} </li>
-        <li> {{ post.email }} </li>
-        <li> {{ post.propertyId }} </li>
-        <li> {{ post.propertyTitle }} </li>
-        <li> {{ post.propertyDescription }} </li>
-        <li> {{ post.dateCreated_Formated }} </li>
-        </div>
-    
-</ul> 
-<pagination-controls (pageChange)="currentPg = $event" *ngIf="!this.postService.loader">
-    <button (click)="dec()"></button>
-    <button (click)="inc()"></button>
-    <input type="input" [value]="currentPg">
+<ngx-skeleton-loader
+  count="3"
+  animation="pulse"
+  *ngIf="(posts$ | async)?.length == 0 && this.postService.loader"
+>
+</ngx-skeleton-loader>
+
+<h1 *ngIf="(posts$ | async)?.length == 0 && !this.postService.loader">
+  No data has been posted
+</h1>
+
+<section
+  *ngFor="
+    let post of posts$
+      | async
+      | paginate: { itemsPerPage: 3, currentPage: currentPg }
+  "
+>
+  <ngx-skeleton-loader
+    count="3"
+    animation="pulse"
+    *ngIf="this.postService.loader"
+  >
+  </ngx-skeleton-loader>
+  <div *ngIf="!this.postService.loader">
+    <li *ngIf="post.userId === userId" (click)="delete(post.propertyId)" >
+      DELETE
+    </li>
+    <li>{{ post.userId }}</li>
+    <li>{{ post.username }}</li>
+    <li>{{ post.email }}</li>
+    <li>{{ post.propertyId }}</li>
+    <li>{{ post.propertyTitle }}</li>
+    <li>{{ post.propertyDescription }}</li>
+    <li>{{ post.dateCreated_Formated }}</li>
+  </div>
+  <br>
+</section>
+
+<pagination-controls
+  (pageChange)="currentPg = $event"
+  *ngIf="!this.postService.loader"
+>
+  <button (click)="dec()"></button>
+  <button (click)="inc()"></button>
+  <input type="input" [value]="currentPg" />
 </pagination-controls>
