@@ -16,7 +16,7 @@ export class PostService {
   // private authUrl = "http://localhost:5000/api/properties/";
   private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
 
-  loader: boolean;
+  loader: boolean = true;
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({

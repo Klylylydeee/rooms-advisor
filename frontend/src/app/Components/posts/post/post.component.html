@@ -13,8 +13,8 @@
 
 <section
   *ngFor="
-    let post of posts$
-      | async
+    let post of posts$ 
+      | async | reverse
       | paginate: { itemsPerPage: 3, currentPage: currentPg }
   "
 >

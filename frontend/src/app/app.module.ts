@@ -13,6 +13,8 @@ import { AuthInterceptorService } from "./Client/services/auth-interceptor.servi
 import {NgxPaginationModule} from 'ngx-pagination';
 // Loading animation
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+// Reverse array
+import {NgPipesModule} from 'ngx-pipes';
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -42,6 +44,7 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
     HttpClientModule,   // Http modules to use httpclient
     NgxPaginationModule, // Pagination
     NgxSkeletonLoaderModule.forRoot(), // Loading animation
+    NgPipesModule       // Reverse array
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
