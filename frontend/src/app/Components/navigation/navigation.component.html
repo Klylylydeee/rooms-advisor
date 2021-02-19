@@ -1,11 +1,9 @@
-<ul>
+<div class="navigation-container">
     <!-- routerLinkActive is the current page selected, so whenever it is activated it uses and 
         applies the css class - active-link -->
-    <li><a routerLinkActive="active-link" routerLink="/Home">Home</a></li>
-    <li><a routerLinkActive="active-link" routerLink="/404">a</a></li>
-    <li><a routerLinkActive="active-link" routerLink="/404">b</a></li>
-    <li *ngIf="isAuthenticated"><a routerLinkActive="active-link" routerLink="/Posts">Posts</a></li>
-    <li *ngIf="!isAuthenticated"><a routerLinkActive="active-link" routerLink="/Login">Login</a></li>
-    <li *ngIf="!isAuthenticated"><a routerLinkActive="active-link" routerLink="/Signup">Signup</a></li>
-    <li *ngIf="isAuthenticated"><a (click)="logout()" routerLink="/Home">Logout</a></li>
-</ul>
+    <a routerLinkActive="active-link" routerLink="/Home">Home</a>
+    <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/Posts">Posts</a>
+    <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Login">Login</a>
+    <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Signup">Signup</a>
+    <a *ngIf="isAuthenticated" (click)="logout()" routerLink="/Home">Logout</a>
+</div>
