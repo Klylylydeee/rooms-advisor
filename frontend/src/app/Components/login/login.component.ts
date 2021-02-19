@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   login(): void{
     this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
     .subscribe( res=>{
+      console.log('logging in')
     },
     error=>{
       this.loginMessage = error.error.error.message;

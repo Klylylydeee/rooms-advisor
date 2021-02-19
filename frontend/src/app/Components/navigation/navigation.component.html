@@ -1,9 +1,13 @@
-<div class="navigation-container">
+<div class="navigation-container app-padding">
     <!-- routerLinkActive is the current page selected, so whenever it is activated it uses and 
         applies the css class - active-link -->
-    <a routerLinkActive="active-link" routerLink="/Home">Home</a>
-    <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/Posts">Posts</a>
-    <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Login">Login</a>
-    <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Signup">Signup</a>
-    <a *ngIf="isAuthenticated" (click)="logout()" routerLink="/Home">Logout</a>
+    <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Home">Home</a>
+    <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/Home">Welcome {{ this.authservice.username }}</a>
+    <div class="navigation-buttons">
+        <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/Posts">Posts</a>
+        <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Login">Login</a>
+        <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Login">Search</a>
+        <!-- <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Signup">Signup</a> -->
+        <a *ngIf="isAuthenticated" (click)="logout()" routerLink="/Home">Logout</a>
+    </div>
 </div>

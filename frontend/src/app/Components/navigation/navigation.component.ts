@@ -10,7 +10,7 @@ import { AuthService } from  'src/app/Client/services/auth.service';
 })
 export class NavigationComponent implements OnInit {
   isAuthenticated = false;
-  constructor(private authservice: AuthService, private router: Router) { 
+  constructor(public authservice: AuthService, private router: Router) { 
 
   }
 
@@ -18,6 +18,9 @@ export class NavigationComponent implements OnInit {
     this.authservice.isUserLoggedIn$.subscribe((isLoggedIn) => {
       this.isAuthenticated = isLoggedIn;
     })
+    if(this.isAuthenticated == true){
+      this.authservice.getToken(localStorage.getItem('token'));
+    }
   }
 
   logout(): void{

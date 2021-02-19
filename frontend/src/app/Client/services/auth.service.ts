@@ -25,6 +25,7 @@ export class AuthService {
   isUserLoggedIn$ = new BehaviorSubject<boolean>(localStorage.getItem("token") !== null);
   // global variable to user the logged in userId
   userId: Pick<Username, "userId">;
+  username: Pick<Username, "username">;
 
   helper = new JwtHelperService();
 
@@ -42,6 +43,7 @@ export class AuthService {
   getToken(storedToken: string): any {
     const decodedToken = this.helper.decodeToken(storedToken);
     this.userId = decodedToken.userId;
+    this.username = decodedToken.username;
   }
   
   // AuthService.signup()

@@ -3,7 +3,7 @@
 <h1>Login Form</h1>
 <h3
 *ngIf="loginMessage">
-    {{loginMessage}}></h3>
+    {{loginMessage}}</h3>
 <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
     <input type="text" placeholder="username" formControlName="username" />
     <input type="password" placeholder="password" formControlName="password" />
