@@ -24,6 +24,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { CreatePostsComponent } from './Components/posts/create-posts/create-posts.component';
 import { PostComponent } from './Components/posts/post/post.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
     CreatePostsComponent,
     PostComponent,
     NotfoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

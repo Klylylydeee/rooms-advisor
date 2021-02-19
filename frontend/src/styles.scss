@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+    list-style-type: none;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: black;
+}
+
+.app-padding{
+    padding: 0 3rem;
+    @media screen and (max-width: 768px) {
+        padding: 0 2.5rem;
+    }
+    @media screen and (max-width: 425px) {
+        padding: 0 1.25rem;
+    }
+    @media screen and (max-width: 375px) {
+        padding: 0 1rem;
+    }
+    @media screen and (max-width: 320px) {
+        padding: 0 .5rem;
+    }
+}

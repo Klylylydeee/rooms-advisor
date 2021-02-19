@@ -30,7 +30,6 @@ export class PostComponent implements OnInit {
     this.authservice.getToken(localStorage.getItem('token'));
     this.userId = this.authservice.userId;
     this.posts$ = this.fetchAll(); 
-
   }
 
   dec(){
