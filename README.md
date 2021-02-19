@@ -32,8 +32,8 @@ While the Backend/Server side of the project is created with:
 Clone the repository
 ```
 git clone https://github.com/your_username_/Project-Name.git
-
 ```
+
 Install the dependencies
 ```
 cd frontned && npm i
