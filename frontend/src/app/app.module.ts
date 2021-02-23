@@ -18,6 +18,8 @@ import {NgPipesModule} from 'ngx-pipes';
 // Toaster Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+// Dropzone for picture
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -39,7 +41,7 @@ import { FooterComponent } from './Components/footer/footer.component';
     CreatePostsComponent,
     PostComponent,
     NotfoundComponent,
-    FooterComponent,
+    FooterComponent, 
   ],
   imports: [
     BrowserModule,
@@ -56,6 +58,7 @@ import { FooterComponent } from './Components/footer/footer.component';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }), // Toaster Animations
+    NgxDropzoneModule // Dropzone for picture
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
