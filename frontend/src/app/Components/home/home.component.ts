@@ -29,19 +29,18 @@ export class HomeComponent implements OnInit {
     if (!this.files[0]) {
       alert('Please add an image.');
     } else {
-      console.log(this.files.length)
+      this.files.forEach(() => {
+        const data = new FormData();
+        data.append('file', this.files[1]);
+        data.append('upload_preset', 'rooms-advisor');
+        data.append('cloud_name', 'klylylydeee');
+        this.uploadImageService.uploadImage(data).subscribe((response) => {
+          if (response) {
+            console.log(response);
+            this.files.pop();
+          }
+        });
+      });
     }
-    //Upload my image to cloudinary
-    const file_data = this.files[0];
-    const data = new FormData();
-    data.append('file', file_data);
-    data.append('upload_preset', 'rooms-advisor');
-    data.append('cloud_name', 'klylylydeee');
-    this.uploadImageService.uploadImage(data).subscribe((response) => {
-      if (response) {
-        console.log(response);
-      }
-    });
   }
-
 }
