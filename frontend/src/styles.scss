@@ -1,4 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind&display=swap");
+
+$fontOne: "Montserrat", sans-serif;
+$fontTwo: "Roboto", sans-serif;
+$fontThree: "Hind Madurai", sans-serif;
+$fontFour: "Hind", sans-serif;
+
+$colorPrimary: red;
+$colorSecondary: red;
+$colorTertiary: red;
+
 *{
     margin: 0;
     padding: 0;
@@ -11,6 +26,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     color: black;
+    font-family: $fontTwo;
 }
 
 .app-padding{
@@ -27,4 +43,8 @@
     @media screen and (max-width: 320px) {
         padding: 0 .5rem;
     }
+}
+
+.toastr-link{
+    color: red !important;
 }

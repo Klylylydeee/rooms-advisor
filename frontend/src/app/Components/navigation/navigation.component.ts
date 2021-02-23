@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from  'src/app/Client/services/auth.service';
 
+import { LoadToastrService } from 'src/app/Client/services/load-toastr.service';
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -10,7 +12,7 @@ import { AuthService } from  'src/app/Client/services/auth.service';
 })
 export class NavigationComponent implements OnInit {
   isAuthenticated = false;
-  constructor(public authservice: AuthService, private router: Router) { 
+  constructor(public authservice: AuthService, private router: Router, private loadToastrService: LoadToastrService) { 
 
   }
 
@@ -24,6 +26,7 @@ export class NavigationComponent implements OnInit {
   }
 
   logout(): void{
+    this.loadToastrService.showSuccess('logout');
     localStorage.removeItem("token");
     this.authservice.isUserLoggedIn$.next(false);
     this.router.navigate(["Login"]);

@@ -15,6 +15,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 // Reverse array
 import {NgPipesModule} from 'ngx-pipes';
+// Toaster Animations
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -46,13 +49,19 @@ import { FooterComponent } from './Components/footer/footer.component';
     HttpClientModule,   // Http modules to use httpclient
     NgxPaginationModule, // Pagination
     NgxSkeletonLoaderModule.forRoot(), // Loading animation
-    NgPipesModule       // Reverse array
+    NgPipesModule,       // Reverse array
+    BrowserAnimationsModule, // Toaster Animations
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }), // Toaster Animations
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true,
-  }],
+  }, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

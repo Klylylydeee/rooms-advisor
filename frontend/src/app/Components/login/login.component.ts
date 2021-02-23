@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // Inject auth service
 import { AuthService } from '../../Client/services/auth.service';
+
+import { LoadToastrService } from 'src/app/Client/services/load-toastr.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   loginMessage: any;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private loadToastrService: LoadToastrService) { }
 
   // assigns the loginForm into a createFormGroup function
   ngOnInit(): void {
@@ -33,10 +36,11 @@ export class LoginComponent implements OnInit {
   login(): void{
     this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
     .subscribe( res=>{
-      console.log('logging in')
+      this.loadToastrService.showSuccess('logging in');
     },
     error=>{
       this.loginMessage = error.error.error.message;
+      this.loadToastrService.showSuccess(this.loginMessage);
     });
   }
 }
