@@ -27,8 +27,6 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
   files: File[] = [];
-  links;
-  container;
 
   constructor(private authService: AuthService, private uploadImageService: UploadImageService) { }
 
@@ -51,10 +49,7 @@ export class SignupComponent implements OnInit {
 
   async signup() {
     let uploadLink = await this.onUpload();
-    console.log(uploadLink)
-    console.log(this.signupForm.value)
     this.signupForm.addControl('userPicture', new FormControl(uploadLink));
-    console.log(this.signupForm.value)
     // console logs the signupForm object that is stored in  the input field
     // Uses the authService.signup of the auth.service.ts found in the services folder
     this.authService.signup(this.signupForm.value)
@@ -89,7 +84,6 @@ export class SignupComponent implements OnInit {
         this.uploadImageService.uploadImage(data).subscribe((response) => {
           if (response) {
               res(String(response.secure_url));
-              console.log(response.secure_url)
           }
         });
       })
