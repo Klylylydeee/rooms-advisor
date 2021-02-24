@@ -10,6 +10,8 @@ import { UploadImageService } from 'src/app/Client/services/upload-image.service
 })
 export class HomeComponent implements OnInit {
   files: File[] = [];
+  links: string[] = [];
+  
   constructor(private uploadImageService: UploadImageService) { }
 
   ngOnInit(): void {
@@ -31,16 +33,18 @@ export class HomeComponent implements OnInit {
     } else {
       this.files.forEach(() => {
         const data = new FormData();
-        data.append('file', this.files[1]);
-        data.append('upload_preset', 'rooms-advisor');
+        data.append('file', this.files[0]);
+        data.append('upload_preset', 'rooms-advisor-properties');
         data.append('cloud_name', 'klylylydeee');
         this.uploadImageService.uploadImage(data).subscribe((response) => {
           if (response) {
-            console.log(response);
+            console.log(response.secure_url);
             this.files.pop();
+            this.links.push(response.secure_url);
           }
         });
       });
+      console.log(this.links);
     }
   }
 }

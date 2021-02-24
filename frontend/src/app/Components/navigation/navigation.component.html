@@ -2,7 +2,10 @@
     <!-- routerLinkActive is the current page selected, so whenever it is activated it uses and  -->
         <!-- applies the css class - active-link -->
     <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Home">Home</a>
-    <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/Home">Welcome {{ this.authservice.username }}</a>
+    <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/Home"> 
+        <img class="profile" src="{{ this.authservice.userPicture }}" >
+        Welcome {{ this.authservice.username }} </a>
+        
     <div class="navigation-buttons">
         <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/Posts">Posts</a>
         <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/Login">Login</a>

@@ -70,6 +70,7 @@ exports.login = async (req, res, next) => {
             userId: storedUser.userId,
             username: storedUser.username,
             email: storedUser.email,
+            userPicture: storedUser.userPicture
         }, 'secretfortoken',{  //secret or privatekey of the jwt
             expiresIn: '1h' //option of the token
         });

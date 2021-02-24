@@ -26,6 +26,7 @@ export class AuthService {
   // global variable to user the logged in userId
   userId: Pick<Username, "userId">;
   username: Pick<Username, "username">;
+  userPicture: Pick<Username, "userPicture">;
 
   helper = new JwtHelperService();
 
@@ -44,6 +45,7 @@ export class AuthService {
     const decodedToken = this.helper.decodeToken(storedToken);
     this.userId = decodedToken.userId;
     this.username = decodedToken.username;
+    this.userPicture = decodedToken.userPicture;
   }
   
   // AuthService.signup()
@@ -55,6 +57,9 @@ export class AuthService {
     return this.http.post<Username>(`${this.authUrl}/signup`, username, this.httpOptions).pipe(
       // first() operator returns the reply from the server, check backend(auth.controller.user)
       first(), 
+      tap(() => {
+        this.router.navigate(["Login"]);
+      }),
       // catchError() calls the errorHandlerService.handleError to the passed Username model from the form
       // "signup" replaces the operation string to signup check error-handler.service.ts line 12
       catchError(this.errorHandlerService.handleError<Username>("signup"))
@@ -78,6 +83,7 @@ export class AuthService {
           this.getToken(tokenObject.token);
           // stores the token from the backend into the local storage
           localStorage.setItem("token", tokenObject.token);
+
           // initiate the global variable to true since the user has logged in
           this.isUserLoggedIn$.next(true);
           // reroutes the user to the posts section of the router, check ln35
