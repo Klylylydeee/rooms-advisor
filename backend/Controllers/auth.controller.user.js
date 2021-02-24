@@ -16,6 +16,8 @@ exports.signUp = async (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
+    const userPicture = req.body.userPicture;
+
 
     try {
         // 12 is = to the times the bcrypt have reiterate applying the encrypted key
@@ -23,7 +25,8 @@ exports.signUp = async (req, res, next) => {
         const userDetails = {
             username: username,
             email: email,
-            password: encryptedPassword
+            password: encryptedPassword,
+            userPicture: userPicture
         }
         const result = await User.save(userDetails);
         res.status(201).json({
