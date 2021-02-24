@@ -13,10 +13,10 @@ router.post('/signup', [
     body('username').trim().not().isEmpty(),
     // Methods: trim() = remove unnecessary spaces, isLength() = A minimum of 7 characters and a max of 13 characters
     body('password').trim().isLength({ min: 7 }),
+    body('username').trim().not().isEmpty(),
     // Methods: isEmail() = check if format is correct '@gmail.com', withMessage() = if an error occurs, the msg will be printed
-    body('email').isEmail().withMessage('Please enter a valid or different email.'),
+    body('email').isEmail().withMessage('Please enter a valid or different email.')
     // Fixes wrong uppercase input (ex: @GMail.com will turn into @gmail.com)
-    body('userPicture').trim().not().isEmpty()
 
     .normalizeEmail()
 
