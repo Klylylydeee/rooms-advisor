@@ -6,13 +6,20 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../Models/user.js');
 
-exports.signUp = async (req, res, next) => {
-    const errors = validationResult(req);
-    
-    if (!errors.isEmpty()){
-        return 
-    }
+exports.signUp = async (req, res, next) => { 
 
+    const errorFormatter = ({ msg }) => {
+    return `${msg}`;
+    };
+
+    const result = validationResult(req).formatWith(errorFormatter);
+
+    if (!result.isEmpty()) {
+        const error = new Error(`${result.array()}`);
+        error.statusCode = 401;
+        return next(error);
+    }
+    
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;

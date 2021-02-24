@@ -15,6 +15,8 @@ import { AuthService } from '../../Client/services/auth.service';
 
 import { UploadImageService } from 'src/app/Client/services/upload-image.service';
 
+import { LoadToastrService } from 'src/app/Client/services/load-toastr.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -28,7 +30,10 @@ export class SignupComponent implements OnInit {
 
   files: File[] = [];
 
-  constructor(private authService: AuthService, private uploadImageService: UploadImageService) { }
+  constructor(
+    private authService: AuthService, 
+    private uploadImageService: UploadImageService,
+    private loadToastrService: LoadToastrService ) { }
 
   // assigns the signupform into a createFormGroup function
   ngOnInit(): void {
@@ -55,8 +60,8 @@ export class SignupComponent implements OnInit {
     this.authService.signup(this.signupForm.value)
     // // uses the object of the signupForm.value
     // // console logs the first() from auth.service.ts, check the first() action to remember
-    .subscribe((msg) => {
-      console.log(msg);
+    .subscribe((msg: any) => {
+      this.loadToastrService.showSuccess(`${msg.message}`)
     })
   }
 
@@ -73,7 +78,7 @@ export class SignupComponent implements OnInit {
   async onUpload(): Promise<any> {
     //Scape empty array
     if (!this.files[0]) {
-      alert('Please add an image.');
+      this.loadToastrService.showSuccess('Please add an image before submitting')
     } else {
       const file_data = this.files[0];
       const data = new FormData();
