@@ -13,17 +13,24 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 // Inject auth service
 import { AuthService } from '../../Client/services/auth.service';
 
+import { UploadImageService } from 'src/app/Client/services/upload-image.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
+  providers: [ UploadImageService ]
 })
 
 export class SignupComponent implements OnInit {
   // variable signupForm is in type of FormGroup
   signupForm: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  files: File[] = [];
+  links;
+  container;
+
+  constructor(private authService: AuthService, private uploadImageService: UploadImageService) { }
 
   // assigns the signupform into a createFormGroup function
   ngOnInit(): void {
@@ -42,17 +49,51 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  signup(): void {
+  async signup() {
+    let uploadLink = await this.onUpload();
+    console.log(uploadLink)
+    console.log(this.signupForm.value)
+    this.signupForm.addControl('userPicture', new FormControl(uploadLink));
+    console.log(this.signupForm.value)
     // console logs the signupForm object that is stored in  the input field
-    console.log(this.signupForm.value);
     // Uses the authService.signup of the auth.service.ts found in the services folder
-    this.authService
-    // uses the object of the signupForm.value
-    .signup(this.signupForm.value)
-    // console logs the first() from auth.service.ts, check the first() action to remember
+    this.authService.signup(this.signupForm.value)
+    // // uses the object of the signupForm.value
+    // // console logs the first() from auth.service.ts, check the first() action to remember
     .subscribe((msg) => {
       console.log(msg);
     })
+  }
+
+  onSelect(event) {
+    // console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event) {
+    // console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  async onUpload(): Promise<any> {
+    //Scape empty array
+    if (!this.files[0]) {
+      alert('Please add an image.');
+    } else {
+      const file_data = this.files[0];
+      const data = new FormData();
+      data.append('file', file_data);
+      data.append('upload_preset', 'rooms-advisor-users');
+      data.append('cloud_name', 'klylylydeee');
+      return new Promise((res, rej)=>{
+        this.uploadImageService.uploadImage(data).subscribe((response) => {
+          if (response) {
+              res(String(response.secure_url));
+              console.log(response.secure_url)
+          }
+        });
+      })
+    }
   }
 
 }

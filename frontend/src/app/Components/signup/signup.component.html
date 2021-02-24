@@ -3,7 +3,18 @@
 <h1>Sign up Form</h1>
 <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
   <input type="text" placeholder="username" formControlName="username" />
+  <ngx-dropzone (change)="onSelect($event)">
+    <ngx-dropzone-label>Upload image</ngx-dropzone-label>
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+          <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
+    </ngx-dropzone-image-preview>
+  </ngx-dropzone>
   <input type="text" placeholder="email" formControlName="email" />
   <input type="password" placeholder="password" formControlName="password" />
   <button [disabled]="!signupForm.valid" type="submit">Submit</button>
 </form>
+
+
+<div>
+  <button (click)="onUpload()">Subir</button>
+</div>
