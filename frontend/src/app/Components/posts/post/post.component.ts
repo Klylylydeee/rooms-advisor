@@ -21,7 +21,7 @@ export class PostComponent implements OnInit {
   posts$: Observable<Properties[]>;
   userId: Pick<Username, "userId">;
   currentPg: number;
-  hi: any;
+  
   constructor(public postService: PostService, 
     private authservice: AuthService, 
     private reversePipe: ReversePipe) { }

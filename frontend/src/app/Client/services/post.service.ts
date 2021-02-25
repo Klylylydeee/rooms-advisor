@@ -13,8 +13,8 @@ import { ErrorHandlerService } from './error-handler.service';
 })
 export class PostService {
 
-  // private authUrl = "http://localhost:5000/api/properties/";
-  private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
+  private authUrl = "http://localhost:5000/api/properties/";
+  // private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
 
   loader: boolean = true;
 
