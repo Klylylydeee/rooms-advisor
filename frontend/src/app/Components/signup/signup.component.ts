@@ -43,6 +43,8 @@ export class SignupComponent implements OnInit {
   // returns the Formgroup with the appropriate form control validations
   createFormGroup(): FormGroup{
     return new FormGroup({
+      firstName: new FormControl("", [Validators.required,Validators.minLength(3)]),
+      lastName: new FormControl("", [Validators.required,Validators.minLength(3)]),
       // Requires atleast 4 characters for username
       username: new FormControl("", [Validators.required,Validators.minLength(4)]),
       // Requires atleast a valid email (@gmail.com/@icloud.com)

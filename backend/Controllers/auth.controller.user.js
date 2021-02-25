@@ -20,6 +20,8 @@ exports.signUp = async (req, res, next) => {
         return next(error);
     }
     
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;
@@ -30,6 +32,8 @@ exports.signUp = async (req, res, next) => {
         // 12 is = to the times the bcrypt have reiterate applying the encrypted key
         const encryptedPassword = await bcrypt.hash(password, 12)
         const userDetails = {
+            firstName: firstName,
+            lastName: lastName,
             username: username,
             email: email,
             password: encryptedPassword,

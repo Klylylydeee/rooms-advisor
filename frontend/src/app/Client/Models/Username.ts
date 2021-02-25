@@ -2,6 +2,8 @@
 // which consist of userId, username, email, and password
 export interface Username {
     userId: number;
+    firstName: string;
+    lastName: string;
     username: string;
     email: string;
     password: string;

@@ -4,14 +4,11 @@
 }
 
 .navigation-container{
-    top: 0;
-    z-index: 999;
     background-color: rgb(185, 141, 141);
     min-height: 12.5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
     .navigation-buttons{
         a{
             padding: 0 1rem;

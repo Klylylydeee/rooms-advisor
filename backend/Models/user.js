@@ -1,7 +1,9 @@
 const db = require('../Database/database.js');
 
 module.exports = class User{
-    constructor(username, password, email, userPicture){
+    constructor(firstName, lastName, username, password, email, userPicture){
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.password = password;
         this.email = email;
@@ -16,7 +18,7 @@ module.exports = class User{
     }
     
     static save(user) {
-        return db.execute('INSERT INTO user_information (username, password, email, userPicture) VALUES (?, ?, ?, ?)', 
-            [user.username, user.password, user.email, user.userPicture]);
+        return db.execute('INSERT INTO user_information (firstName, lastName, username, password, email, userPicture) VALUES (?, ?, ?, ?, ?, ?)', 
+            [user.firstName, user.lastName, user.username, user.password, user.email, user.userPicture]);
     }
 }

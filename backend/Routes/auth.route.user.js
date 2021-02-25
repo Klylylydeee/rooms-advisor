@@ -10,7 +10,9 @@ const authController = require('../Controllers/auth.controller.user.js');
 
 router.post('/signup', [
     // Methods: trim() = remove unnecessary spaces, not().isEmpty() = check if its not empty
-    body('username').trim().not().isEmpty(),
+    body('firstName').trim().not().isEmpty().isLength({ min: 3 }),
+    body('lastName').trim().not().isEmpty().isLength({ min: 3 }),
+    body('username').trim().not().isEmpty().isLength({ min: 3 }),
     // Methods: trim() = remove unnecessary spaces, isLength() = A minimum of 7 characters and a max of 13 characters
     body('password').trim().isLength({ min: 7 }),
     body('username').trim().not().isEmpty(),

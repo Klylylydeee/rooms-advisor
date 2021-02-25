@@ -18,8 +18,8 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 
 export class AuthService {
   
-  // private authUrl = "http://localhost:5000/api/auth";
-  private authUrl = "https://rooms-advisor.herokuapp.com/api/auth";
+  private authUrl = "http://localhost:5000/api/auth";
+  // private authUrl = "https://rooms-advisor.herokuapp.com/api/auth";
   
   // variable basis for whether the user has logged in or not
   isUserLoggedIn$ = new BehaviorSubject<boolean>(localStorage.getItem("token") !== null);
