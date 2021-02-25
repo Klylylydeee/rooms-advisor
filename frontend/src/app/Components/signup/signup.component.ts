@@ -56,6 +56,10 @@ export class SignupComponent implements OnInit {
 
   async signup() {
     let uploadLink = await this.onUpload();
+    if(uploadLink == undefined){
+      this.loadToastrService.showSuccess('Please add an image before submitting')
+      return
+    }
     this.signupForm.addControl('userPicture', new FormControl(uploadLink));
     // console logs the signupForm object that is stored in  the input field
     // Uses the authService.signup of the auth.service.ts found in the services folder
@@ -80,7 +84,7 @@ export class SignupComponent implements OnInit {
   async onUpload(): Promise<any> {
     //Scape empty array
     if (!this.files[0]) {
-      this.loadToastrService.showSuccess('Please add an image before submitting')
+      return
     } else {
       const file_data = this.files[0];
       const data = new FormData();

@@ -2,9 +2,12 @@
 <!-- novalidate is a reactive form validation -->
 <h1>Sign up Form</h1>
 <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
-  <input type="text" placeholder="firstName" formControlName="firstName" />
-  <input type="text" placeholder="lastName" formControlName="lastName" />
+  <input type="text" placeholder="firstName" formControlName="firstName"/>
+  <label class="alert" *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">Please enter your firstName</label>
+  <input type="text" placeholder="lastName" formControlName="lastName"/>
+  <label class="alert" *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">Please enter your lastname</label>
   <input type="text" placeholder="username" formControlName="username" />
+  <label class="alert" *ngIf="signupForm.controls['username'].invalid && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched)">Please enter username</label>
   <ngx-dropzone (change)="onSelect($event)">
     <ngx-dropzone-label>Upload image</ngx-dropzone-label>
     <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
@@ -12,6 +15,8 @@
     </ngx-dropzone-image-preview>
   </ngx-dropzone>
   <input type="text" placeholder="email" formControlName="email" />
+  <label class="alert" *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">Please enter email</label>
   <input type="password" placeholder="password" formControlName="password" />
-  <button [disabled]="!signupForm.valid" type="submit">Submit</button>
+  <label class="alert" *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">Please enter password</label>
+  <button [disabled]="!signupForm.valid" type="submit" >Submit</button>
 </form>
