@@ -10,9 +10,14 @@ module.exports = class User{
         this.userPicture = userPicture;
     }
     
-    static find(email) {
+    static findEmail(email) {
         return db.execute('SELECT * FROM user_information WHERE email = ?', [email]);
     }
+
+    static findUsername(username) {
+        return db.execute('SELECT username FROM user_information WHERE username = ?', [username]);
+    }
+
     static login(username) {
         return db.execute('SELECT * FROM user_information WHERE username = ?', [username]);
     }
