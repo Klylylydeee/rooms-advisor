@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 // Dropzone for picture
 import { NgxDropzoneModule } from 'ngx-dropzone';
+// registration loading
+import { NgxLoadingModule } from 'ngx-loading';
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
@@ -54,11 +56,11 @@ import { FooterComponent } from './Components/footer/footer.component';
     NgPipesModule,       // Reverse array
     BrowserAnimationsModule, // Toaster Animations
     ToastrModule.forRoot({
-      timeOut: 1000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }), // Toaster Animations
-    NgxDropzoneModule // Dropzone for picture
+    NgxDropzoneModule, // Dropzone for picture
+    NgxLoadingModule.forRoot({}) // registration loading
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

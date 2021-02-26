@@ -19,4 +19,8 @@
   <input type="password" placeholder="password" formControlName="password" />
   <label class="alert" *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">Please enter password</label>
   <button [disabled]="!signupForm.valid" type="submit" >Submit</button>
+  
+  <ng-template #customLoadingTemplate>
+  </ng-template>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
 </form>
