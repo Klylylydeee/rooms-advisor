@@ -1,7 +1,7 @@
 <app-create-posts (create)="createPost()"></app-create-posts>
 
 <ngx-skeleton-loader
-  count="3"
+  count="1"
   animation="pulse"
   *ngIf="(posts$ | async)?.length == 0 && this.postService.loader"
 >
@@ -20,7 +20,7 @@
   "
 >
   <ngx-skeleton-loader
-    count="3"
+    count="7"
     animation="pulse"
     *ngIf="this.postService.loader"
   >
@@ -40,6 +40,7 @@
     <li>propertyDescription: {{ post.propertyDescription }}</li>
     <li>dateCreated_Formated: {{ post.dateCreated_Formated }}</li>
   </div>
+  <br>
   <br>
 </section>
 </div>

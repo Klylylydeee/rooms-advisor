@@ -58,22 +58,24 @@ export class SignupComponent implements OnInit {
 
   async signup() {
     this.loading = true;
-    this.loadToastrService.showSuccess('Processing. Please wait!')
     let uploadLink = await this.onUpload();
     if(uploadLink == undefined){
-      this.loadToastrService.showSuccess('Please add an image before submitting')
+      this.loadToastrService.showError('Please add an image before submitting')
       this.loading = false;
       return
     }
+    this.loadToastrService.showInfo('Signing up!')
     this.signupForm.addControl('userPicture', new FormControl(uploadLink));
     // console logs the signupForm object that is stored in  the input field
     // Uses the authService.signup of the auth.service.ts found in the services folder
     this.authService.signup(this.signupForm.value)
     // // uses the object of the signupForm.value
     // // console logs the first() from auth.service.ts, check the first() action to remember
-    .subscribe((msg: any) => {
+    .subscribe( (res: any) => {
       this.loading = false;
-      this.loadToastrService.showSuccess(`${msg.message}`)
+      this.loadToastrService.showSuccess(`${res.message}`)
+    }, err =>{
+      this.loadToastrService.showError(`${err}`)
     })
   }
 

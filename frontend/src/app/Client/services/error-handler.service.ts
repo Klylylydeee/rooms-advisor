@@ -16,7 +16,7 @@ export class ErrorHandlerService {
   handleError<T>(operation = "operation", result?: T){
     // returns the error that has any type by console logging the operation and msg
     return (response: any): Observable<T> => {
-      this.loadToastrService.showSuccess(`${operation} Failed: ${response.error.error.message}`);
+      this.loadToastrService.showError(`${operation} Failed: ${response.error.error.message}`);
       if(response.error.error.message === "jwt expired"){
         localStorage.removeItem("token");
         this.router.navigate(["Home"]).then(() => {

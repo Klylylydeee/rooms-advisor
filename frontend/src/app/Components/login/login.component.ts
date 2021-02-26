@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
 
   loginMessage: any;
 
+  loading: boolean = false;
+
   constructor(private authService: AuthService, private loadToastrService: LoadToastrService) { }
 
   // assigns the loginForm into a createFormGroup function
@@ -34,13 +36,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void{
+    this.loading = true;
+    this.loadToastrService.showInfo('Processing. Please wait!')
     this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
-    .subscribe( res=>{
-      this.loadToastrService.showSuccess('logging in');
+    .subscribe( res =>{
+      this.loadToastrService.showSuccess('Logged in!');
     },
-    error=>{
-      this.loginMessage = error.error.error.message;
-      this.loadToastrService.showSuccess(this.loginMessage);
+    error =>{
+      this.loading = false;
+      this.loadToastrService.showError(error.error.error.message);
     });
   }
 }

@@ -9,10 +9,24 @@ export class LoadToastrService {
 
   constructor(private toastr: ToastrService) { }
 
-  
-  showSuccess(param1) {
-    this.toastr.info(param1, '', {
-
-    });
+  // Green
+  showSuccess(bodyMessage) {
+    this.toastr.success(bodyMessage, `Success`);
   }
+
+  // Red
+  showError(bodyMessage) {
+    this.toastr.error(bodyMessage, `Error`);
+  }
+
+  // Blue
+  showInfo(bodyMessage) {
+    this.toastr.info(bodyMessage, `Info`);
+  }
+
+  // Orange 
+  showWarning(bodyMessage) {
+    this.toastr.warning(bodyMessage, `Warning`);
+  }
+
 }
