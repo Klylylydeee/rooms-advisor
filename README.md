@@ -16,7 +16,9 @@ RoomsAdvisor is a Web Application that aims to connect end users and property ow
 
 ## Technologies
 The Frontend/Client side of the project is created with:
+* [@angular/cli](https://www.npmjs.com/package/@angular/cli)
 * [ngx-dropzone](https://www.npmjs.com/package/ngx-dropzone)
+* [ngx-loading](https://www.npmjs.com/package/ngx-loading)
 * [ngx-pagination](https://www.npmjs.com/package/ngx-pagination)
 * [ngx-pipes](https://www.npmjs.com/ngx-pipes)
 * [ngx-skeleton-loader](https://www.npmjs.com/package/ngx-skeleton-loader)
@@ -26,6 +28,7 @@ The Frontend/Client side of the project is created with:
 While the Backend/Server side of the project is created with:
 * [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 * [express](https://www.npmjs.com/package/express)
+* [express-validator](https://www.npmjs.com/package/express-validator)
 * [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 * [mysql2](https://www.npmjs.com/package/mysql2)
 
