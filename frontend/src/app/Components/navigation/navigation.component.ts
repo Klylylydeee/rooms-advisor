@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
-import { AuthService } from  'src/app/Client/services/auth.service';
 
-import { LoadToastrService } from 'src/app/Client/services/load-toastr.service';
+import { AuthService } from  'src/app/clients/auth/auth.service';
+
+import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
+
 export class NavigationComponent implements OnInit {
   isAuthenticated = false;
-  constructor(public authservice: AuthService, private router: Router, private loadToastrService: LoadToastrService) { 
 
-  }
+  constructor(
+    public authservice: AuthService, 
+    private router: Router, 
+    private loadToastrService: LoadToastrService) { }
 
   ngOnInit(): void {
     this.authservice.isUserLoggedIn$.subscribe((isLoggedIn) => {
@@ -24,7 +27,7 @@ export class NavigationComponent implements OnInit {
       this.authservice.getToken(localStorage.getItem('token'));
     }
   }
-
+  
   logout(): void{
     this.loadToastrService.showSuccess('logout');
     localStorage.removeItem("token");

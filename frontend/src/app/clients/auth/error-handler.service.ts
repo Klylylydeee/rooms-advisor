@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
-// Maps and returns a observable objects
-import { Observable, of } from 'rxjs';
 import { Router} from "@angular/router";
 
-import { LoadToastrService } from './load-toastr.service';
+// Maps and returns a observable objects
+import { Observable, of } from 'rxjs';
+
+// webpack
+import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ErrorHandlerService {
+
   constructor(private router: Router, private loadToastrService: LoadToastrService) {}
+
   // handlerError function that can take in any Type == <T> 
   // operation is a string that describes the function and is currently assigned as operation
   handleError<T>(operation = "operation", result?: T){
@@ -26,4 +30,5 @@ export class ErrorHandlerService {
       return of(result as T)
     }
   }
+
 } 

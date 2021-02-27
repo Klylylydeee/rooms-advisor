@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UploadImageService } from 'src/app/Client/services/upload-image.service';
+import { UploadImageService } from 'src/app/clients/webpack/upload-image.service';
 
 @Component({
   selector: 'app-home',

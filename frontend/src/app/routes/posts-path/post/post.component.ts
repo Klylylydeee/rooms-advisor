@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
-
 import {ReversePipe} from 'ngx-pipes';
 
-import { Username } from 'src/app/Client/Models/Username';
-import { Properties } from 'src/app/Client/Models/Properties';
+// auth
+import { PostService } from 'src/app/clients/auth/post.service';
+import { AuthService } from 'src/app/clients/auth/auth.service';
 
-import { PostService } from 'src/app/Client/services/post.service';
-import { AuthService } from 'src/app/Client/services/auth.service';
-
+// models
+import { Username } from 'src/app/clients/models/Username';
+import { Properties } from 'src/app/clients/models/Properties';
 
 @Component({
   selector: 'app-post',
@@ -17,6 +17,7 @@ import { AuthService } from 'src/app/Client/services/auth.service';
   styleUrls: ['./post.component.scss'],
   providers: [ReversePipe]
 })
+
 export class PostComponent implements OnInit {
   posts$: Observable<Properties[]>;
   userId: Pick<Username, "userId">;

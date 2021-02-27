@@ -8,14 +8,14 @@
 // which console logs the return value of the createFormGroup
 
 import { Component, OnInit } from '@angular/core';
-// Import Reacts Forms
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-// Inject auth service
-import { AuthService } from '../../Client/services/auth.service';
 
-import { UploadImageService } from 'src/app/Client/services/upload-image.service';
+// auth 
+import { AuthService } from 'src/app/clients/auth/auth.service';
 
-import { LoadToastrService } from 'src/app/Client/services/load-toastr.service';
+// Webpacks
+import { UploadImageService } from 'src/app/clients/webpack/upload-image.service';
+import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
 
 @Component({
   selector: 'app-signup',
@@ -27,9 +27,7 @@ import { LoadToastrService } from 'src/app/Client/services/load-toastr.service';
 export class SignupComponent implements OnInit {
   // variable signupForm is in type of FormGroup
   signupForm: FormGroup;
-
   files: File[] = [];
-
   loading: boolean = false;
 
   constructor(

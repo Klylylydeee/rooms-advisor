@@ -1,23 +1,25 @@
+// angular
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// Auth Guard
-import { AuthGuard } from './Client/services/auth-guard.service';
-// Created Components
-import { HomeComponent } from './Components/home/home.component';
-import { SignupComponent } from './Components/signup/signup.component';
-import { LoginComponent } from './Components/login/login.component';
-import { PostComponent } from './Components/posts/post/post.component';
-import { NotfoundComponent } from './Components/notfound/notfound.component';
+
+// auth
+import { AuthGuard } from 'src/app/clients/auth/auth-guard.service';
+
+// routes
+import { HomeComponent } from 'src/app/routes/home/home.component';
+import { NotfoundComponent } from 'src/app/routes/notfound/notfound.component';
+import { SignupComponent } from 'src/app/routes/auth-path/signup/signup.component';
+import { LoginComponent } from 'src/app/routes/auth-path/login/login.component';
+import { PostComponent } from 'src/app/routes/posts-path/post/post.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'Home' },
-  // { path: 'home', component: HomeComponent },
   { path: 'Home', component: HomeComponent},
   { path: 'Signup', component: SignupComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Posts', component: PostComponent, canActivate: [AuthGuard]},
-  {path: '404', component: NotfoundComponent},
-  {path: '**', redirectTo: '404'},
+  { path: 'Posts', component: PostComponent, canActivate: [AuthGuard] },
+  { path: '404', component: NotfoundComponent },
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
@@ -26,4 +28,5 @@ const routes: Routes = [
   })],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

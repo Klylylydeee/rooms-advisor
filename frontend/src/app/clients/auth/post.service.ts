@@ -4,18 +4,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 
-import { Username } from '../Models/Username';
-import { Properties } from '../Models/Properties';
-import { ErrorHandlerService } from './error-handler.service';
+// models
+import { Username } from 'src/app/clients/models/Username';
+import { Properties } from 'src/app/clients/models/Properties';
+
+// auth
+import { ErrorHandlerService } from 'src/app/clients/auth/error-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
 
+export class PostService {
   // private authUrl = "http://localhost:5000/api/properties/";
   private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
-
   loader: boolean = true;
 
   httpOptions: { headers: HttpHeaders } = {
@@ -25,20 +27,18 @@ export class PostService {
   };
   
   constructor(private http: HttpClient, private errorHandlerService:ErrorHandlerService) { 
-
   }
 
   fetchAll(): Observable<Properties[]> {
     this.loader = true;
-    return this.http
-      .get<Properties[]>(this.authUrl, { responseType: "json" }).pipe(
-        finalize(()=>{
-          setTimeout(()=>{
-            this.loader = false;
-          },2000)
-        }),
-        catchError(this.errorHandlerService.handleError<Properties[]>("fetch error"))
-      );
+    return this.http.get<Properties[]>(this.authUrl, { responseType: "json" }).pipe(
+      finalize(()=>{
+        setTimeout(()=>{
+          this.loader = false;
+        },2000)
+      }),
+      catchError(this.errorHandlerService.handleError<Properties[]>("fetch error"))
+    );
   }
 
   createPost(formValue: Partial<Properties>, userId: Pick<Username, "userId">): Observable<Properties> {

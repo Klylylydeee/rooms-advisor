@@ -1,14 +1,17 @@
 // IMPORTANT To create this auth.service.ts === ng g s services/auth --skipTests=true
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-// Http modules to use httpclient
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http'; // Http modules to use httpclient
+
 // Import Observable and Oberservable validators
 import { BehaviorSubject, Observable } from 'rxjs';
 import { first, tap, catchError } from 'rxjs/operators';
-// Import the Username model
-import { Username } from '../Models/Username';
-import { ErrorHandlerService } from './error-handler.service';
+
+// models
+import { Username } from 'src/app/clients/models/Username';
+
+// auth
+import { ErrorHandlerService } from 'src/app/clients/auth/error-handler.service';
 
 import { JwtHelperService } from "@auth0/angular-jwt";
 
@@ -17,19 +20,13 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 
 export class AuthService {
-  
   // private authUrl = "http://localhost:5000/api/auth";
   private authUrl = "https://rooms-advisor.herokuapp.com/api/auth";
-  
-  // variable basis for whether the user has logged in or not
-  isUserLoggedIn$ = new BehaviorSubject<boolean>(localStorage.getItem("token") !== null);
-  // global variable to user the logged in userId
-  userId: Pick<Username, "userId">;
+  isUserLoggedIn$ = new BehaviorSubject<boolean>(localStorage.getItem("token") !== null);  // variable basis for whether the user has logged in or not
+  userId: Pick<Username, "userId">; // global variable to user the logged in userId
   username: Pick<Username, "username">;
   userPicture: Pick<Username, "userPicture">;
-
   helper = new JwtHelperService();
-
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"

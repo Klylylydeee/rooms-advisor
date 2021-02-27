@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-// Import Reacts Forms
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-// Inject auth service
-import { AuthService } from '../../Client/services/auth.service';
 
-import { LoadToastrService } from 'src/app/Client/services/load-toastr.service';
+// auth
+import { AuthService } from 'src/app/clients/auth/auth.service';
+
+// webpack
+import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
-  // variable loginForm is in type of FormGroup
-  loginForm: FormGroup;
-
+  loginForm: FormGroup; // variable loginForm is in type of FormGroup
   loginMessage: any;
-
   loading: boolean = false;
 
   constructor(private authService: AuthService, private loadToastrService: LoadToastrService) { }
@@ -47,4 +46,5 @@ export class LoginComponent implements OnInit {
       this.loadToastrService.showError(error.error.error.message);
     });
   }
+  
 }

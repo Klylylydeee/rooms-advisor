@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UploadImageService {
 
   constructor(private httpClient: HttpClient) { }
+
   uploadImage(vals): Observable<any> {
     let data = vals;
 
@@ -16,4 +19,5 @@ export class UploadImageService {
       data
     );
   }
+
 }
