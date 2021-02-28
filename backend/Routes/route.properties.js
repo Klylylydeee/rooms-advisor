@@ -10,6 +10,8 @@ const propertiesController = require('../Controllers/controller.properties.js');
 
 router.get('/', authMiddleware, propertiesController.fetchPosts);
 
+router.get('/:propertyId', authMiddleware, propertiesController.viewPostsById);
+
 router.post('/', [
     authMiddleware,
     body('userId').trim().not().isEmpty(),

@@ -47,6 +47,18 @@ exports.addPosts = async (req, res, next) => {
     }
 }
 
+exports.viewPostsById = async (req, res, next) => {
+    try{
+        const [viewProperty] = await Properties.view(req.params.propertyId);
+        res.status(200).json(viewProperty);
+    } catch(error){
+        if(!error.statusCode) {
+            error.status = 500
+        } 
+        return next(error);
+    }
+}
+
 exports.deletePosts = async (req, res, next) => {
     try{
         const deleteProperty = await Properties.delete(req.params.propertyId);
