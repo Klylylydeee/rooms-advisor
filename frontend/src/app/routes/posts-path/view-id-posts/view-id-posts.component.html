@@ -1,1 +1,14 @@
 child component {{ propertyId }}
+
+<div *ngFor="let post of posts$ | async">
+    <li>userId: {{ post.userId }}</li>
+    <li>firstName: {{ post.firstName }}</li>
+    <li>LastName: {{ post.lastName }}</li>
+    <li>username: {{ post.username }}</li>
+    <li><img class="small" src="{{ post.userPicture }}"/> </li>
+    <li>email: {{ post.email }}</li>
+    <li>propertyId: {{ post.propertyId }}</li>
+    <li>propertyTitle: {{ post.propertyTitle }}</li>
+    <li>propertyDescription: {{ post.propertyDescription }}</li>
+    <li>dateCreated_Formated: {{ post.dateCreated_Formated }}</li>
+</div>
