@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import {ReversePipe} from 'ngx-pipes';
+import { ReversePipe } from 'ngx-pipes';
 
-// auth
-import { PostService } from 'src/app/clients/auth/post.service';
-import { AuthService } from 'src/app/clients/auth/auth.service';
+// service
+import { PostService } from 'src/app/clients/service/post.service';
+import { AuthService } from 'src/app/clients/service/auth.service';
 
 // models
 import { Username } from 'src/app/clients/models/Username';

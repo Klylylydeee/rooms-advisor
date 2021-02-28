@@ -2,5 +2,6 @@
 <form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit(form.value)" novalidate>
   <input type="text" placeholder="propertyTitle" formControlName="propertyTitle" />
   <input type="text" placeholder="propertyDescription" formControlName="propertyDescription" />
+  <input type="text" placeholder="propertyDescription2" formControlName="propertyDescription2" />
   <button [disabled]="!form.valid" type="submit">Post</button>
 </form>

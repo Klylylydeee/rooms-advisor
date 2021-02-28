@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  constructor(private http:HttpClient){
+
+  constructor( private http: HttpClient ){}
+
+  ngOnInit() {
   }
 
-  ngOnInit(): void {
-  }
 }

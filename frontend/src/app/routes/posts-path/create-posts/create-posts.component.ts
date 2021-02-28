@@ -6,9 +6,9 @@ import { first } from 'rxjs/operators';
 // models
 import { Properties } from 'src/app/clients/models/Properties';
 
-// auths
-import { AuthService } from 'src/app/clients/auth/auth.service';
-import { PostService } from 'src/app/clients/auth/post.service';
+// service
+import { AuthService } from 'src/app/clients/service/auth.service';
+import { PostService } from 'src/app/clients/service/post.service';
 
 
 @Component({
@@ -35,16 +35,18 @@ export class CreatePostsComponent implements OnInit {
   createFormGroup(): FormGroup{
     return new FormGroup({
       propertyTitle: new FormControl("", [Validators.required,Validators.minLength(5)]),
-      propertyDescription: new FormControl("", [Validators.required,Validators.minLength(10)])
+      propertyDescription: new FormControl("", [Validators.required,Validators.minLength(10)]),
+      propertyDescription2: new FormControl("", [Validators.required,Validators.minLength(10)])
     })
   }
 
   onSubmit(formValue: Pick<Properties, "propertyTitle" | "propertyDescription">): void{
-    this.postService.createPost(formValue, this.authservice.userId).pipe(first()).subscribe(() => {
-      this.create.emit(null); 
-    })
-    this.form.reset();
-    this.formDirective.resetForm();
+    console.log(formValue)
+    // this.postService.createPost(formValue, this.authservice.userId).pipe(first()).subscribe(() => {
+    //   this.create.emit(null); 
+    // })
+    // this.form.reset();
+    // this.formDirective.resetForm();
   }
 
 }

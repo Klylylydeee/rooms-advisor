@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from  'src/app/clients/auth/auth.service';
+import { AuthService } from  'src/app/clients/service/auth.service';
 
 import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
 

@@ -58,7 +58,7 @@ import { PostComponent } from 'src/app/routes/posts-path/post/post.component';
       preventDuplicates: true,
     }),                                // Toaster Animations
     NgxDropzoneModule,                 // Dropzone for picture
-    NgxLoadingModule.forRoot({})       // registration loading
+    NgxLoadingModule.forRoot({}),      // registration loading
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

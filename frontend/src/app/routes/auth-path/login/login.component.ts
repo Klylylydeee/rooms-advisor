@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 // auth
-import { AuthService } from 'src/app/clients/auth/auth.service';
+import { AuthService } from 'src/app/clients/service/auth.service';
 
 // webpack
 import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
