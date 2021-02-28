@@ -55,7 +55,7 @@ export class AuthService {
       // first() operator returns the reply from the server, check backend(auth.controller.user)
       first(), 
       tap(() => {
-        this.router.navigate(["Login"]);
+        this.router.navigate(["login"]);
       }),
       // catchError() calls the errorHandlerService.handleError to the passed Username model from the form
       // "signup" replaces the operation string to signup check error-handler.service.ts line 12
@@ -84,7 +84,7 @@ export class AuthService {
           // initiate the global variable to true since the user has logged in
           this.isUserLoggedIn$.next(true);
           // reroutes the user to the posts section of the router, check ln35
-          this.router.navigate(["Home"]);
+          this.router.navigate(["home"]);
         }),
         // catchError() calls the errorHandlerService.handleError to the passed Username model from the form
         // "signup" replaces the operation string to signup check error-handler.service.ts line 12

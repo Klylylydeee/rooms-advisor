@@ -1,7 +1,13 @@
 <h1>Posts Form</h1>
 <form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit(form.value)" novalidate>
   <input type="text" placeholder="propertyTitle" formControlName="propertyTitle" />
+  <input type="text" placeholder="propertyTitle" formControlName="propertyAddress" />
   <input type="text" placeholder="propertyDescription" formControlName="propertyDescription" />
-  <input type="text" placeholder="propertyDescription2" formControlName="propertyDescription2" />
+  <ngx-dropzone (change)="onSelect($event)">
+    <ngx-dropzone-label>Upload image</ngx-dropzone-label>
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+          <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
+    </ngx-dropzone-image-preview>
+  </ngx-dropzone>
   <button [disabled]="!form.valid" type="submit">Post</button>
 </form>

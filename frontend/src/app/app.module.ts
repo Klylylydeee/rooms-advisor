@@ -29,7 +29,8 @@ import { NotfoundComponent } from 'src/app/routes/notfound/notfound.component';
 import { SignupComponent } from 'src/app/routes/auth-path/signup/signup.component';
 import { LoginComponent } from 'src/app/routes/auth-path/login/login.component';
 import { CreatePostsComponent } from 'src/app/routes/posts-path/create-posts/create-posts.component';
-import { PostComponent } from 'src/app/routes/posts-path/post/post.component';
+import { ViewPostsComponent } from './routes/posts-path/view-posts/view-posts.component';
+import { ViewIdPostsComponent } from './routes/posts-path/view-id-posts/view-id-posts.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +40,10 @@ import { PostComponent } from 'src/app/routes/posts-path/post/post.component';
     LoginComponent,
     HomeComponent,
     CreatePostsComponent,
-    PostComponent,
     NotfoundComponent,
-    FooterComponent, 
+    FooterComponent,
+    ViewPostsComponent,
+    ViewIdPostsComponent, 
   ],
   imports: [
     BrowserModule,

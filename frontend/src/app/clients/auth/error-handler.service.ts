@@ -23,7 +23,7 @@ export class ErrorHandlerService {
       this.loadToastrService.showError(`${operation} Failed: ${response.error.error.message}`);
       if(response.error.error.message === "jwt expired"){
         localStorage.removeItem("token");
-        this.router.navigate(["Home"]).then(() => {
+        this.router.navigate(["home"]).then(() => {
           window.location.reload();
         });
       }

@@ -10,16 +10,23 @@ import { HomeComponent } from 'src/app/routes/home/home.component';
 import { NotfoundComponent } from 'src/app/routes/notfound/notfound.component';
 import { SignupComponent } from 'src/app/routes/auth-path/signup/signup.component';
 import { LoginComponent } from 'src/app/routes/auth-path/login/login.component';
-import { PostComponent } from 'src/app/routes/posts-path/post/post.component';
+import { CreatePostsComponent } from 'src/app/routes/posts-path/create-posts/create-posts.component';
+import { ViewPostsComponent } from './routes/posts-path/view-posts/view-posts.component';
+import { ViewIdPostsComponent } from './routes/posts-path/view-id-posts/view-id-posts.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'Home' },
-  { path: 'Home', component: HomeComponent},
-  { path: 'Signup', component: SignupComponent },
-  { path: 'Login', component: LoginComponent },
-  { path: 'Posts', component: PostComponent, canActivate: [AuthGuard] },
-  { path: '404', component: NotfoundComponent },
-  { path: '**', redirectTo: '404' },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent},
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'posts', canActivate: [AuthGuard], 
+    children: [
+      { path: 'view', component: ViewPostsComponent }, 
+      { path: 'view/:id', component: ViewIdPostsComponent }, 
+      { path: 'create', component: CreatePostsComponent }
+    ]
+  },
+  { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

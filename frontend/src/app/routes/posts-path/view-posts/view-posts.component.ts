@@ -11,14 +11,14 @@ import { AuthService } from 'src/app/clients/service/auth.service';
 import { Username } from 'src/app/clients/models/Username';
 import { Properties } from 'src/app/clients/models/Properties';
 
+
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss'],
+  selector: 'app-view-posts',
+  templateUrl: './view-posts.component.html',
+  styleUrls: ['./view-posts.component.scss'],
   providers: [ReversePipe]
 })
-
-export class PostComponent implements OnInit {
+export class ViewPostsComponent implements OnInit {
   posts$: Observable<Properties[]>;
   userId: Pick<Username, "userId">;
   currentPg: number;
