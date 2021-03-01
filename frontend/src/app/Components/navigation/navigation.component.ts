@@ -32,7 +32,7 @@ export class NavigationComponent implements OnInit {
     this.loadToastrService.showSuccess('logout');
     localStorage.removeItem("token");
     this.authservice.isUserLoggedIn$.next(false);
-    this.router.navigate(["Login"]);
+    this.router.navigate(["login"]);
   }
 
 }

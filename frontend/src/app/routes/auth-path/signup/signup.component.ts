@@ -87,7 +87,7 @@ export class SignupComponent implements OnInit {
     this.files.splice(this.files.indexOf(event), 1);
   }
 
-  async onUpload(): Promise<any> {
+  onUpload(): Promise<any> {
     //Scape empty array
     if (!this.files[0]) {
       return
@@ -96,7 +96,7 @@ export class SignupComponent implements OnInit {
       const data = new FormData();
       data.append('file', file_data);
       data.append('upload_preset', 'rooms-advisor-users');
-      data.append('cloud_name', 'klylylydeee');
+      data.append('cloud_name', 'klaylylydeee');
       return new Promise((res, rej)=>{
         this.uploadImageService.uploadImage(data).subscribe((response) => {
           if (response) {

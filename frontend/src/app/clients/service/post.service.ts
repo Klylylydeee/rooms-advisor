@@ -44,11 +44,6 @@ export class PostService {
   viewPost(paramPropertyId): Observable<Properties[]>{
     return this.http.get<Properties[]>(`${this.authUrl}${paramPropertyId}`, 
     { responseType: "json" }).pipe(
-      finalize(()=>{
-        setTimeout(()=>{
-          this.loader = false;
-        },2000)
-      }),
       catchError(this.errorHandlerService.handleError<Properties[]>("View Property"))
     );
   }

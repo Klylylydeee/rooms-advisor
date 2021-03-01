@@ -1,6 +1,9 @@
-child component {{ propertyId }}
+<span *ngIf="loading">
+    child component {{ propertyId }}
+</span>
 
-<div *ngFor="let post of posts$ | async">
+<div *ngFor="let post of posts$ | async" >
+    <span *ngIf="!loading">
     <li>userId: {{ post.userId }}</li>
     <li>firstName: {{ post.firstName }}</li>
     <li>LastName: {{ post.lastName }}</li>
@@ -11,8 +14,9 @@ child component {{ propertyId }}
     <li>propertyTitle: {{ post.propertyTitle }}</li>
     <li>propertyDescription: {{ post.propertyDescription }}</li>
     <li>dateCreated_Formated: {{ post.dateCreated_Formated }}</li>
+    </span>
     <ng-template #customLoadingTemplate>
     </ng-template>
-    <ngx-loading [show]="this.postService.loader" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
 </div>
 
