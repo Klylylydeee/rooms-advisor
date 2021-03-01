@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
+// webpacks
+import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
+
 // service
 import { PostService } from 'src/app/clients/service/post.service';
 import { Properties } from 'src/app/clients/models/Properties';
@@ -16,9 +19,10 @@ import { Properties } from 'src/app/clients/models/Properties';
 export class ViewIdPostsComponent implements OnInit {
   posts$: Observable<Properties[]>;
   propertyId;
-  
+  loading = true;
   constructor(public postService: PostService,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    public loadToaster: LoadToastrService) {
   }
 
   ngOnInit(): void {
@@ -26,7 +30,6 @@ export class ViewIdPostsComponent implements OnInit {
       this.propertyId = data.id
     })
     this.posts$ = this.viewId(this.propertyId); 
-    console.log(this.posts$)
   }
 
 
