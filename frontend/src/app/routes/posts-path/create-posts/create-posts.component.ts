@@ -10,6 +10,8 @@ import { Properties } from 'src/app/clients/models/Properties';
 import { AuthService } from 'src/app/clients/service/auth.service';
 import { PostService } from 'src/app/clients/service/post.service';
 import { UploadImageService } from 'src/app/clients/webpack/upload-image.service';
+import { MapboxService, Feature } from 'src/app/clients/webpack/mapbox.service';
+import { features } from 'process';
 
 
 @Component({
@@ -25,11 +27,15 @@ export class CreatePostsComponent implements OnInit {
   form: FormGroup;
   isOpen = false;
   files: File[] = [];
+
+  addresses: String[] = [];
+  selectedAddress = null;
   
   constructor(
     private authservice: AuthService, 
     private postService: PostService,
-    private uploadImageService: UploadImageService,) { 
+    private uploadImageService: UploadImageService,
+    private mapbox: MapboxService) { 
     this.form = this.createFormGroup();
   }
 
@@ -79,6 +85,23 @@ export class CreatePostsComponent implements OnInit {
         });
       })
     }
+  }
+
+  search(event:any){
+    const searchItem = event.target.value.toLowerCase();
+    if (searchItem && searchItem.length > 0){
+      this.mapbox.search_word(searchItem).subscribe((features: Feature[])=>{
+        console.log(features);
+        this.addresses = features.map(feat => feat.place_name)
+      })
+    } else {
+      this.addresses = [];
+    }
+  }
+
+  onClicked(e:any){
+    this.selectedAddress = e;
+    this.addresses = [];
   }
 
 }

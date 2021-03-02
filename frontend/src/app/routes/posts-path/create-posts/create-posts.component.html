@@ -9,5 +9,13 @@
           <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
     </ngx-dropzone-image-preview>
   </ngx-dropzone>
+  <input type="text" (input)="search($event)" value="{{selectedAddress}}">
+  <div *ngIf="addresses.length > 0">
+      <div *ngFor="let address of addresses">
+          <ul>
+              <li (click)="onClicked(address)">{{ address }}</li>
+          </ul>
+      </div>
+  </div>
   <button [disabled]="!form.valid" type="submit">Post</button>
 </form>
