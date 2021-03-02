@@ -10,8 +10,8 @@ import { Properties } from 'src/app/clients/models/Properties';
 import { AuthService } from 'src/app/clients/service/auth.service';
 import { PostService } from 'src/app/clients/service/post.service';
 import { UploadImageService } from 'src/app/clients/webpack/upload-image.service';
-import { MapboxService, Feature } from 'src/app/clients/webpack/mapbox.service';
-import { features } from 'process';
+import { MapboxService } from 'src/app/clients/webpack/mapbox.service';
+import { Feature } from 'src/app/clients/models/Feature';
 
 
 @Component({

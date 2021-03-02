@@ -3,15 +3,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 
-export interface MapboxOutput{
-  attribution: String;
-  features: Feature[];
-  query: [];
-}
-
-export interface Feature{
-  place_name: String;
-}
+import { MapboxOutput } from 'src/app/clients/models/MapboxOutput';
 
 @Injectable({
   providedIn: 'root'
