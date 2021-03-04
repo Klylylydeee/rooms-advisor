@@ -23,15 +23,21 @@ exports.addPosts = async (req, res, next) => {
         return 
     }
 
-    const userId = req.body.userId;
-    const propertyTitle = req.body.propertyTitle;
-    const propertyDescription = req.body.propertyDescription;
+    const propertyTitle = propertyTitle;
+    const userId = userId;
+    const propertyType = propertyType;
+    const propertyAddress = propertyAddress;
+    const propertyDescription = propertyDescription;
+    const propertyImages = propertyImages
 
     try {
         const propertiesPost = {
-            userId: userId,
             propertyTitle: propertyTitle,
-            propertyDescription: propertyDescription
+            userId: userId,
+            propertyType: propertyType,
+            propertyAddress: propertyAddress,
+            propertyDescription: propertyDescription,
+            propertyImages: propertyImages
         }
 
         const result = await Properties.post(propertiesPost);

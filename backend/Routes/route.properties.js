@@ -14,9 +14,12 @@ router.get('/:propertyId', authMiddleware, propertiesController.viewPostsById);
 
 router.post('/', [
     authMiddleware,
-    body('userId').trim().not().isEmpty(),
     body('propertyTitle').trim().isLength({ min: 5 }).not().isEmpty(),
+    body('userId').trim().not().isEmpty(),
+    body('propertyType').not().isEmpty(),
+    body('propertyAddress').not().isEmpty(),
     body('propertyDescription').trim().isLength({ min: 10 }).not().isEmpty(),
+    body('propertyImages').not().isEmpty(),
 ],propertiesController.addPosts);
 
 router.delete('/:propertyId', authMiddleware, propertiesController.deletePosts);
