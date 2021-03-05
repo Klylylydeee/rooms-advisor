@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { Observable, } from 'rxjs';
+import { catchError, finalize, first, tap,} from 'rxjs/operators';
 
 // models
 import { Username } from 'src/app/clients/models/Username';
@@ -16,8 +17,8 @@ import { ErrorHandlerService } from 'src/app/clients/auth/error-handler.service'
 })
 
 export class PostService {
-  // private authUrl = "http://localhost:5000/api/properties/";
-  private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
+  private authUrl = "http://localhost:5000/api/properties/";
+  // private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
   loader: boolean = true;
 
   httpOptions: { headers: HttpHeaders } = {
@@ -26,7 +27,7 @@ export class PostService {
     })
   };
   
-  constructor(private http: HttpClient, private errorHandlerService:ErrorHandlerService) { 
+  constructor(private http: HttpClient, private errorHandlerService:ErrorHandlerService,private router: Router) { 
   }
 
   fetchAll(): Observable<Properties[]> {
@@ -48,12 +49,16 @@ export class PostService {
     );
   }
 
-  createPost(formValue: Partial<Properties>, userId: Pick<Username, "userId">): Observable<Properties> {
-    return this.http.post<Properties>(this.authUrl, { propertyTitle: formValue.propertyTitle, propertyDescription: formValue.propertyDescription, userId: userId} ,this.httpOptions)
-    .pipe( 
-      catchError(this.errorHandlerService.handleError<Properties>("createPosts"))
-    );
+  createPost(formValue: Pick<Properties, "propertyType" |"propertyTitle" | "propertyDescription" | "propertyAddress" | "propertyImages">, userId: Pick<Username, "userId">): Observable<Properties> {    
+    return this.http.post<Properties>(this.authUrl, { propertyTitle: formValue.propertyTitle, propertyType: formValue.propertyType,propertyAddress: formValue.propertyAddress,propertyDescription: formValue.propertyDescription, userId: userId, propertyImages: formValue.propertyImages} ,this.httpOptions).pipe(
+      first(), 
+      tap(() => {
+        this.router.navigate(["posts/view"]);
+      }),
+      catchError(this.errorHandlerService.handleError<Properties>("signup"))
+    )
   }
+  
 
   deletePosts(propertyId: Pick<Properties, "propertyId">): Observable<{}> {
     return this.http.delete<Properties>(`${this.authUrl}/${propertyId}`, this.httpOptions)

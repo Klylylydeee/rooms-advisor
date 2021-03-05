@@ -22,8 +22,6 @@ import { Feature } from 'src/app/clients/models/Feature';
 })
 
 export class CreatePostsComponent implements OnInit {
-  @ViewChild("formDirective") formDirective: NgForm;
-  @Output() create: EventEmitter<any> = new EventEmitter();
   form: FormGroup;
   isOpen = false;
   files: File[] = [];
@@ -45,16 +43,20 @@ export class CreatePostsComponent implements OnInit {
   createFormGroup(): FormGroup{
     return new FormGroup({
       propertyTitle: new FormControl("", [Validators.required,Validators.minLength(5)]),
+      propertyType: new FormControl("", [Validators.required,Validators.minLength(5)]),
+      propertyAddress: new FormControl("", [Validators.required,Validators.minLength(5)]),
       propertyDescription: new FormControl("", [Validators.required,Validators.minLength(10)])
     })
   }
 
-  onSubmit(formValue: Pick<Properties, "propertyTitle" | "propertyDescription">): void{
-    this.postService.createPost(formValue, this.authservice.userId).pipe(first()).subscribe(() => {
-      this.create.emit(null); 
+  onSubmit(): void{
+    this.form.addControl('propertyImages', new FormControl('hi'));
+    this.postService.createPost(this.form.value, this.authservice.userId).subscribe( (res: any) => {
+      console.log(`${res.message}`)
+    }, err =>{
+      console.log(`${err}`)
     })
-    this.form.reset();
-    this.formDirective.resetForm();
+
   }
 
   onSelect(event) {
