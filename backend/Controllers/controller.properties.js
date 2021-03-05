@@ -23,12 +23,12 @@ exports.addPosts = async (req, res, next) => {
         return 
     }
 
-    const propertyTitle = propertyTitle;
-    const userId = userId;
-    const propertyType = propertyType;
-    const propertyAddress = propertyAddress;
-    const propertyDescription = propertyDescription;
-    const propertyImages = propertyImages
+    const propertyTitle = req.body.propertyTitle;
+    const userId = req.body.userId;
+    const propertyType = req.body.propertyType;
+    const propertyAddress = req.body.propertyAddress;
+    const propertyDescription = req.body.propertyDescription;
+    const propertyImages = req.body.propertyImages
 
     try {
         const propertiesPost = {
