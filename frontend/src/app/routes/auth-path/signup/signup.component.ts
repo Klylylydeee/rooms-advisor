@@ -96,14 +96,22 @@ export class SignupComponent implements OnInit {
       const data = new FormData();
       data.append('file', file_data);
       data.append('upload_preset', 'rooms-advisor-users');
-      data.append('cloud_name', 'klaylylydeee');
-      return new Promise((res, rej)=>{
+      data.append('cloud_name', 'klylylydeee');
+      const promise = new Promise((res, rej)=>{
         this.uploadImageService.uploadImage(data).subscribe((response) => {
           if (response) {
               res(String(response.secure_url));
+          } else {
+            rej(new Error('Error in uploading image.'))
           }
         });
       })
+      return promise.then((data) =>{
+        return data
+      }
+      ).catch((err)=>{
+        return
+      }) 
     }
   }
 
