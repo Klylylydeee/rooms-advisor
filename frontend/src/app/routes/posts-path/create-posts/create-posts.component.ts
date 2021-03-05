@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 import { first } from 'rxjs/operators';
@@ -12,50 +12,59 @@ import { PostService } from 'src/app/clients/service/post.service';
 import { UploadImageService } from 'src/app/clients/webpack/upload-image.service';
 import { MapboxService } from 'src/app/clients/webpack/mapbox.service';
 import { Feature } from 'src/app/clients/models/Feature';
+import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
 
 
 @Component({
   selector: 'app-create-posts',
   templateUrl: './create-posts.component.html',
   styleUrls: ['./create-posts.component.scss'],
-  providers: [ UploadImageService ]
+  providers: [UploadImageService]
 })
 
 export class CreatePostsComponent implements OnInit {
   form: FormGroup;
   isOpen = false;
-  files: File[] = [];
+  files = [];
 
   addresses: String[] = [];
   selectedAddress = null;
-  
+
   constructor(
-    private authservice: AuthService, 
+    private authservice: AuthService,
     private postService: PostService,
     private uploadImageService: UploadImageService,
-    private mapbox: MapboxService) { 
+    private mapbox: MapboxService,
+    private loadToastrService: LoadToastrService) {
     this.form = this.createFormGroup();
   }
 
   ngOnInit(): void {
   }
 
-  createFormGroup(): FormGroup{
+  createFormGroup(): FormGroup {
     return new FormGroup({
-      propertyTitle: new FormControl("", [Validators.required,Validators.minLength(5)]),
-      propertyType: new FormControl("", [Validators.required,Validators.minLength(5)]),
-      propertyAddress: new FormControl("", [Validators.required,Validators.minLength(5)]),
-      propertyDescription: new FormControl("", [Validators.required,Validators.minLength(10)])
+      propertyTitle: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      propertyType: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      propertyAddress: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      propertyDescription: new FormControl("", [Validators.required, Validators.minLength(10)])
     })
   }
 
-  onSubmit(): void{
-    this.form.addControl('propertyImages', new FormControl('hi'));
-    this.postService.createPost(this.form.value, this.authservice.userId).subscribe( (res: any) => {
-      console.log(`${res.message}`)
-    }, err =>{
-      console.log(`${err}`)
-    })
+  async onSubmit(): Promise<void> {
+    let uploadLink = await this.onUpload();
+    if (uploadLink == undefined) {
+      this.loadToastrService.showError('Please add an image before submitting')
+      return
+    }
+    this.loadToastrService.showInfo('Creating post!')
+    console.log(uploadLink);
+    // this.form.addControl('propertyImages', new FormControl('hi'));
+    // this.postService.createPost(this.form.value, this.authservice.userId).subscribe( (res: any) => {
+    //   console.log(`${res.message}`)
+    // }, err =>{
+    //   console.log(`${err}`)
+    // })
 
   }
 
@@ -69,31 +78,36 @@ export class CreatePostsComponent implements OnInit {
     this.files.splice(this.files.indexOf(event), 1);
   }
 
-  async onUpload(): Promise<any> {
-    //Scape empty array
+  async onUpload() {
+    let imageData = [];
     if (!this.files[0]) {
       return
     } else {
-      const file_data = this.files[0];
-      const data = new FormData();
-      data.append('file', file_data);
-      data.append('upload_preset', 'rooms-advisor-users');
-      data.append('cloud_name', 'klylylydeee');
-      return new Promise((res, rej)=>{
-        this.uploadImageService.uploadImage(data).subscribe((response) => {
-          if (response) {
-              res(String(response.secure_url));
-          }
+      await this.files.forEach(async() => {
+        const data = new FormData();
+        data.append('file', this.files[0]);
+        data.append('upload_preset', 'rooms-advisor-properties');
+        data.append('cloud_name', 'klylylydeee');
+        await this.uploadImageService.uploadImage(data).subscribe((response) => {
+          return new Promise((res, rej) => {
+            if (response) {
+              res(imageData.push(response.secure_url))
+              this.files.pop();
+            }
+          })
         });
-      })
+      }); 
     }
+    console.log(imageData)
+    return Promise.resolve(imageData)
   }
 
-  search(event:any){
+
+
+  search(event: any) {
     const searchItem = event.target.value.toLowerCase();
-    if (searchItem && searchItem.length > 0){
-      this.mapbox.search_word(searchItem).subscribe((features: Feature[])=>{
-        console.log(features);
+    if (searchItem && searchItem.length > 0) {
+      this.mapbox.search_word(searchItem).subscribe((features: Feature[]) => {
         this.addresses = features.map(feat => feat.place_name)
       })
     } else {
@@ -101,7 +115,7 @@ export class CreatePostsComponent implements OnInit {
     }
   }
 
-  onClicked(e:any){
+  onClicked(e: any) {
     this.selectedAddress = e;
     this.addresses = [];
   }

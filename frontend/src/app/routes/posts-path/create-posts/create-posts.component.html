@@ -3,12 +3,12 @@
   <input type="text" placeholder="propertyType" formControlName="propertyType" />
   <input type="text" placeholder="propertyTitle" formControlName="propertyTitle" />
   <input type="text" placeholder="propertyDescription" formControlName="propertyDescription" />
-  <!-- <ngx-dropzone (change)="onSelect($event)">
+  <ngx-dropzone (change)="onSelect($event)">
     <ngx-dropzone-label>Upload image</ngx-dropzone-label>
     <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
           <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
     </ngx-dropzone-image-preview>
-  </ngx-dropzone> -->
+  </ngx-dropzone>
   <input type="text" (input)="search($event)" value="{{selectedAddress}}" placeholder="propertyTitle" formControlName="propertyAddress" />
   <div *ngIf="addresses.length > 0">
       <div *ngFor="let address of addresses">
@@ -19,3 +19,5 @@
   </div>
   <button [disabled]="!form.valid" type="submit">Post</button>
 </form>
+
+<button type="submit" (click)="onUpload()">Post</button>
