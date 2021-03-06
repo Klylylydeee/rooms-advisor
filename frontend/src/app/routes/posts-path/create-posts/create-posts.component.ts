@@ -58,7 +58,7 @@ export class CreatePostsComponent implements OnInit {
       data.append('upload_preset', 'rooms-advisor-properties');
       data.append('cloud_name', 'klylylydeee');
       this.uploadImageService.uploadImage(data).subscribe((response) => {
-        return res(response.secure_url);
+        return res(`<img class="small" src="${response.secure_url}"/> `);
       });
     })
   }
@@ -81,9 +81,7 @@ export class CreatePostsComponent implements OnInit {
     try {
       console.log('1');
       let tester = await this.procesMultipleCandidates();
-      console.log(tester)
-      console.log('3');
-      this.form.addControl('propertyImages', new FormControl(tester));
+      this.form.addControl('propertyImages', new FormControl(tester.join('').trim()));
       this.postService.createPost(this.form.value, this.authservice.userId).subscribe( (res: any) => {
         console.log(`${res.message}`)
       }, err =>{

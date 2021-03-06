@@ -1,5 +1,7 @@
 <!-- <app-create-posts (create)="createPost()"></app-create-posts> -->
 
+
+
 <ngx-skeleton-loader
   count="1"
   animation="pulse"
@@ -10,6 +12,7 @@
 <h1 *ngIf="(posts$ | async)?.length == 0 && !this.postService.loader">
   No data has been posted
 </h1>
+
 
 <div class="posts-content">
   <section
@@ -36,7 +39,7 @@
     <li>propertyType: {{ post.propertyType}}</li>
     <li>propertyAddress: {{ post.propertyAddress}}</li>
     <li>propertyDescription: {{ post.propertyDescription}}</li>
-    <li><img class="small" src="{{ post.propertyImages }}"/> </li>
+    <li [innerHTML]="post.propertyImages">  </li>
     <li>dateCreated_Formated: {{ post.dateCreated_Formated}}</li>
     <li>userId: {{ post.userId}}</li>
     <li>firstName: {{ post.firstName}}</li>
