@@ -27,6 +27,11 @@ $colorTertiary: red;
     text-rendering: optimizeLegibility;
     color: black;
     font-family: $fontTwo;
+    // used in posts view component
+    .small{
+        height: 100px;
+        width: 100px;
+    }
 }
 
 .app-padding{

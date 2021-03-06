@@ -12,6 +12,9 @@
     <li>email: {{ post.email }}</li>
     <li>propertyId: {{ post.propertyId }}</li>
     <li>propertyTitle: {{ post.propertyTitle }}</li>
+    <li>propertyType: {{ post.propertyType }}</li>
+    <li>propertyAddress: {{ post.propertyAddress }}</li>
+    <li [innerHTML]="post.propertyImages">  </li>
     <li>propertyDescription: {{ post.propertyDescription }}</li>
     <li>dateCreated_Formated: {{ post.dateCreated_Formated }}</li>
     </span>
