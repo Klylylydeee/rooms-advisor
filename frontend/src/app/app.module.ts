@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'; // Http modules to use httpclient
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Required if using forms
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ import { ViewIdPostsComponent } from './routes/posts-path/view-id-posts/view-id-
     ViewIdPostsComponent, 
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,                       // Required if using forms

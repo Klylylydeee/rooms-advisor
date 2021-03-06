@@ -1,6 +1,6 @@
 // angular
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // auth
 import { AuthGuard } from 'src/app/clients/auth/auth-guard.service';
@@ -14,7 +14,7 @@ import { CreatePostsComponent } from 'src/app/routes/posts-path/create-posts/cre
 import { ViewPostsComponent } from './routes/posts-path/view-posts/view-posts.component';
 import { ViewIdPostsComponent } from './routes/posts-path/view-id-posts/view-id-posts.component';
 
-const routes: Routes = [
+const routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'signup', component: SignupComponent },
