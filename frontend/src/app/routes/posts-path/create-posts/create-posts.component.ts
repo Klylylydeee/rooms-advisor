@@ -51,21 +51,47 @@ export class CreatePostsComponent implements OnInit {
     })
   }
 
-  async onSubmit(): Promise<void> {
-    let uploadLink = await this.onUpload();
-    if (uploadLink == undefined) {
-      this.loadToastrService.showError('Please add an image before submitting')
-      return
-    }
-    this.loadToastrService.showInfo('Creating post!')
-    console.log(uploadLink);
-    // this.form.addControl('propertyImages', new FormControl('hi'));
-    // this.postService.createPost(this.form.value, this.authservice.userId).subscribe( (res: any) => {
-    //   console.log(`${res.message}`)
-    // }, err =>{
-    //   console.log(`${err}`)
-    // })
+  insertionInCandidate(element, arrayIndex) {
+    return new Promise((res, rej) => {
+      const data = new FormData();
+      data.append('file', this.files[arrayIndex]);
+      data.append('upload_preset', 'rooms-advisor-properties');
+      data.append('cloud_name', 'klylylydeee');
+      this.uploadImageService.uploadImage(data).subscribe((response) => {
+        return res(response.secure_url);
+      });
+    })
+  }
 
+  async procesMultipleCandidates() {
+    let links = []
+    await Promise.all(this.files.map(async (elem, index) => {
+      try {
+        let insertResponse = await this.insertionInCandidate(elem, index)
+        links.push(insertResponse)
+      } catch (error) {
+        console.log('error' + error);
+      }
+    }))
+    console.log('images are now uploaded. Proceeding to registering in the db')
+    return links
+  }
+
+  async onSubmit(){
+    try {
+      console.log('1');
+      let tester = await this.procesMultipleCandidates();
+      console.log(tester)
+      console.log('3');
+      this.form.addControl('propertyImages', new FormControl(tester));
+      this.postService.createPost(this.form.value, this.authservice.userId).subscribe( (res: any) => {
+        console.log(`${res.message}`)
+      }, err =>{
+        console.log(`${err}`)
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   onSelect(event) {
@@ -77,32 +103,6 @@ export class CreatePostsComponent implements OnInit {
     // console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
-
-  async onUpload() {
-    let imageData = [];
-    if (!this.files[0]) {
-      return
-    } else {
-      await this.files.forEach(async() => {
-        const data = new FormData();
-        data.append('file', this.files[0]);
-        data.append('upload_preset', 'rooms-advisor-properties');
-        data.append('cloud_name', 'klylylydeee');
-        await this.uploadImageService.uploadImage(data).subscribe((response) => {
-          return new Promise((res, rej) => {
-            if (response) {
-              res(imageData.push(response.secure_url))
-              this.files.pop();
-            }
-          })
-        });
-      }); 
-    }
-    console.log(imageData)
-    return Promise.resolve(imageData)
-  }
-
-
 
   search(event: any) {
     const searchItem = event.target.value.toLowerCase();
