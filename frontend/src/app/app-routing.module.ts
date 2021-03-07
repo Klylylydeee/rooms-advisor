@@ -5,16 +5,19 @@ import { AuthGuard } from './Client/auth/auth-guard.service';
 // Created Components
 import { HomeComponent } from './Components/home/home.component';
 import { SignupComponent } from './Components/signup/signup.component';
-import { LoginComponent } from './Components/login/login.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { ViewPostsComponent } from './Components/posts/view-posts/view-posts.component';
 import { ViewIdPostsComponent } from './Components/posts/view-id-posts/view-id-posts.component';
 import { CreatePostsComponent } from './Components/posts/create-posts/create-posts.component';
 
+
+import { LoginComponent } from './Routes/Auth/login/login.component';
+import { RegisterComponent } from './Routes/Auth/register/register.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'posts', canActivate: [AuthGuard], 
     children: [
