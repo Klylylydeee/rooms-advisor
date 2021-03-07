@@ -25,31 +25,29 @@ import { NgxLoadingModule } from 'ngx-loading';
 
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
-import { SignupComponent } from './Components/signup/signup.component';
 import { HomeComponent } from './Components/home/home.component';
-import { CreatePostsComponent } from './Components/posts/create-posts/create-posts.component';
-import { PostComponent } from './Components/posts/post/post.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { ViewPostsComponent } from './Components/posts/view-posts/view-posts.component';
-import { ViewIdPostsComponent } from './Components/posts/view-id-posts/view-id-posts.component';
+
 import { LoginComponent } from './Routes/Auth/login/login.component';
 import { RegisterComponent } from './Routes/Auth/register/register.component';
+
+import { CreatePropertyComponent } from './Routes/Properties/create-property/create-property.component';
+import { ViewPropertyIdComponent } from './Routes/Properties/view-property-id/view-property-id.component';
+import { ViewPropertyComponent } from './Routes/Properties/view-property/view-property.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    SignupComponent,
     HomeComponent,
-    CreatePostsComponent,
-    PostComponent,
     NotfoundComponent,
     FooterComponent,
-    ViewPostsComponent,
-    ViewIdPostsComponent,
     LoginComponent,
-    RegisterComponent, 
+    RegisterComponent,
+    CreatePropertyComponent,
+    ViewPropertyIdComponent,
+    ViewPropertyComponent, 
   ],
   imports: [
     BrowserModule,

@@ -4,15 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Client/auth/auth-guard.service';
 // Created Components
 import { HomeComponent } from './Components/home/home.component';
-import { SignupComponent } from './Components/signup/signup.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
-import { ViewPostsComponent } from './Components/posts/view-posts/view-posts.component';
-import { ViewIdPostsComponent } from './Components/posts/view-id-posts/view-id-posts.component';
-import { CreatePostsComponent } from './Components/posts/create-posts/create-posts.component';
-
 
 import { LoginComponent } from './Routes/Auth/login/login.component';
 import { RegisterComponent } from './Routes/Auth/register/register.component';
+
+import { CreatePropertyComponent } from './Routes/Properties/create-property/create-property.component';
+import { ViewPropertyIdComponent } from './Routes/Properties/view-property-id/view-property-id.component';
+import { ViewPropertyComponent } from './Routes/Properties/view-property/view-property.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,9 +20,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'posts', canActivate: [AuthGuard], 
     children: [
-      { path: 'view', component: ViewPostsComponent }, 
-      { path: 'view/:id', component: ViewIdPostsComponent }, 
-      { path: 'create', component: CreatePostsComponent }
+      { path: 'view', component: ViewPropertyComponent }, 
+      { path: 'view/:id', component: ViewPropertyIdComponent }, 
+      { path: 'create', component: CreatePropertyComponent }
     ]
   },
   { path: '**', component: NotfoundComponent }
