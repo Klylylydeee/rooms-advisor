@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
+import { AuthService } from  '../../Client/service/auth.service';
 
-import { AuthService } from  'src/app/clients/service/auth.service';
-
-import { LoadToastrService } from 'src/app/clients/webpack/load-toastr.service';
+import { LoadToastrService } from '../../Client/webpack/load-toastr.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-
 export class NavigationComponent implements OnInit {
   isAuthenticated = false;
 

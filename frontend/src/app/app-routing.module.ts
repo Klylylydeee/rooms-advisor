@@ -1,20 +1,17 @@
-// angular
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+// Auth Guard
+import { AuthGuard } from './Client/auth/auth-guard.service';
+// Created Components
+import { HomeComponent } from './Components/home/home.component';
+import { SignupComponent } from './Components/signup/signup.component';
+import { LoginComponent } from './Components/login/login.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { ViewPostsComponent } from './Components/posts/view-posts/view-posts.component';
+import { ViewIdPostsComponent } from './Components/posts/view-id-posts/view-id-posts.component';
+import { CreatePostsComponent } from './Components/posts/create-posts/create-posts.component';
 
-// auth
-import { AuthGuard } from 'src/app/clients/auth/auth-guard.service';
-
-// routes
-import { HomeComponent } from 'src/app/routes/home/home.component';
-import { NotfoundComponent } from 'src/app/routes/notfound/notfound.component';
-import { SignupComponent } from 'src/app/routes/auth-path/signup/signup.component';
-import { LoginComponent } from 'src/app/routes/auth-path/login/login.component';
-import { CreatePostsComponent } from 'src/app/routes/posts-path/create-posts/create-posts.component';
-import { ViewPostsComponent } from './routes/posts-path/view-posts/view-posts.component';
-import { ViewIdPostsComponent } from './routes/posts-path/view-id-posts/view-id-posts.component';
-
-const routes = [
+const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'signup', component: SignupComponent },
@@ -35,5 +32,4 @@ const routes = [
   })],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }
