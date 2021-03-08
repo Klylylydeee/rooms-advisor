@@ -20,8 +20,8 @@ import { ErrorHandlerService } from '../auth/error-handler.service';
 export class PostService {
   // private propertyUrl = "http://localhost:5000/api/properties/";
   private propertyUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
-  private reviewUrl = "http://localhost:5000/api/reviews/";
-  // private reviewUrl = "https://rooms-advisor.herokuapp.com/api/reviews/";
+  // private reviewUrl = "http://localhost:5000/api/reviews/";
+  private reviewUrl = "https://rooms-advisor.herokuapp.com/api/reviews/";
   loader: boolean = true;
 
   httpOptions: { headers: HttpHeaders } = {
