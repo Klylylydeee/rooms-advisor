@@ -23,3 +23,29 @@
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
 </div>
 
+<h1 *ngIf="!loading">Comments</h1>
+<div *ngFor="let review of reviews$ | async" >
+    <span *ngIf="!loading">
+    <li>{{ review.reviewId }}</li>
+    <li>{{ review.propertyId }}</li>
+    <li>{{ review.reviewRate }}</li>
+    <li>{{ review.reviewComment }}</li>
+    <li>{{ review.dateCreated }}</li>
+    <li>{{ review.reviewerId }}</li>
+    <li>{{ review.reviewerFName }}</li>
+    <li>{{ review.reviewerLName }}</li>
+    <li>{{ review.propertyOwnerId }}</li>
+    <li>{{ review.propertyOwnerFName }}</li>
+    <li>{{ review.propertyOwnerLName }}</li>
+    <br>
+    <br>
+    </span>
+</div>
+
+
+<form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    
+  <input type="text" placeholder="reviewComment" formControlName="reviewComment" />
+  <input type="text" placeholder="reviewRate" formControlName="reviewRate" />
+  <button [disabled]="!form.valid" type="submit">Post</button>
+</form>

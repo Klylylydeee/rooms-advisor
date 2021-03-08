@@ -8,6 +8,7 @@ import { catchError, finalize, first, tap,} from 'rxjs/operators';
 // models
 import { Username } from '../Models/Username';
 import { Properties } from '../Models/Properties';
+import { Review } from '../Models/Review';
 
 // auth
 import { ErrorHandlerService } from '../auth/error-handler.service';
@@ -17,8 +18,10 @@ import { ErrorHandlerService } from '../auth/error-handler.service';
 })
 
 export class PostService {
-  // private authUrl = "http://localhost:5000/api/properties/";
-  private authUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
+  // private propertyUrl = "http://localhost:5000/api/properties/";
+  private propertyUrl = "https://rooms-advisor.herokuapp.com/api/properties/";
+  private reviewUrl = "http://localhost:5000/api/reviews/";
+  // private reviewUrl = "https://rooms-advisor.herokuapp.com/api/reviews/";
   loader: boolean = true;
 
   httpOptions: { headers: HttpHeaders } = {
@@ -32,7 +35,7 @@ export class PostService {
 
   fetchAll(): Observable<Properties[]> {
     this.loader = true;
-    return this.http.get<Properties[]>(this.authUrl, { responseType: "json" }).pipe(
+    return this.http.get<Properties[]>(this.propertyUrl, { responseType: "json" }).pipe(
       finalize(()=>{
         setTimeout(()=>{
           this.loader = false;
@@ -43,14 +46,35 @@ export class PostService {
   }
 
   viewPost(paramPropertyId): Observable<Properties[]>{
-    return this.http.get<Properties[]>(`${this.authUrl}${paramPropertyId}`, 
+    return this.http.get<Properties[]>(`${this.propertyUrl}${paramPropertyId}`, 
     { responseType: "json" }).pipe(
       catchError(this.errorHandlerService.handleError<Properties[]>("View Property"))
     );
   }
 
+  viewPostComments(paramPropertyId): Observable<Properties[]>{
+    this.loader = true;
+    return this.http.get<Properties[]>(`${this.reviewUrl}${paramPropertyId}`, 
+    { responseType: "json" }).pipe(
+      tap(() => {
+        this.loader = false;
+      }),
+      catchError(this.errorHandlerService.handleError<Properties[]>("Comments"))
+    );
+  }
+  
+  postComments(formValue: Pick<Review, "reviewComment" | "reviewRate">, paramUserId : Pick<Review, "userId">, paramPropertyId: Pick<Review, "propertyId">){
+    return this.http.post<Review>(this.reviewUrl, { propertyId: paramPropertyId, userId: paramUserId, reviewComment: formValue.reviewComment, reviewRate: formValue.reviewRate }, this.httpOptions).pipe(
+      first(), 
+      tap(() => {
+        window.location.reload();
+      }),
+      catchError(this.errorHandlerService.handleError<Review>("create comment"))
+    )
+  }
+
   createPost(formValue: Pick<Properties, "propertyType" |"propertyTitle" | "propertyDescription" | "propertyAddress" | "propertyImages">, userId: Pick<Username, "userId">): Observable<Properties> {    
-    return this.http.post<Properties>(this.authUrl, { propertyTitle: formValue.propertyTitle, propertyType: formValue.propertyType,propertyAddress: formValue.propertyAddress,propertyDescription: formValue.propertyDescription, userId: userId, propertyImages: formValue.propertyImages} ,this.httpOptions).pipe(
+    return this.http.post<Properties>(this.propertyUrl, { propertyTitle: formValue.propertyTitle, propertyType: formValue.propertyType,propertyAddress: formValue.propertyAddress,propertyDescription: formValue.propertyDescription, userId: userId, propertyImages: formValue.propertyImages} ,this.httpOptions).pipe(
       first(), 
       tap(() => {
         this.router.navigate(["posts/view"]);
@@ -61,7 +85,7 @@ export class PostService {
   
 
   deletePosts(propertyId: Pick<Properties, "propertyId">): Observable<{}> {
-    return this.http.delete<Properties>(`${this.authUrl}/${propertyId}`, this.httpOptions)
+    return this.http.delete<Properties>(`${this.propertyUrl}/${propertyId}`, this.httpOptions)
     .pipe( 
       catchError(this.errorHandlerService.handleError<Properties>("deletePosts"))
     );
