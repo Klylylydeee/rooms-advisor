@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
     try {
         // validating the token key from the encrypted token then passes the 
         // token payload data to decodedToken variable
-        decodedToken = jwt.verify(token, 'secretfortoken') //secret or privatekey of the jwt, found in auth controller ln 70
+        decodedToken = jwt.verify(token, process.env.SECRETKEY) //secret or privatekey of the jwt, found in auth controller ln 70
     } catch (err){
         err.statusCode = 500;
         throw err;

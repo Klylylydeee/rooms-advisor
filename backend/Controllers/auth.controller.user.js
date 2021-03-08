@@ -82,8 +82,8 @@ exports.login = async (req, res, next) => {
             username: storedUser.username,
             email: storedUser.email,
             userPicture: storedUser.userPicture
-        }, 'secretfortoken',{  //secret or privatekey of the jwt
-            expiresIn: '1h' //option of the token
+        }, process.env.SECRETKEY,{  //secret or privatekey of the jwt
+            //expiresIn: '1h' //option of the token
         });
         
         res.status(200).json({
