@@ -5,8 +5,11 @@ const bcrypt = require('bcryptjs');
 const Reviews = require('../Models/propertiesReviews');
 
 exports.getRev = async (req, res, next) => {
+    
+    const propertyId = req.params.propertyId;
+
     try{
-        const [reviews] = await Reviews.getReviews();
+        const [reviews] = await Reviews.getReviews(propertyId);
         res.status(200).json(reviews);
     } catch(error){
         if(!error.statusCode) {

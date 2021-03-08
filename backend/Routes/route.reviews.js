@@ -7,7 +7,7 @@ const authMiddleware = require('../Middleware/auth');
 
 const reviewsController = require('../Controllers/controller.reviews');
 
-router.get('/', authMiddleware, reviewsController.getRev);
+router.get('/:propertyId', authMiddleware, reviewsController.getRev);
 
 router.post('/', [
     authMiddleware,
