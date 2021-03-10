@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="margin">
+      <!-- <div class="header">
+        <h1><i class="far fa-building"></i>{{ apartment.AptName }}</h1>
+         <h1><i class="fas fa-home"></i></i>{{ apartment.AptName }}</h1> // Dormitory
+      <h1><i class="fas fa-chalkboard-teacher"></i></i>{{ apartment.AptName }}</h1> // Faculty
+      <h1><i class="fas fa-bed"></i></i>{{ apartment.AptName }}</h1> // Bedspacer
+      
+        <h2><i class="fas fa-map-marker-alt"></i>{{ apartment.AptAd }}</h2>
+      </div> -->
+      <div class="flex">
+        <div class="slider">
+          <figure>
+            <img src="{{ apartment.AptImg }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptGm }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptImg }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptGm }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptImg }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+          </figure>
+          <div class="gallery-bar">
+            <h1><i class="far fa-building"></i>{{ apartment.AptName }}</h1>
+            <h2><i class="fas fa-map-marker-alt"></i>{{ apartment.AptAd }}</h2>
+            <h2><i class="fas fa-money-bill-wave-alt fa-sm"></i>{{ apartment.AptMonthly }} / Monthly Fee</h2>
+          </div>
+          <div class="content">
+            <div class="rules">
+              <ul>
+                <li>
+                  <input type="checkbox" checked>
+                  <i></i>
+                  <h2>Amenities</h2>
+                  <p>
+                    <p><b>Bedrooms: {{ apartment.AptBed }}<br></b>
+                </li>
+                <li>
+                  <input type="checkbox" checked>
+                  <i></i>
+                  <h2>Amenities</h2>
+                  <p>
+                    <p><b>Bedrooms: {{ apartment.AptBed }}<br></b>
+                </li>
+                <li>
+                  <input type="checkbox" checked>
+                  <i></i>
+                  <h2>Amenities</h2>
+                  <p>
+                    <p><b>Bedrooms: {{ apartment.AptBed }}<br></b>
+                </li>
+              </ul>
+                </div>
+              </div>
+            </div>
+          <div class="owner">
+          </div>
+      </div>
+  </div>
+</div>
+  <!--  <ul>
+  <li></li>
+  <li></li>
+  <img src="{{ apartment.AptImg }}" onerror="javascript:this.src='/assets/img/1.jpg'"/>
+  <img src="{{ apartment.AptGm }}"   onerror="javascript:this.src='/assets/img/1.jpg'"/>
+  <li>{{ apartment.AptBed }}</li>
+  <li>{{ apartment.AptTv }}</li>
+  <li>{{ apartment.AptBath }}</li>
+  <li>{{ apartment.AptWifi }}</li>
+  <li>{{ apartment.AptFan }}</li>
+  <li>{{ apartment.AptAir }}</li>
+  <img *ngIf="apartment.AptOwnG == 'Male'" src="female.png" slot="start" />
+  <img *ngIf="apartment.AptOwnG == 'Female'" src="/assets/img/1.jpg" slot="start" />
+  <li>{{ apartment.AptWater }}</li>
+  <li>{{ apartment.AptEle }}</li>
+  <li>{{ apartment.AptKit }}</li>
+  <li>{{ apartment.AptKitU }}</li>
+  <li>{{ apartment.AptMonthly }}</li>
+  <li>{{ apartment.AptDesc }}</li>
+
+  <li>{{ apartment.AptOwnFN }}</li>
+  <li>{{ apartment.AptOwnA }}</li>
+  <li>{{ apartment.AptOwnG }}</li>ge
+  <img src="{{ apartment.AptOwnIMG }}" (error)="setDefaultPic()"/>apt owner gender
+  <li>{{ apartment.AptOwnPN }}</li>
+  <li>{{ apartment.AptOwnEA }}</li>
+  <li>{{ apartment.AptOwnMA }}</li>
+</ul>
+edit page
+
+<div>
+  <ul id="suggestion" *ngFor="let Apartment of (members | slice: -3).reverse() let i= index">
+    <li>
+      <h2>{{ Apartment.AptName }}</h2>
+      <h2>{{ Apartment.AptOwnFN }}</h2>
+      <img src="{{ Apartment.AptImg }}"  onerror="this.onerror=null;this.src='/assets/img/1.jpg';">
+      <h4>₱{{ Apartment.AptMonthly }}/Monthly</h4>
+    </li>
+  </ul>
+</div> -->

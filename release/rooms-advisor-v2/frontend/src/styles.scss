@@ -1,0 +1,28 @@
+// Icon Pack
+// @import "https://use.fontawesome.com/releases/v5.0.7/css/all.css";
+// Logo Text
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+// font-family: 'Cookie', cursive;
+// Content Text
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+//font-family: 'Poppins', sans-serif;
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    .pop-up{
+        animation: fadein 3s;
+    }
+    @keyframes fadein {
+        from { 
+            opacity: 0; 
+        }
+        to {
+            opacity: 1; 
+        }
+    }
+}
+

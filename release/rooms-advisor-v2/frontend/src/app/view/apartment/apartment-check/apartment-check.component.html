@@ -1,0 +1,163 @@
+<div class="container">
+  <div class="margin">
+      <div class="flex">
+        <div class="slider">
+          <figure>
+            <img src="{{ apartment.AptImg }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptGm }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptImg }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptGm }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+            <img src="{{ apartment.AptImg }}"
+              onerror="javascript:this.src='/assets/img/1.jpg'" />
+          </figure>
+          <div class="gallery-bar">
+            <div class="gallery-info">
+              <h1><i class="far fa-building"></i>{{ apartment.AptName }}</h1>
+              <h2><i class="fas fa-map-marker-alt"></i>{{ apartment.AptAd }}</h2>
+              <h2><i class="fas fa-money-bill-wave-alt fa-sm"></i>{{ apartment.AptMonthly }} / Monthly Fee</h2>
+            </div>
+            <div class="image-wrap">
+              <img src="{{ apartment.AptOwnIMG }}" (error)="setDefaultPic()"/>
+            </div>
+            <div class="owner-info">
+              <h4>Owner: <span> {{ apartment.AptOwnFN }}</span></h4>
+              <h4>Age: <span> {{ apartment.AptOwnA }}</span></h4>
+              <h4>Gender: <span> {{ apartment.AptOwnG }}</span></h4>
+              <h4>Phone Number: <span> {{ apartment.AptOwnPN }}</span></h4>
+              <h4>Email Address: <span> {{ apartment.AptOwnEA }}</span></h4>
+            </div>
+          </div>
+          <div class="content">
+            <div class="rules">
+              <ul>
+                <li>
+                  <input type="checkbox" checked>
+                  <i></i>
+                  <h2>Description</h2>
+                  <p>
+                    {{ apartment.AptDesc }}
+                  </p>
+                </li>
+                <li>
+                  <input type="checkbox" checked>
+                  <i></i>
+                  <h2>Amenities</h2>
+                  <p>
+                    <li>Bedrooms: {{ apartment.AptBed }}</li>
+                    <li>Bathrooms: {{ apartment.AptBath }}</li>
+                    <li>Television: {{ apartment.AptTv }}</li>
+                    <li>Internet Connection: {{ apartment.AptWifi }}</li>
+                    <li>Electric Fan: {{ apartment.AptFan }}</li>
+                    <li>Air Condition: {{ apartment.AptAir }}</li>
+                    <li>Water Connection: {{ apartment.AptWater }}</li>
+                    <li>Electricity Connection: {{ apartment.AptEle }}</li>
+                    <li>Kitchen: {{ apartment.AptKit }}</li>
+                    <li>Kitchen Utensils: {{ apartment.AptKitU }}</li>
+                  </p>
+                </li>
+                <li>
+                  <input type="checkbox" checked>
+                  <i></i>
+                  <h2>Terms & Conditions</h2>
+                  <p>These Terms will be applied fully and affect to your use of
+                    RoomAdvisor.com. By using this RoomAdvisor.com, you agreed to accept all
+                    terms and conditions written in here. You must not use this
+                    RoomAdvisor.com if you
+                    disagree with any of these RoomAdvisor.com Standard Terms and
+                    Conditions.
+                  </p>
+                </li>
+              </ul>
+                </div>
+              </div>
+            </div>
+          <div class="owner">
+            <h3>Latest Apartments</h3>
+              <div class="grid-box" *ngFor="let Apartment of (members | slice: -3).reverse() let i= index">
+                <h4><i class="far fa-building"></i> {{ Apartment.AptName }}</h4>
+                <h5><i class="far fa-user-circle"></i> {{ Apartment.AptOwnFN }}</h5>
+                <figure>
+                  <img src="{{ Apartment.AptImg }}"
+                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                  <img src="{{ Apartment.AptGm }}"
+                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                  <img src="{{ Apartment.AptImg }}"
+                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                  <img src="{{ Apartment.AptGm }}"
+                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                  <img src="{{ Apartment.AptImg }}"
+                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                </figure>
+                <h5 class="month">₱{{ Apartment.AptMonthly }}/Monthly</h5>
+                <a [routerLink]="['/Apartment/List',
+                      Apartment._id]" class="btn
+                      btn-primary"><button>View Page</button></a>
+        </div>
+      </div>
+      <!-- <div class="suggestions">
+        <div class="grid-box">
+          <h2> My Name Is Klyde</h2>
+          <h2> Guevarra, BSIT 2020</h2>
+          <img src="one.jpg"  onerror="this.onerror=null;this.src='/assets/img/1.jpg';">
+          <h4>₱ 14,000/Monthly</h4>
+        </div>
+        <div class="grid-box">
+          <h2> My Name Is Klyde</h2>
+          <h2> Guevarra, BSIT 2020</h2>
+          <img src="one.jpg"  onerror="this.onerror=null;this.src='/assets/img/1.jpg';">
+          <h4>₱ 14,000/Monthly</h4>
+        </div>
+        <div class="grid-box">
+          <h2> My Name Is Klyde</h2>
+          <h2> Guevarra, BSIT 2020</h2>
+          <img src="one.jpg"  onerror="this.onerror=null;this.src='/assets/img/1.jpg';">
+          <h4>₱ 14,000/Monthly</h4>
+        </div> -->
+
+      </div>
+  </div>
+</div>
+  <!--  <ul>
+  <li></li>
+  <li></li>
+  <img src="{{ apartment.AptImg }}" onerror="javascript:this.src='/assets/img/1.jpg'"/>
+  <img src="{{ apartment.AptGm }}"   onerror="javascript:this.src='/assets/img/1.jpg'"/>
+  <li>{{ apartment.AptBed }}</li>
+  <li>{{ apartment.AptTv }}</li>
+  <li>{{ apartment.AptBath }}</li>
+  <li>{{ apartment.AptWifi }}</li>
+  <li>{{ apartment.AptFan }}</li>
+  <li>{{ apartment.AptAir }}</li>
+  <img *ngIf="apartment.AptOwnG == 'Male'" src="female.png" slot="start" />
+  <img *ngIf="apartment.AptOwnG == 'Female'" src="/assets/img/1.jpg" slot="start" />
+  <li>{{ apartment.AptWater }}</li>
+  <li>{{ apartment.AptEle }}</li>
+  <li>{{ apartment.AptKit }}</li>
+  <li>{{ apartment.AptKitU }}</li>
+  <li>{{ apartment.AptMonthly }}</li>
+  <li>{{ apartment.AptDesc }}</li>
+
+  <li>{{ apartment.AptOwnFN }}</li>
+  <li>{{ apartment.AptOwnA }}</li>
+  <li>{{ apartment.AptOwnG }}</li>ge
+  <img src="{{ apartment.AptOwnIMG }}" (error)="setDefaultPic()"/>apt owner gender
+  <li>{{ apartment.AptOwnPN }}</li>
+  <li>{{ apartment.AptOwnEA }}</li>
+  <li>{{ apartment.AptOwnMA }}</li>
+</ul>
+edit page
+
+<div>
+  <ul id="suggestion" *ngFor="let Apartment of (members | slice: -3).reverse() let i= index">
+    <li>
+      <h2>{{ Apartment.AptName }}</h2>
+      <h2>{{ Apartment.AptOwnFN }}</h2>
+      <img src="{{ Apartment.AptImg }}"  onerror="this.onerror=null;this.src='/assets/img/1.jpg';">
+      <h4>₱{{ Apartment.AptMonthly }}/Monthly</h4>
+    </li>
+  </ul>
+</div> -->

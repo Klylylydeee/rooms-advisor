@@ -1,0 +1,111 @@
+@media screen and (max-width: 1360px) {
+    .main-portfolio {
+        height: 100vh;
+        width: 100%;
+    }
+    
+    .content-portfolio {
+        height: inherit;
+        width: 100%;
+    }
+    
+    .background-portfolio {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        background-color: black;
+    }
+    
+    .background-portfolio img {
+        position: relative;
+        padding-top: 1vh;
+        height: 99vh;
+        width: 100%;
+        filter: brightness(50%);
+    }
+    
+    .context-portfolio {
+        font-family: "Segoe UI", Arial, sans-serif;
+        position: absolute;
+        bottom: 0;
+        height: 100vh;
+        width: 100%;
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(4px);
+    }
+    
+    .context-text {
+        float:left;
+        height: 75vh;
+        width: 102vh;
+        margin-top: 10vh;
+        margin-left: 90px;
+        padding-left: 10px;
+        padding-top: 10px;
+        box-shadow: 1px 5px 10px 1px black;
+    }
+    
+    .upper-a {
+        font-size: 25px;
+    }
+    
+    .upper-main {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: white;
+        font-size: 95px;
+    }
+    
+    .context-text-bottom-left {
+        float: left;
+        padding-top: 35px;
+    }
+    
+    .context-text-bottom-right {
+        float: left;
+        padding-top: 35px;
+        padding-left: 25px;
+    }
+    
+    .bottom-a-content {
+        padding-left: 15px;
+        font-size: 15px;
+    }
+    
+    .bottom-a {
+        padding-left: 15px;
+        font-size: 20px;
+    }
+    
+    .seperator-one {
+        margin-top: -20px;
+    }
+    
+    .seperator {
+        margin-top: -20px;
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 425px) {
+
+}
+
+@media screen and (max-width: 375px) {
+
+}
+
+@media screen and (max-width: 320px) {
+    
+}

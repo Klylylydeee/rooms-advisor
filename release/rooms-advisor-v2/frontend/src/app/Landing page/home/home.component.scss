@@ -1,0 +1,394 @@
+// Logo Text
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+// font-family: 'Cookie', cursive;
+// Content Text
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+//font-family: 'Poppins', sans-serif;
+$primary: #337B33;
+$secondary: #e0ac1c;
+$plain: #ffffff;
+
+*{
+    padding:0;
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+    color: $plain;
+}
+
+.home-container{
+    width: 100%;
+    padding-bottom: 10vh;
+    background-image: url('/assets/img/bdv.jpg');
+    background-position-x: center;
+    background-position-y: 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(0,0,0,.70);
+    background-blend-mode: multiply;
+    position: relative;
+    .text-container{
+        margin: 0 80px 0 80px;
+        h1{
+            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+            padding: 20vh 0 0 0;
+        }
+        h3{
+            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            padding: 0 0 5vh 0;
+            span{
+                span{
+                    color: $secondary;
+                }
+            }
+        }
+        ul{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+            li{
+                list-style: none;
+                margin: 10px;
+                .container{
+                    box-shadow: -2px 0 4px 2px rgba(0, 0, 0, .5);
+                    // opacity: 1;
+                    // position: relative;
+                    // &:before {
+                    //     margin: 0 5% 0 5%;
+                    //     content: '';
+                    //     display: block;
+                    //     z-index: 100;
+                    //     height: 3px;
+                    //     background: $primary;
+                    //     position: absolute;
+                    //     // top: -.75em;
+                    //     left: 0;
+                    //     right: 0;
+                    //     bottom: 0.1em;
+                    //     transform: scale(0, 1);
+                    //     transition: transform ease-in-out 250ms;
+                    // }
+                    // &:hover {
+                    //     &:before {
+                    //         transform: scale(1, 1);
+                    //     }
+                    // }
+                }
+                &:nth-child(1){ // Bedspacer
+                    .container{
+                        .image{
+                            width: 50%;
+                            border-radius: 50px 0 0 50px;
+                            background: url('/assets/img/main-bd.jpg') no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                }
+                &:nth-child(2){ // Dormitory
+                    .container{
+                        .image{
+                            width: 50%;
+                            border-radius: 50px 0 0 50px;
+                            background: url('/assets/img/bdv.jpg') no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                }
+                &:nth-child(3){ //Apartment
+                    .container{
+                        .image{
+                            width: 50%;
+                            border-radius: 50px 0 0 50px;
+                            background: url('/assets/img/1.jpg') no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                }
+                &:nth-child(4){ // Faculty
+                    .container{
+                        .image{
+                            width: 50%;
+                            border-radius: 50px 0 0 50px;
+                            background: url('https://fastly.4sqi.net/img/general/600x600/50086414_M1ZDmIKnPvLoK899SVluR4rhj5Pen_Tt7avpqXcIAps.jpg') no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                }
+                .container{
+                    border-radius: 50px;
+                    background-color: $primary;
+                    display: flex;
+                    .image{
+                        width: 50%;
+                        border-radius: 50px;
+                    }
+                    .text{
+                        display: grid;    
+                        .flex{
+                            display: flex;
+                            justify-content: center;
+                            text-align: center;
+                                a{
+                                    text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                                    padding:  0 0 10px 10px;
+                                        button{ 
+                                            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                                            padding: 10px;
+                                            border-radius: 10px;
+                                            background-color: $secondary;
+                                            border-style: none;
+                                            &:focus {
+                                                outline:0;
+                                            }
+                                            &:hover{
+                                                transition: ease;
+                                                transform: translateY(-5%);
+                                                box-shadow: 8px 8px 4px -4px rgba(0, 0, 0, .5);
+                                            }
+                                        }
+                                }
+                            // a{
+                            //     text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                            //     padding-bottom: 5px;
+                            //     width: 100%;
+                            //     button{ 
+                            //         text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                            //         width: 85%;
+                            //         padding: 5px;
+                            //         border-radius: 10px;
+                            //         background-color: $secondary;
+                            //         border-style: none;
+                            //         &:focus {
+                            //             outline:0;
+                            //         }
+                            //         &:hover{
+                            //             transition: ease;
+                            //             transform: translateY(-5%);
+                            //             box-shadow: 8px 8px 4px -4px rgba(0, 0, 0, .5);
+                            //         }
+                            //     }
+                            // }
+                        }
+                        h3{
+                            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                            font-weight: 700;
+                            padding:0;
+                            margin:10px;
+                        }
+                        h5{
+                            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                            font-weight: 300;
+                            padding:0;
+                            margin: 0 10px 10px 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    .home-container{
+        .text-container{
+            margin: 0;
+            h1{
+                font-size: 40px;
+                padding: 20px;
+            }
+            h3{
+                font-size: 20px;
+                padding: 20px;
+            }
+            ul{
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                li{
+                    margin: 5px;
+                    &:nth-child(1){
+                        .container{
+                            .image{
+                                width: 50%;
+                                border-radius: 20px 0 0 20px;
+                                background: url('/assets/img/main-bd.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        .container{
+                            .image{
+                                width: 50%;
+                                border-radius: 20px 0 0 20px;
+                                background: url('/assets/img/bdv.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    &:nth-child(3){
+                        .container{
+                            .image{
+                                width: 50%;
+                                border-radius: 20px 0 0 20px;
+                                background: url('/assets/img/1.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    &:nth-child(4){
+                        .container{
+                            .image{
+                                width: 50%;
+                                border-radius: 20px 0 0 20px;
+                                background: url('https://fastly.4sqi.net/img/general/600x600/50086414_M1ZDmIKnPvLoK899SVluR4rhj5Pen_Tt7avpqXcIAps.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    .container{
+                        border-radius: 30px;
+                        .image{
+                            width: 200%;
+                            border-radius: 30px;
+                            background: url('/assets/img/gabuyo-bd.jpg') no-repeat;
+                        }
+                        .text{   
+                            .flex{
+                            text-align: center;
+                            a{
+                                text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                                padding:  0 0 10px 10px;
+                                    button{ 
+                                        text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                                        padding: 10px;
+                                        border-radius: 10px;
+                                        background-color: $secondary;
+                                        border-style: none;
+                                        &:focus {
+                                            outline:0;
+                                        }
+                                        &:hover{
+                                            transition: ease;
+                                            transform: translateY(-5%);
+                                            box-shadow: 8px 8px 4px -4px rgba(0, 0, 0, .5);
+                                        }
+                                    }
+                            }
+                            }
+                            h3{
+                                padding:0;
+                                margin:10px;
+                            }
+                            h5{
+                                font-weight: 200;
+                                padding:0;
+                                margin: 0 10px 10px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px){
+    .home-container{
+        .text-container{
+            ul{
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                li{
+                    &:nth-child(1){
+                        .container{
+                            .image{
+                                width: 100%;
+                                border-radius: 20px 20px 0 0;
+                                background: url('/assets/img/main-bd.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        .container{
+                            .image{
+                                width: 100%;
+                                border-radius: 20px 20px 0 0;
+                                background: url('/assets/img/bdv.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    &:nth-child(3){
+                        .container{
+                            .image{
+                                width: 100%;
+                                border-radius: 20px 20px 0 0;
+                                background: url('/assets/img/1.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    &:nth-child(4){
+                        .container{
+                            .image{
+                                width: 100%;
+                                border-radius: 20px 20px 0 0;
+                                background: url('https://fastly.4sqi.net/img/general/600x600/50086414_M1ZDmIKnPvLoK899SVluR4rhj5Pen_Tt7avpqXcIAps.jpg') no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                    .container{
+                        display: grid;
+                        border-radius: 30px;
+                        .image{
+                            height: 25vh;
+                            width: 100%;
+                            border-radius: 20px;
+                            background: url('/assets/img/gabuyo-bd.jpg') no-repeat;
+                        }
+                        .text{   
+                            .flex{
+                                a{
+                                    text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                                    padding:  10px;
+                                        button{ 
+                                            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+                                            padding: 10px;
+                                            border-radius: 10px;
+                                            background-color: $secondary;
+                                            border-style: none;
+                                            &:focus {
+                                                outline:0;
+                                            }
+                                            &:hover{
+                                                transition: ease;
+                                                transform: translateY(-5%);
+                                                box-shadow: 8px 8px 4px -4px rgba(0, 0, 0, .5);
+                                            }
+                                        }
+                                }
+                            }
+                            h3{
+                                padding:0;
+                                margin: 10px 10px 0 10px;
+                            }
+                            h5{
+                                padding:0;
+                                margin: 0 10px 0px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 320px){
+    .home-container{
+        .text-container{
+            ul{
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+    }
+}

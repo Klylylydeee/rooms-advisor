@@ -1,0 +1,365 @@
+// Logo Text
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+// font-family: 'Cookie', cursive;
+// Content Text
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+//font-family: 'Poppins', sans-serif;
+$primary: #337B33;
+$secondary: #e0ac1c;
+$plain: #ffffff;
+.footer-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    background-color: $primary;
+    font-family: 'Poppins', sans-serif;
+    transform: translateY(.01%);
+    box-shadow: -2px 0 4px 2px rgba(0, 0, 0, .5);
+    &:before {
+        content: '';
+        display: block;
+        height: 5px;
+        width: 100%;
+        background: #e0ac1c;
+        position: absolute;
+        // top: -.75em;
+        left: 0;
+        right: 0;
+        top: 0em;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+    &:hover {
+        cursor: pointer;
+        transition: 1s ease;
+        color: #e0ac1c;
+        margin: 0;
+        span {
+            color: white;
+        }
+        &:before {
+            transform: scale(1, 1);
+        }
+    }
+    .left-container {
+        margin-left: 60px;
+        color: $plain;
+        .roomadivsor-flex {
+            display: flex;
+            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+            img {
+                height: 40px;
+                margin-top: 27px;
+            }
+            a {
+                text-decoration: none;
+                color: $plain;
+                h1 {
+                    font-family: 'Cookie', cursive;
+                    font-size: 40px;
+                    .logo-span {
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+        .link-flex {
+            display: flex;
+            flex-wrap: wrap;
+            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+            a {
+                i {
+                    background-color: rgba(0, 0, 0, 0.4);
+                    color: $plain;
+                    border-radius: 5px;
+                    padding: 5px;
+                    margin: 0 2px 0 2px;
+                }
+                img {
+                    height: 14px;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    color: $plain;
+                    border-radius: 5px;
+                    padding: 5px;
+                    margin: 0 2px 0 2px;
+                }
+            }
+        }
+        p {
+            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+            color: $plain;
+            font-size: 13px;
+            margin: 15px 15px 15px 0;
+            a {
+                text-decoration: none;
+            }
+            .logo-span {
+                font-family: 'Cookie', cursive;
+                color: $plain;
+                font-size: 23px;
+            }
+            .logo-span-span {
+                font-family: 'Cookie', cursive;
+                color: $secondary;
+                font-size: 23px;
+            }
+        }
+    }
+    .center-container {
+        display: flex;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        margin-left: -15px;
+        text-shadow: 2px 2px rgba(0, 0, 0, .5);
+        ul {
+            font-size: 11px;
+            margin: 20px 10px 10px 0;
+            padding: 0;
+            font-size: 18px;
+            .span {
+                border-bottom: 1px solid $secondary;
+                padding-bottom: 5px;
+                width: 80%;
+            }
+            i {
+                color: white;
+                align-self: center;
+                background-color: rgba(0, 0, 0, 0.4);
+                padding: 5px;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+            li {
+                font-size: 15px;
+                padding: 8px 2px 8px 2px;
+                text-decoration: none;
+                list-style: none;
+                a {
+                    text-decoration: none;
+                    color: white;
+                    i {
+                        color: white;
+                        align-self: center;
+                        background-color: rgba(0, 0, 0, 0.4);
+                        padding: 5px;
+                        border-radius: 10px;
+                        margin-left: 1px;
+                    }
+                }
+            }
+        }
+    }
+    .right-container {
+        // background-color: yellow;
+        margin-right: 60px;
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 2px 2px rgba(0, 0, 0, .5);
+        .content-container {
+            margin: 5px;
+            a {
+                color: white;
+                display: flex;
+                text-decoration: none;
+                i {
+                    color: white;
+                    align-self: center;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    padding: 5px;
+                    border-radius: 10px;
+                    margin-right: 10px;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    &:hover {
+        .left-container {
+            .roomadivsor-flex {
+                &:hover {
+                    transition: .5s ease;
+                }
+                img {}
+                a {
+                    h1 {
+                        &:hover {
+                            transition: .5s ease;
+                            color: $secondary;
+                            .logo-span {
+                                color: $plain;
+                            }
+                        }
+                    }
+                }
+            }
+            .link-flex {
+                a {
+                    &:hover {
+                        transition: .5s ease;
+                        transform: translateY(-20%);
+                    }
+                }
+            }
+            p {
+                &:hover {
+                    transition: .5s ease;
+                    transform: translateY(-20%);
+                    .logo-span {
+                        transition: .5s ease;
+                        color: $secondary;
+                    }
+                    .logo-span-span {
+                        transition: .5s ease;
+                        color: $plain;
+                    }
+                }
+            }
+        }
+        .center-container {
+            ul {
+                li {
+                    &:hover {
+                        transition: .5s ease;
+                        transform: translateY(-20%);
+                    }
+                }
+            }
+        }
+        .right-container {
+            .content-container {
+                a {
+                    &:hover {
+                        transition: .5s ease;
+                        transform: translateY(-10%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .footer-container {
+        .left-container {
+            .roomadivsor-flex {}
+            .link-flex {
+                margin: 0 0 22.5px 0;
+            }
+        }
+        .center-container {
+            ul {
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                justify-content: center;
+                li {
+                    padding: 5px 2px 5px 2px;
+                    margin-left: 0;
+                    text-decoration: none;
+                    list-style: none;
+                }
+            }
+        }
+        .right-container {
+            .content-container {
+                a {
+                    p {
+                        font-size: 12px;
+                    }
+                    .p-spacing {
+                        letter-spacing: 1.35px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1004px) {
+    .footer-container {
+        .right-container {
+            display: none;
+        }
+        .center-container {
+            display: flex;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            margin-left: -30px;
+            ul {
+                font-size: 18px;
+                li {
+                    font-size: 15px;
+                    a {
+                        i {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 'third' 'first';
+        .left-container {
+            margin: 0;
+            grid-area: first;
+            text-align: center;
+            .roomadivsor-flex {
+                margin: 5px 0 0 0;
+                display: flex;
+                justify-content: center;
+            }
+            .link-flex {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                margin: 0 0 22.5px 0;
+            }
+            p {
+                margin: 0 0 0 2.5px;
+                text-align: center;
+            }
+        }
+        .center-container {
+            display: none;
+            grid-area: second;
+            margin-left: 0;
+            justify-content: center;
+            margin-top: 15px;
+            ul {
+                li {
+                    padding: 5px 2px 5px 2px;
+                    a {
+                        i {}
+                    }
+                }
+            }
+        }
+        .right-container {
+            grid-area: third;
+            margin: 0;
+            color: green;
+            display: block;
+            margin-top: 15px;
+            .content-container {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                margin-top: 15px;
+                a {
+                    p {
+                        font-size: 12px;
+                    }
+                    .p-spacing {
+                        letter-spacing: 1.35px;
+                    }
+                }
+            }
+        }
+    }
+}

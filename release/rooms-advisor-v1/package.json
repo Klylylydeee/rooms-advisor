@@ -1,0 +1,23 @@
+{
+  "name": "roomadvisor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://github.com/GKlyde1313/RoomAdvisor",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GKlyde1313/RoomAdvisor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GKlyde1313/RoomAdvisor/issues"
+  },
+  "dependencies": {
+    "gh-pages": "^2.1.1"
+  }
+}

@@ -1,0 +1,241 @@
+@media screen and (max-width: 1360px) {
+    .main-portfolio {
+        height: 100vh;
+        width: 100%;
+    }
+    
+    .content-portfolio {
+        height: inherit;
+        width: 100%;
+    }
+    
+    .background-portfolio {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        background-color: black;
+    }
+    
+    .background-portfolio img {
+        position: relative;
+        padding-top: 1vh;
+        height: 99vh;
+        width: 100%;
+        filter: brightness(50%);
+    }
+    
+    .context-portfolio {
+        font-family: "Segoe UI", Arial, sans-serif;
+        position: absolute;
+        bottom: 0;
+        height: 100vh;
+        width: 100%;
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(4px);
+    }
+    
+    .context-text {
+        height: 82vh;
+        margin-top: 10vh;
+        margin-left: 90px;
+        margin-right: 95px;
+        padding-left: 20px;
+        padding-top: 10px;
+        box-shadow: 1px 5px 10px 1px black;
+    }
+    
+    .upper-a {
+        font-size: 25px;
+    }
+    
+    .upper-main {
+        font-size: 125px;
+    }
+    
+    #image-one {
+        margin-left: 10px;
+        margin-top: 10px;
+        float: left;
+        display: flex;
+        height: 180px;
+        width: 180px;
+        border-radius: 50px 50px;
+    }
+    
+    #image-two {
+        margin-left: 40px;
+        margin-top: 10px;
+        float: left;
+        display: flex;
+        height: 180px;
+        width: 180px;
+        border-radius: 50px 50px;
+    }
+    
+    #image-three {
+        margin-left: 40px;
+        margin-top: 10px;
+        float: left;
+        display: flex;
+        height: 180px;
+        width: 180px;
+        border-radius: 50px 50px;
+    }
+    
+    .context-text-bottom-left {
+        float: left;
+        padding-top: 35px;
+        padding-left: 40px;
+    }
+    
+    .context-text-bottom-right {
+        float: left;
+        padding-top: 35px;
+        padding-left: 25px;
+    }
+    
+    .bottom-a-content {
+        padding-left: 15px;
+        font-size: 15px;
+    }
+    
+    .bottom-a {
+        padding-left: 15px;
+        font-size: 20px;
+    }
+    
+    .seperator-one {
+        margin-top: -20px;
+    }
+    
+    .seperator {
+        margin-top: -20px;
+    }
+    
+    
+    /**/
+    #pop-up{
+        animation: fadein 2s;
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0
+        }
+        to {
+            opacity: 1
+        }
+    }
+    
+    /**/
+    .home {
+        height: 210vh;
+        position: absolute;
+        width: 100%;
+        color: #C7C8CC;
+        background-color: #CCCCCC;
+    }
+    
+    .home h1 {
+        padding-top: 10vh;
+        text-align: justify;
+        margin-left: 90px;
+        margin-right: 95px;
+    }
+    
+    .home-frame {
+        height: 210vh;
+        width: 80%;
+        padding-right: 90px;
+        margin-left: 90px;
+        background-color: #6FB98F;
+    }
+    
+    .image-frame {
+        margin-left: 10vh;
+        height: 100vh;
+        width: 200vh;
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    
+    .image-frame img {
+        height: 100vh;
+        width: 200vh;
+        border-radius: 10px;
+    }
+    
+    .main-frame {
+        float: left;
+        margin-top: 5vh;
+        margin-left: 10vh;
+        padding-top: 5vh;
+        padding-left: 5vh;
+        padding-right: 5vh;
+        height: 95vh;
+        width: 130vh;
+        color: white;
+        text-align: justify;
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        text-shadow: 1px 1px black;
+        background-color: #0C9463;
+    }
+    
+    #main-frame-content {
+        font-size: 50px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    
+    #main-frame-author {
+        font-size: 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    
+    #seperator-small {
+        margin-top: -1px;
+    }
+    
+    .right-frame {
+        float: left;
+        padding-top: 5vh;
+        padding-left: 3vh;
+        height: 100vh;
+        width: 49vh;
+        border-radius: 10px;
+    }
+    
+    .right-frame iframe {
+        height: 100vh;
+        width: 56vh;
+        border: 0;
+        box-shadow: 0px 24px 24px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 425px) {
+
+}
+
+@media screen and (max-width: 375px) {
+
+}
+
+@media screen and (max-width: 320px) {
+    
+}

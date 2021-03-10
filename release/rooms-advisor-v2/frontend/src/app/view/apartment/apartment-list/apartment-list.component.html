@@ -1,0 +1,185 @@
+<div class="list-container">
+      <div class="margin">
+            <div class="data-list">
+                  <div class="form-header">
+                        <div class="flex-end">
+                              <h1>Apartments</h1>
+                        </div>
+                  </div>
+                  <div class="data-container" *ngFor="let Apartment of members.reverse();
+                        let i= index"> <!--- START OF UL-->
+                        <div class="data-img">
+                              <!-- <img src="{{ Apartment.AptImg }}"
+                                    onerror="this.onerror=null;this.src='/assets/img/1.jpg';"> -->
+                              <figure>
+                                    <img src="{{ Apartment.AptImg }}"
+                                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                                    <img src="{{ Apartment.AptGm }}"
+                                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                                    <img src="{{ Apartment.AptImg }}"
+                                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                                    <img src="{{ Apartment.AptGm }}"
+                                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                                    <img src="{{ Apartment.AptImg }}"
+                                    onerror="javascript:this.src='/assets/img/1.jpg'" />
+                              </figure>
+                        </div>
+                        <div class="data-text">
+                              <div class="data-set-info">
+                                    <h2>{{ Apartment.AptName }}</h2>
+                                    <h4>{{ Apartment.AptAd }}</h4>
+                                    <div class="data-etc">
+                                          <div class="data-owner">
+                                                <h4>Owner Information</h4>
+                                                <div class="owner-num">
+                                                      <h5>Name: <br> {{
+                                                            Apartment.AptOwnFN
+                                                            }}</h5>
+                                                      <h5>Phone Number: <br>
+                                                            <a href="tel:{{ Apartment.AptOwnPN }}"> 
+                                                                  {{ Apartment.AptOwnPN }}    
+                                                            </a> 
+                                                      </h5>
+                                                      <h5>Email Address: <br>
+                                                            <a href="mailto:{{ Apartment.AptOwnEA }}?subject = Feedback&body = Message"> 
+                                                                  {{ Apartment.AptOwnEA }}    
+                                                            </a>
+                                                      </h5>
+                                                </div>
+                                          </div>
+                                          <div class="data-amenities">
+                                                <h4>Amenities</h4>
+                                                <div class="amenities-content">
+                                                      <div
+                                                            class="amenities-num">
+                                                            <h5>Bedrooms: {{
+                                                                  Apartment.AptBed
+                                                                  }}</h5>
+                                                            <h5>TV: {{
+                                                                  Apartment.AptTv
+                                                                  }}</h5>
+                                                            <h5>Bathroom: {{
+                                                                  Apartment.AptBath
+                                                                  }}</h5>
+                                                            <h5>Wifi: {{
+                                                                  Apartment.AptWifi
+                                                                  }}</h5>
+                                                      </div>
+                                                      <div
+                                                            class="amenities-bol">
+                                                            <h5>Electricity? {{
+                                                                  Apartment.AptEle
+                                                                  }}</h5>
+                                                            <h5>Water Supply? {{
+                                                                  Apartment.AptWater
+                                                                  }}</h5>
+                                                            <h5>Kitchen? {{
+                                                                  Apartment.AptKit
+                                                                  }}</h5>
+                                                            <h5>Air Condition?
+                                                                  {{
+                                                                  Apartment.AptAir
+                                                                  }}</h5>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div class="data-nav">
+                                    <h4>₱{{ Apartment.AptMonthly }}/Monthly</h4>
+                                    <span></span>
+                                    <div class="nav-button">
+                                          <a [routerLink]="['/Apartment/List',
+                                                Apartment._id]" class="btn
+                                                btn-primary"><button>View Page</button></a>
+                                          <a [routerLink]="['/Apartment/Edit',
+                                                Apartment._id]" class="btn
+                                                btn-primary"><button>Edit</button></a>
+                                          <a (click)="deleteApartment(Apartment._id,i)" class="btn btn-danger">
+                                          <button>
+                                                Delete
+                                          </button>
+                                          </a>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="developer">
+                  <ul><h3>Rules and Regulation</h3>
+                        <li><h6> 1. Students in private accomodation should
+                                    ensure that they do not cause any annoyance
+                                    or distress to their neighbors which would
+                                    bring roomadvisor credited apartments/house
+                                    into dispute. </h6></li>
+                        <li> <h6> 2. Pets are not permitted within the student
+                                    accomodation.</h6></li>
+                        <li> <h6> 3. Students should have regard for the right of
+                                    other students and residents to have a
+                                    suitable environment in which to study and
+                                    live and refrain from making excessive
+                                    noise. For the comfort and safety of other
+                                    students/residents noise levels must be kept
+                                    to a minimum particularly between the hours
+                                    of 10pm and 8am. Parties and loud music are
+                                    not permitted. Students may, however, gather
+                                    in each other’s houses socially but must
+                                    ensure that other students/residents are not
+                                    disturbed. </h6></li>
+                        <li> <h6> 4. As in a hotel the requirements of fire safety
+                                    in the student accommodation is paramount
+                                    and there is a non-smoking policy within all
+                                    student accommodation. ANY STUDENT FOUND
+                                    INTERFERING WITH OR OBSTRUCTING ANY FIRE
+                                    PROCEDURE OR PIECE OF EQUIPMENT OR SMOKING
+                                    WILL BE subject to fines as laid down by the
+                                    Lodging/hotel management. If interference
+                                    takes place and it is not individually
+                                    admitted, all occupants will pay the full
+                                    fine. </h6></li>
+                        <li><h6>These Terms will be applied fully and affect to
+                                    your use of
+                                    RoomAdvisor.com. By using this
+                                    RoomAdvisor.com, you agreed to accept all
+                                    terms and conditions written in here. You
+                                    must not use this
+                                    RoomAdvisor.com if you
+                                    disagree with any of these RoomAdvisor.com
+                                    Standard Terms and
+                                    Conditions.</h6></li>
+                  </ul>
+            </div>
+      </div>
+</div>
+
+
+<!-- <ul *ngFor="let Apartment of members; let i= index">
+      <li><a [routerLink]="['/Apartment/List', Apartment._id]" class="btn
+                  btn-primary">Check</a></li>
+      <li>{{ Apartment.AptName }}</li>
+      <li>{{ Apartment.AptAd }}</li>
+      <img src="{{ Apartment.AptImg }}"
+            onerror="this.onerror=null;this.src='/assets/icon/logo/roomadvisor.png';">
+      <li>{{ Apartment.AptGm }}</li>
+      <li>{{ Apartment.AptBed }}</li>
+      <li>{{ Apartment.AptTv }}</li>
+      <li>{{ Apartment.AptBath }}</li>
+      <li>{{ Apartment.AptWifi }}</li>
+      <li>{{ Apartment.AptFan }}</li>
+      <li>{{ Apartment.AptAir }}</li>
+      <li>{{ Apartment.AptWater }}</li>
+      <li>{{ Apartment.AptEle }}</li>
+      <li>{{ Apartment.AptKit }}</li>
+      <li>{{ Apartment.AptKitU }}</li>
+      <li>{{ Apartment.AptMonthly }}</li>
+      <li>{{ Apartment.AptDesc }}</li>
+      <li>{{ Apartment.AptOwnFN }}</li>
+      <li>{{ Apartment.AptOwnA }}</li>
+      <li>{{ Apartment.AptOwnG }}</li>
+      <li>{{ Apartment.AptOwnPN }}</li>
+      <li>{{ Apartment.AptOwnEA }}</li>
+      <li>{{ Apartment.AptOwnMA }}</li>
+      <li><a [routerLink]="['/Apartment/Edit', Apartment._id]" class="btn
+                  btn-primary">Edit</a></li>
+      <li><a (click)="deleteApartment(Apartment._id, i)" class="btn btn-danger">Delete</a></li>
+</ul> -->

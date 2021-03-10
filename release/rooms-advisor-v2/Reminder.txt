@@ -1,0 +1,8 @@
+How to deploy angular 9 frontend to heroku
+
+Set heroku project path to frontend through config vars and importing build pack
+https://github.com/timanovsky/subdir-heroku-buildpack & nodejs
+
+https://medium.com/better-programming/how-to-deploy-your-angular-9-app-to-heroku-in-minutes-51d171c2f0d
+
+If ng build --prod error occurs set angular.json 'budget' maximumError and maximumWarning to higher value

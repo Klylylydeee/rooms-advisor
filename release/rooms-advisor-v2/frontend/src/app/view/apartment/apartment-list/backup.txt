@@ -1,0 +1,21 @@
+<ul *ngFor="let Apartment of members; let i = index">
+    <li><a [routerLink]="['/Apartment/List', Apartment._id]" class="btn btn-primary">Check</a></li>
+       <li>{{  Apartment.AptName }}</li>
+       <li>{{  Apartment.AptAd }}</li>
+       <img src="{{ Apartment.AptImg }}" onerror="this.onerror=null;this.src='/assets/icon/logo/roomadvisor.png';">
+       <li>{{ Apartment.AptGm  }}</li>
+       <li>{{ Apartment.AptBed }}</li>
+       <li>{{  Apartment.AptTv  }}</li>
+       <li>{{ Apartment.AptBath }}</li>
+       <li>{{ Apartment.AptWifi  }}</li>
+       <li>{{ Apartment.AptFan  }}</li>
+       <li>{{ Apartment.AptAir  }}</li>
+       <li>{{ Apartment.AptWater  }}</li>
+       <li>{{ Apartment.AptEle }}</li>
+       <li>{{ Apartment.AptKit  }}</li>
+       <li>{{ Apartment.AptKitU }}</li>
+       <li>{{ Apartment.AptMonthly }}</li>
+       <li>{{ Apartment.AptDesc  }}</li>
+    <li><a [routerLink]="['/Apartment/Edit', Apartment._id]" class="btn btn-primary">Edit</a></li>
+   <li><a (click) = "deleteApartment(Apartment._id, i)" class="btn btn-danger">Delete</a></li>
+</ul>

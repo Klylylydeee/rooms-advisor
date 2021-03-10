@@ -1,0 +1,41 @@
+// Logo Text
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+// font-family: 'Cookie', cursive;
+// Content Text
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+//font-family: 'Poppins', sans-serif;
+$primary: #337B33;
+$secondary: #e0ac1c;
+$plain: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    color:black;
+}
+.flex{
+    display: flex;
+}
+
+.grid{
+    display: grid;
+}
+
+.list-container{
+    width: 100%;
+    .main-content{
+        height: 100%;
+        background-color: $secondary;
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(800px,1fr));
+        grid-template-rows: auto;
+        .data-list{
+            height: 30vh;
+            background-color: red;
+            margin: 30px;
+        }
+    }
+}

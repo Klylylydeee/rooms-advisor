@@ -1,0 +1,187 @@
+// Logo Text
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+// font-family: 'Cookie', cursive;
+// Content Text
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+//font-family: 'Poppins', sans-serif;
+$primary: #337B33;
+$secondary: #e0ac1c;
+$plain: #ffffff;
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.team-section {
+    background-color: $primary;
+    min-height: 100vh;
+    padding: 25px 15px 30px;
+    text-shadow: 2px 2px rgba(0, 0, 0, .5);
+    .container {
+        max-width: 1170px;
+        margin: auto;
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            .team-items {
+                flex-basis: 100%;
+                max-width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+        .section-title {
+            flex-basis: 100%;
+            max-width: 100%;
+            margin-bottom: 25px;
+            animation: drop .5s ease;
+            h1 {
+                font-size: 40px;
+                text-align: center;
+                margin: 0;
+                color: $plain;
+                font-weight: 700;
+            }
+            p {
+                font-size: 16px;
+                text-align: center;
+                margin: 15px 0 0;
+                color: $plain;
+            }
+            span {
+                transition: .5s ease;
+                font-family: 'Cookie', cursive;
+                font-size: 50px;
+                color: $plain;
+                .roomadvisor {
+                    color: $secondary;
+                }
+            }
+            &:hover {
+                span {
+                    color: $secondary;
+                    .roomadvisor {
+                        color: $plain;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.item {
+    animation: drop 2s ease;
+    flex-basis: calc(35% - 30px);
+    max-width: calc(30% - 1px);
+    transition: all .5s ease;
+    margin-bottom: 40px;
+    &:hover {
+        .inner {
+            .info {
+                h5 {
+                    border-bottom: 3px solid $secondary;
+                    padding-bottom: 5px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    img {
+        display: block;
+        width: 100%;
+        border-radius: 8px;
+    }
+    .inner {
+        position: relative;
+        z-index: 11;
+        padding: 0 15px;
+        .info {
+            background-color: $primary;
+            text-align: center;
+            padding: 20px 15px;
+            border-radius: 8px;
+            transition: all .5s ease;
+            margin-top: -40px;
+            h5 {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 600;
+                color: #ffffff;
+            }
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                color: #c5c5c5;
+                margin: 10px 0 0;
+            }
+            .social-links {
+                padding-top: 15px;
+                text-shadow:none;
+                a {
+                    display: inline-block;
+                    height: 32px;
+                    width: 32px;
+                    background-color: #ffffff;
+                    color: $primary;
+                    border-radius: 50%;
+                    margin: 0 2px;
+                    text-align: center;
+                    line-height: 32px;
+                    font-size: 16px;
+                    transition: all .5s ease;
+                }
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(-10px);
+        .info {
+            transform: translateY(-20px);
+        }
+        .social-links a:hover {
+            box-shadow: 0 0 10px #000;
+        }
+    }
+}
+
+@media(max-width: 991px) {
+    .team-section {
+        .team-items {
+            .item {
+                flex-basis: calc(50% - 30px);
+                max-width: calc(50% - 30px);
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .team-section {
+        .team-items {
+            .item {
+                flex-basis: calc(80%);
+                max-width: calc(80%);
+            }
+        }
+    }
+    .info{
+        .hidden-item{
+            display: none;
+        }
+    }
+}
+
+// animation: drop 1.5s ease;
+@keyframes drop{
+  0% {
+    opacity: 0;
+    transform: translateY();
+  }
+  100%{
+    opacity: 1;
+    transform: translateY();
+    }
+
+
+}

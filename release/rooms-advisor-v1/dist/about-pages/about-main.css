@@ -1,0 +1,109 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.main-portfolio {
+    height: 100vh;
+    width: 100%;
+}
+
+.content-portfolio {
+    height: inherit;
+    width: 100%;
+}
+
+.background-portfolio {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+
+.background-portfolio img {
+    position: relative;
+    padding-top: 1vh;
+    height: 100vh;
+    width: 100%;
+    filter: brightness(50%);
+}
+.context-portfolio {
+    font-family: "Segoe UI", Arial, sans-serif;
+    position: absolute;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
+}
+.context-main{
+    height: 81vh;
+    margin-left: 90px;
+    padding-top: 20vh;
+    margin-right: 95px;
+}
+#context-main-a{
+    font-size: 80px;
+    text-shadow: 2px 2px #0C9463;
+}
+.about{
+    height: 20vh;
+    width: 100%;
+}
+.first-profile{
+    float: left;
+    height: 50vh;
+    width: 100%;
+}
+.stat-one{
+    float: left;
+    height: 50vh;
+    width: 50vh;
+    margin-right: 26px;
+    background-color: #0C9463;
+}
+
+.stat-one h4{
+    color :white;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.stat-header{
+    height: 8vh;
+    background-color: white;
+    color:#0C9463;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.stat-header a{
+    font-size: 22px;
+}
+
+/**/
+#pop-up{
+    animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.stat-one:hover{
+    transition: .2s ease;
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.1);
+}

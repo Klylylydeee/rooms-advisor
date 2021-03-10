@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="margin">
+        <div class="flex">
+          <div class="slider">
+            <figure>
+              <img src="{{ bedspacer.bedImage }}"
+                onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+              <img src="{{ bedspacer.bedImages }}"
+                onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+              <img src="{{ bedspacer.bedImage }}"
+                onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+              <img src="{{ bedspacer.bedImages }}"
+                onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+              <img src="{{ bedspacer.bedImage }}"
+                onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+            </figure>
+            <div class="gallery-bar">
+              <div class="gallery-info">
+                <h1><i class="far fa-building"></i>{{ bedspacer.bedHomeName }}</h1>
+                <h2><i class="fas fa-map-marker-alt"></i>{{ bedspacer.bedAdress }}</h2>
+                <h2><i class="fas fa-money-bill-wave-alt fa-sm"></i>{{ bedspacer.bedMonthlyFee }} / Monthly Fee</h2>
+              </div>
+              <div class="image-wrap">
+                <img src="{{ bedspacer.bedOwnerImage }}" (error)="setDefaultPic()"/>
+              </div>
+              <div class="owner-info">
+                <h4>Owner: <span> {{ bedspacer.bedOwnerName }}</span></h4>
+                <h4>Age: <span> {{ bedspacer.bedOwnerAge }}</span></h4>
+                <h4>Gender: <span> {{ bedspacer.bedOwnerGender }}</span></h4>
+                <h4>Phone Number: <span> {{ bedspacer.bedOwnerPhoneNumber }}</span></h4>
+                <h4>Email Address: <span> {{ bedspacer.bedOwnerEmailAddress }}</span></h4>
+              </div>
+            </div>
+            <div class="content">
+              <div class="rules">
+                <ul>
+                  <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+                    <h2>Description</h2>
+                    <p>
+                      {{ bedspacer.bedDescription }}
+                    </p>
+                  </li>
+                  <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+                    <h2>Amenities</h2>
+                    <p>
+                      <li>Bedrooms: {{ bedspacer.bedRooms }}</li>
+                      <li>Students per Room: {{ bedspacer.bedStudentPerRoom }}</li>
+                      <li>Bathrooms: {{ bedspacer.bedBathroom }}</li>
+                      <li>Television: {{ bedspacer.bedTelevision }}</li>
+                      <li>Internet Connection: {{ bedspacer.bedInternetAccess }}</li>
+                      <li>Air Condition: {{ bedspacer.bedAircondition }}</li>
+                      <li>Electric Fan: {{ bedspacer.bedElectricFan }}</li>
+                      <li>Kitchen: {{ bedspacer.bedKitchen }}</li>
+                    </p>
+                  </li>
+                  <li>
+                    <input type="checkbox" checked>
+                    <i></i>
+                    <h2>Terms & Conditions</h2>
+                    <p>These Terms will be applied fully and affect to your use of
+                      RoomAdvisor.com. By using this RoomAdvisor.com, you agreed to accept all
+                      terms and conditions written in here. You must not use this
+                      RoomAdvisor.com if you
+                      disagree with any of these RoomAdvisor.com Standard Terms and
+                      Conditions.
+                    </p>
+                  </li>
+                </ul>
+                  </div>
+                </div>
+              </div>
+            <div class="owner">
+              <h3>Latest Bedspacer</h3>
+                <div class="grid-box" *ngFor="let Bedspacer of (members | slice: -3).reverse() let i= index">
+                  <h4><i class="far fa-building"></i> {{ Bedspacer.bedHomeName }}</h4>
+                  <h5><i class="far fa-user-circle"></i> {{ Bedspacer.bedOwnerName }}</h5>
+                  <figure>
+                    <img src="{{ Bedspacer.bedImage }}"
+                      onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+                    <img src="{{ Bedspacer.bedImages }}"
+                      onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+                    <img src="{{ Bedspacer.bedImage }}"
+                      onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+                    <img src="{{ Bedspacer.bedImages }}"
+                      onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+                    <img src="{{ Bedspacer.bedImage }}"
+                      onerror="javascript:this.src='/assets/img/main-bd.jpg'" />
+                  </figure>
+                  <h5 class="month">₱{{ Bedspacer.dormMonthlyFee }}/Monthly</h5>
+                  <a [routerLink]="['/Bedspacer/List',
+                  Bedspacer._id]" class="btn
+                        btn-primary"><button>View Page</button></a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>

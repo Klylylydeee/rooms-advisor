@@ -1,0 +1,220 @@
+<form [formGroup]="angForm" novalidate>
+    <div class="form-container">
+      <div class="form-header">
+        <div class="flex-end">
+          <h1>Apartment Form</h1>
+          <h6>Please fill up everything as it is a necessary information needed to
+            proceed in submitting your entry.</h6>
+        </div>
+      </div>
+      <div class="information">
+        <div class="app-info">
+          <h3>Apartment Information</h3>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Apartment Name: 
+                  <label class="alert" *ngIf="angForm.controls['AptName'].invalid && (angForm.controls['AptName'].dirty || angForm.controls['AptName'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="What is the name of the Apartment?" class="form-control" formControlName="AptName"
+              #AptName [(ngModel)] = "apartment.AptName"/>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Apartment Address: 
+                  <label class="alert" *ngIf="angForm.controls['AptAd'].invalid && (angForm.controls['AptAd'].dirty || angForm.controls['AptAd'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="What is the name of the Apartment?" class="form-control" formControlName="AptAd"
+              #AptAd/>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Apartment Img (1): 
+                  <label class="alert" *ngIf="angForm.controls['AptImg'].invalid && (angForm.controls['AptImg'].dirty || angForm.controls['AptImg'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="Please add an URL img of the Apartment" class="form-control" formControlName="AptImg"
+              #AptImg/>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Apartment Google Maps:
+                  <label class="alert" *ngIf="angForm.controls['AptGm'].invalid && (angForm.controls['AptGm'].dirty || angForm.controls['AptGm'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="Add the script from GoogleMaps ('<script>your.apartment</script>'>" class="form-control" formControlName="AptGm"
+              #AptGm/>
+            </div>
+          </div>
+  
+  
+          <h3>Apartment Amenities</h3>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Bedroom:
+                  <label class="alert" *ngIf="angForm.controls['AptBed'].invalid && (angForm.controls['AptBed'].dirty || angForm.controls['AptBed'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="How many bedrooms does the Apartment have? (Ex. '2')" class="form-control" formControlName="AptBed"
+              #AptBed/>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Television:
+                  <label class="alert" *ngIf="angForm.controls['AptTv'].invalid && (angForm.controls['AptTv'].dirty || angForm.controls['AptTv'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="How many Television does the Apartment have? (Ex. '0')" class="form-control" formControlName="AptTv"
+              #AptTv/>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Bathrooms:
+                  <label class="alert" *ngIf="angForm.controls['AptBath'].invalid && (angForm.controls['AptBath'].dirty || angForm.controls['AptBath'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="How many bathrooms does the Apartment have? (Ex. '2')" class="form-control" formControlName="AptBath"
+              #AptBath/>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Wifi:
+                  <label class="alert" *ngIf="angForm.controls['AptWifi'].invalid && (angForm.controls['AptWifi'].dirty || angForm.controls['AptWifi'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" placeholder="Does the Apartment have internet connection? (If No '0')" class="form-control" formControlName="AptWifi"
+              #AptWifi/>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Electric Fan?
+                  <label class="alert" *ngIf="angForm.controls['AptFan'].invalid && (angForm.controls['AptFan'].dirty || angForm.controls['AptFan'].touched)" >Please select</label>
+                </label>
+              </div>
+              <select id="AptFan" name="cars" class="form-control" formControlName="AptFan"
+              #AptFan>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Air Condition?
+                  <label class="alert" *ngIf="angForm.controls['AptAir'].invalid && (angForm.controls['AptAir'].dirty || angForm.controls['AptAir'].touched)" >Please select</label>
+                </label>
+              </div>
+              <select id="AptAir" name="cars" class="form-control" formControlName="AptAir"
+              #AptAir>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Water?
+                  <label class="alert" *ngIf="angForm.controls['AptWater'].invalid && (angForm.controls['AptWater'].dirty || angForm.controls['AptWater'].touched)" >Please select</label>
+                </label>
+              </div>
+              <select id="AptWater" name="cars" class="form-control" formControlName="AptWater"
+              #AptWater>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Electricity?
+                  <label class="alert" *ngIf="angForm.controls['AptEle'].invalid && (angForm.controls['AptEle'].dirty || angForm.controls['AptEle'].touched)" >Please select</label>
+                </label>
+              </div>
+              <select id="AptEle" name="cars" class="form-control" formControlName="AptEle"
+              #AptEle>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Kitchen?
+                  <label class="alert" *ngIf="angForm.controls['AptKit'].invalid && (angForm.controls['AptKit'].dirty || angForm.controls['AptKit'].touched)" >Please select</label>
+                </label>
+              </div>
+              <select id="AptKit" name="cars" class="form-control" formControlName="AptKit"
+              #AptKit>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Kitchen Utensils?
+                  <label class="alert" *ngIf="angForm.controls['AptKitU'].invalid && (angForm.controls['AptKitU'].dirty || angForm.controls['AptKitU'].touched)" >Please select</label>
+                </label>
+              </div>
+              <select id="AptKitU" name="cars" class="form-control" formControlName="AptKitU"
+              #AptKitU>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Monthly Rent?
+                  <label class="alert" *ngIf="angForm.controls['AptMonthly'].invalid && (angForm.controls['AptMonthly'].dirty || angForm.controls['AptMonthly'].touched)" >Please write something</label>
+                </label>
+              </div>
+              <input type="text" id="AptMonthly" placeholder="Monthly rent for the Apartment (Ex.'10,000')" class="form-control" formControlName="AptMonthly"
+              #AptMonthly/>
+            </div>
+          </div>
+          <h3>Apartment Description</h3>
+          <div class="info-container">
+            <textarea name="AptDesc" id="AptDesc" placeholder="Please describe your apartment for additional references."formControlName="AptDesc"
+            #AptDesc>
+          </textarea>
+          </div>
+        </div>
+        <div class="owner-info">
+          <h3>Owner Information</h3>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid"
+        (click) = "updateApartment(AptName.value, AptAd.value, AptImg.value, AptGm.value, AptBed.value, AptTv.value, AptBath.value, AptWifi.value, AptFan.value, AptAir.value,AptWater.value,AptEle.value, AptKit.value,AptKitU.value,AptMonthly.value,AptDesc.value)">Update Information</button>
+      </div>
+    </div>
+  </form>
+  

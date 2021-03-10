@@ -1,0 +1,38 @@
+
+<form [formGroup]="angForm" novalidate>
+    <!-- ApartmentName: String; -->
+    <input type="text" class="form-control" formControlName="ApartmentName"
+      #ApartmentName/>
+    <!-- ApartmentAddress:String; -->
+    <textarea class="form-control" rows= 7 cols="5"
+      formControlName="ApartmentAddress" #ApartmentAddress></textarea>
+    <!-- ApartmentWifi: String; -->
+    <input type="text" class="form-control" formControlName="ApartmentWifi"
+      #ApartmentWifi/>
+    <!-- ApartmentBathroom: Number; -->
+    <input type="text" class="form-control" formControlName="ApartmentBathroom"
+      #ApartmentBathroom/>
+    <!-- ApartmentBedrooms:Number; -->
+    <input type="text" class="form-control" formControlName="ApartmentBedrooms"
+      #ApartmentBedrooms/>
+    <!-- ApartmentPrice: Number; -->
+    <input type="text" class="form-control" formControlName="ApartmentPrice"
+      #ApartmentPrice/>
+    <!-- ApartmentDescription: String; -->
+    <input type="text" class="form-control" ofrmControlName="ApartmentDescription"
+      #ApartmentDescription/>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine
+        || angForm.invalid" (click)="addApartment( ApartmentName.value,
+        ApartmentAddress.value, ApartmentWifi.value, ApartmentBathroom.value,
+        ApartmentBedrooms.value, ApartmentPrice.value,
+        ApartmentDescription.value)">Enlist Apartment</button>
+    </div>
+  </form> 
+
+  
+  <div *ngIf="angForm.controls['ApartmentDescription'].invalid && (angForm.controls['ApartmentDescription'].dirty || angForm.controls['ApartmentDescription'].touched)" class="alert alert-danger">
+    <div *ngIf="angForm.controls['ApartmentDescription'].errors.required">
+      Apartment Description is required.
+    </div>
+  </div>

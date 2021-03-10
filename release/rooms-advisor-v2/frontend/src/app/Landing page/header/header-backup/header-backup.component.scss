@@ -1,0 +1,167 @@
+// Logo Text
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+// font-family: 'Cookie', cursive;
+// Content Text
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+//font-family: 'Poppins', sans-serif;
+$primary: #337B33;
+$secondary: #e0ac1c;
+$plain: #ffffff;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    transform: translateY(-.01%);
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .5);
+    // position: sticky;
+    // top: 0px;
+    // z-index: 95;
+    width: 100%;
+    background: $primary;
+    &:before {
+        content: '';
+        display: block;
+        height: 5px;
+        width: 100%;
+        background: #e0ac1c;
+        position: absolute;
+        // top: -.75em;
+        left: 0;
+        right: 0;
+        bottom: 0em;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+    &:hover {
+        cursor: pointer;
+        transition: 1s ease;
+        color: #e0ac1c;
+        margin: 0;
+        span {
+            color: white;
+        }
+        &:before {
+            transform: scale(1, 1);
+        }
+    }
+    label {
+        display: none;
+        i {}
+        .roomadivsor-flex {}
+    }
+    #menu {
+        display: none;
+    }
+    .content-items {
+        ul {
+            list-style-type: none;
+            li {
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: #fff;
+                    &:hover {
+                        background: $secondary;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    ul>li {
+        font-size: 1.3rem;
+        font-weight: 100;
+        color: #fff;
+    }
+    li {
+        display: inline-block;
+        list-style: none;
+    }
+    .roomadvisor-flex {
+        display: flex;
+        padding: 10px 0 10px 0;
+        img {
+            margin-left: 65px;
+            height: 40px;
+        }
+        a {
+            text-decoration: none;
+            color: $plain;
+            h1 {
+                font-family: 'Cookie', cursive;
+                font-size: 40px;
+                .logo-span {
+                    color: $secondary;
+                }
+            }
+        }
+        &:hover {
+            a {
+                transition: .5s ease;
+                color: $secondary;
+                h1 {
+                    .logo-span {
+                        color: $plain;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    nav {
+        label {
+            display: block;
+            padding: 20px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            &:active ul {
+                display: none;
+            }
+            i {}
+            .roomadivsor-flex {
+                display: inline-block;
+                a {
+                    text-decoration: none;
+                    color: $plain;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    img {
+                        height: 40px;
+                    }
+                    h1 {
+                        font-family: 'Cookie', cursive;
+                        font-size: 40px;
+                        margin-top: 0px;
+                        .logo-span {
+                            color: $secondary;
+                        }
+                    }
+                }
+            }
+        }
+        .content-items {
+            .roomadivsor-flex {
+                display: none;
+            }
+        }
+        #menu:checked+.content-items ul {
+            display: block;
+        }
+        ul {
+            display: none;
+        }
+        li {
+            width: 100%;
+        }
+        .roomadvisor-flex {
+            display: none;
+        }
+    }
+}

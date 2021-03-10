@@ -1,0 +1,555 @@
+// Logo Text
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+// font-family: 'Cookie', cursive;
+// Content Text
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap');
+//font-family: 'Poppins', sans-serif;
+$primary: #337B33;
+$secondary: #e0ac1c;
+$plain: #ffffff;
+
+* {
+  color: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+  height: 100%;
+  width: 100%;
+  // background-color:#E9E9E9;
+  background-color:$primary;
+  font-family: 'Poppins', sans-serif;
+  .margin{ 
+    // margin: 0 50px 0 50px;
+    // .header{
+    //   background-color:$primary;
+    //   padding: 10px 0 0 10px;
+    //   h1{
+    //     color: $secondary;
+    //     text-transform: uppercase;
+    //     font-family: 'Poppins', sans-serif;
+    //     color: $secondary;
+    //     text-shadow: 1px 1px rgba(0, 0, 0, .5);
+    //     i{
+    //       color: $secondary;
+    //       font-size: 20px;
+    //       margin: 0 10px 0 10px;
+    //     }
+    //   }
+    //   h2{
+    //     color: $secondary;
+    //     font-family: 'Poppins', sans-serif;
+    //     font-weight: 400;
+    //     text-transform: uppercase;
+    //     color: $secondary;
+    //     text-shadow: 1px 1px rgba(0, 0, 0, .5);
+    //     i{
+    //       color: $secondary;
+    //       font-size: 20px;
+    //       margin: 0 10px 0 10px;
+    //     }
+    //   }
+    // }
+    .gallery-bar{
+      padding: 20px 0 20px 0;
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:row;
+      .gallery-info{
+        flex: 1 0 auto;
+        h1{
+          font-weight: 500;
+          color: white;
+          margin: 5px;
+          text-shadow: 3px 3px rgba(0, 0, 0, .5);
+          i{
+            color: white;
+            margin: 0 5px 0 5px;
+          }
+        }
+        h2{
+          font-weight: 500;
+          color: white;
+          text-shadow: 3px 3px rgba(0, 0, 0, .5);
+          margin: 5px;
+          i{
+            margin: 0 10px 0 10px;
+            color: white;
+          }
+          &:nth-of-type(2){
+            i{
+              margin: 0 10px 0 5px;
+            }
+          }
+        }
+      }
+      .owner-info{
+        color: white;
+        margin-left: 10px;
+        flex: 1 0 auto;
+        margin: 5px;
+        h4{
+          font-weight: 500;
+          text-shadow: 2px 2px rgba(0, 0, 0, .5);
+          margin: 0 3px 0 3px;
+          color: white;
+          span{
+            margin-left: 5px;
+            color: white;
+          }
+        }
+      }
+      .image-wrap{
+        height: 150px;
+        width: 150px;
+        margin-right: 10px;
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    .flex{
+      display: flex;
+      .slider {
+        // background-color:gray;
+        width: 80%;
+        // margin: 20px;
+        // box-shadow: -2px 0 4px 2px rgba(0, 0, 0, .5);
+        overflow: hidden;
+        display: grid;
+        // border: 1px solid black;
+        figure {
+          // box-shadow: -2px 0 4px 2px rgba(0, 0, 0, .5);
+          position: relative;
+          width: 500%;
+          margin: 0;
+          left: 0;
+          animation: 20s slider infinite;
+          img {
+            width: 20%;
+            float: left;
+            height: 100%;
+            height: 350px;
+          }
+      }
+        .content{
+          width: 100%;
+          background-color: $primary; 
+          .rules{
+            ul {
+              list-style: none;
+              perspective: 900;
+              padding: 0;
+              margin: 0;
+              li {
+                height: 100%;
+                position: relative;
+                padding: 0;
+                margin: 0;
+                transform: translate(2px, 0) rotate(-45deg);
+                &:nth-of-type(1) {
+                  border-top: 1px solid $primary;
+                  border-bottom: 1px solid $primary;
+                  // animation-delay: 0.5s;
+                }
+                &:nth-of-type(2) {
+                  border-top: 1px solid $primary;
+                  border-bottom: 1px solid $primary;
+                  // animation-delay: 0.75s;
+                }
+                &:nth-of-type(3) {
+                  border-top: 1.5px solid $primary;
+                  border-bottom: 1.5px solid $primary;
+                  // animation-delay: 1.55s;
+                }
+                &:last-of-type {
+                  padding-bottom: 0;
+                }
+                i {
+                  position: absolute;
+                  transform: translate(-6px, 0);
+                  margin-top: 16px;
+                  right: 0;
+                  &:before, &:after {
+                    content: "";
+                    position: absolute;
+                    background-color: $primary;
+                    width: 3px;
+                    height: 9px;
+                  }
+                  &:before {
+                    transform: translate(-2px, 0) rotate(45deg);
+                  }
+                  &:after{
+                    transform: translate(2px, 0) rotate(-45deg);
+                  }
+                }
+                p {
+                  margin-left: 5px;
+                  // margin-bottom: 5px; <--- Substitute for border bottom
+                  margin-right: 5px;
+                  color: rgba(255, 255, 255, 0.8);
+                  font-size: 17px;
+                  line-height: 26px;
+                  letter-spacing: 1px;
+                  position: relative;
+                  overflow: hidden;
+                  max-height: 1200px;
+                  opacity: 1;
+                  transform: translate(0, 0);
+                  margin-top: 14px;
+                  z-index: 2;
+                  li{
+                    margin-left: 5px;
+                    margin-bottom: 5px;
+                    margin-right: 5px;
+                    color: rgba(255, 255, 255, 0.8);
+                    font-size: 17px;
+                    line-height: 26px;
+                    letter-spacing: 1px;
+                  }
+                }
+                h2 {
+                  color: $primary;
+                  text-transform: uppercase;
+                  margin-left: 30px;
+                  font-size: 26px;
+                  line-height: 34px;
+                  font-weight: 300;
+                  letter-spacing: 1px;
+                  display: block;
+                  background-color: $secondary;
+                  margin: 0;
+                  cursor: pointer;
+                  text-shadow: 1px 1px rgba(0, 0, 0, .5);
+                }
+                h1 {
+                  text-transform: uppercase;
+                  font-family: 'Roboto', sans-serif;
+                  font-size: 36px;
+                  line-height: 42px;
+                  letter-spacing: 3px;
+                  font-weight: 100;
+                  color: white;
+                }
+                input[type=checkbox] {
+                  position: absolute;
+                  cursor: pointer;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 5;
+                // border-top: 1px solid #cf4f4f;
+                  opacity: 0;
+                  &:checked ~ p {
+                    margin-top: 0;
+                    max-height: 0;
+                    opacity: 0;
+                    transform: translate(0, 50%);
+                  }
+                  &:checked ~ i:before {
+                    transform: translate(2px, 0) rotate(45deg);
+                  }
+                  &:checked ~ i:after {
+                    transform: translate(-2px, 0) rotate(-45deg);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .owner{
+        height: 700px;
+        width: 20%;
+        background-color: $primary;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(1fr));
+        grid-template-rows: auto;
+          h3{
+            padding-top: 15px;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px rgba(0, 0, 0, .5);
+            letter-spacing: 3px;
+          }
+          .grid-box{
+            height: 209px;
+            box-shadow: -2px 0 4px 2px rgba(0, 0, 0, .5);
+            background-color: $secondary;
+            overflow: hidden;
+            margin: 5px 15px 5px 15px;
+            text-align: center;
+            figure {
+              position: relative;
+              width: 500%;
+              margin: 0;
+              left: 0;
+              animation: 20s slider infinite;
+              margin-bottom: 95px;
+              img {
+                width: 20%;
+                float: left;
+                height: 80px;
+              }
+            }
+            h4{
+              color:$primary;
+              text-shadow: 1px 1px rgba(0, 0, 0, .5);
+              text-align: center;
+              text-transform: uppercase;
+              i{
+                color: $primary;
+              }
+            }
+            h5{
+              color:$primary;
+              text-shadow: 1px 1px rgba(0, 0, 0, .5);
+              margin: 3px 0 0 0;
+              padding: 0;
+              text-align: center;
+              text-transform: uppercase;
+              margin-bottom: 5px;
+              i{
+                color: $primary;
+              }
+            }
+            a{
+              button{
+                margin: 10px 0;
+                padding: 5px 15px;
+                text-shadow: 1px 1px rgba(0, 0, 0, .5);
+                border-radius: 30px;
+                background-color: $primary;
+                border-style: none;
+                color: white;
+                &:focus {
+                    outline:0;
+                }
+                &:hover{
+                    transition: ease;
+                    transform: translateY(-5%);
+                    box-shadow: 4px 4px 2px -2px rgba(0, 0, 0, .5);
+                }
+              }
+              // editme
+            }
+          }
+      }
+    }
+  }
+}
+
+.transition, p, ul li i:before, ul li i:after {
+  transition: all 0.25s ease-in-out;
+}
+
+.flipIn, h1, ul li {
+  animation: flipdown 0.5s ease both;
+}
+
+.no-select, h2 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 1300px){
+  .container{
+    .margin{ 
+      .flex{
+        .slider {
+          .gallery-bar{
+            padding: 10px 0 10px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            'apt-content apt-content'
+            'apt-img apt-owner ';
+            .gallery-info{
+              grid-area: apt-content;
+            }
+            .owner-info{
+              grid-area: apt-owner;
+              h4{
+                margin: 0 10px 0 10px;
+              }
+            }
+            .image-wrap{
+              grid-area: apt-img;
+              margin-right: 0px;
+              margin-left: 10px;
+              width: 150px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .container{
+    .margin{ 
+      .flex{
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        'content'
+        'owner';
+        .slider {
+          width: 100%;
+          grid-area: content;
+          display: grid;
+          .gallery-bar{
+            padding: 10px 0 10px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            'apt-content apt-content'
+            'apt-img apt-owner ';
+            .gallery-info{
+              grid-area: apt-content;
+            }
+            .owner-info{
+              grid-area: apt-owner;
+              h4{
+                margin: 0 10px 0 10px;
+                span{
+                  display: block;
+                }
+              }
+            }
+            .image-wrap{
+              height: 200px;
+              grid-area: apt-img;
+              margin-right: 0px;
+              margin-left: 10px;
+              width: 250px;
+            }
+          }
+        }
+        .owner{
+          width: 100%;
+          grid-area: owner;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 530px){
+  .container{
+    .margin{ 
+      .flex{
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        'content'
+        'owner';
+        .slider {
+          width: 100%;
+          grid-area: content;
+          display: grid;
+          .gallery-bar{
+            padding: 10px 0 10px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            'apt-content apt-content'
+            'apt-img apt-img'
+            'apt-owner apt-owner';
+            .gallery-info{
+              grid-area: apt-content;
+            }
+            .owner-info{
+              grid-area: apt-owner;
+              h4{
+                margin: 0 10px 0 10px;
+                span{
+                  display: block;
+                }
+              }
+            }
+            .image-wrap{
+              height: 200px;
+              grid-area: apt-img;
+              margin-right: 0px;
+              margin-left: 10px;
+              width: 200px;
+            }
+          }
+        }
+        .owner{
+          width: 100%;
+          grid-area: owner;
+        }
+      }
+    }
+  }
+}
+@keyframes slider {
+	0% {
+		left: 0;
+	}
+	20% {
+		left: 0;
+	}
+	25% {
+		left: -100%;
+	}
+	45% {
+		left: -100%;
+	}
+	50% {
+		left: -200%;
+	}
+	70% {
+		left: -200%;
+	}
+	75% {
+		left: -300%;
+	}
+	95% {
+		left: -300%;
+	}
+	100% {
+		left: -400%;
+	}
+}
+
+@keyframes flipdown {
+  0% {
+    opacity: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  80% {
+    transform: rotateX(8deg);
+  }
+  83% {
+    transform: rotateX(6deg);
+  }
+  92% {
+    transform: rotateX(-3deg);
+  }
+  100% {
+    transform-origin: top center;
+    transform: rotateX(0deg);
+  }
+}

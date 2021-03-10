@@ -1,0 +1,464 @@
+<form [formGroup]="angForm" novalidate>
+    <div class="form-container">
+        <div class="form-header">
+            <div class="flex-end">
+                <h1>Bedspacer Form</h1>
+                <h6>Please fill up everything as it is a necessary information
+                    needed to
+                    proceed in submitting your entry.</h6>
+            </div>
+        </div>
+        <div class="information">
+            <div class="app-info">
+                <!-- 
+  
+              Information
+  
+            -->
+                <h3>Information</h3>
+                <div class="flex">
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Home Name:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedHomeName'].invalid
+                                    &&
+                                    (angForm.controls['bedHomeName'].dirty
+                                    ||
+                                    angForm.controls['bedHomeName'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <input type="text" placeholder="What is the name of the Home?"
+                            class="form-control"
+                            formControlName="bedHomeName"
+                            #bedHomeName/>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Home Address:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedAdress'].invalid
+                                    &&
+                                    (angForm.controls['bedAdress'].dirty
+                                    ||
+                                    angForm.controls['bedAdress'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <input type="text" placeholder="What is the address of the Home?"
+                            class="form-control"
+                            formControlName="bedAdress"
+                            #bedAdress/>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Monthly Rent:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedMonthlyFee'].invalid
+                                    &&
+                                    (angForm.controls['bedMonthlyFee'].dirty
+                                    ||
+                                    angForm.controls['bedMonthlyFee'].touched)">Please
+                                    write
+                                    something or NONE</label>
+                            </label>
+                        </div>
+                        <input type="text" placeholder="How much is the rent?"
+                            class="form-control"
+                            formControlName="bedMonthlyFee"
+                            #bedMonthlyFee/>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Home Image (1):
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedImage'].invalid
+                                    &&
+                                    (angForm.controls['bedImage'].dirty
+                                    ||
+                                    angForm.controls['bedImage'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <input type="text" placeholder="Please add an URL img of the home (If no url please type NONE)"
+                            class="form-control"
+                            formControlName="bedImage"
+                            #bedImage/>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Faculty Home Image (2):
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedImages'].invalid
+                                    &&
+                                    (angForm.controls['bedImages'].dirty
+                                    ||
+                                    angForm.controls['bedImages'].touched)">Please
+                                    write
+                                    something or NONE</label>
+                            </label>
+                        </div>
+                        <input type="text" placeholder="Please add an URL img of the home (If no url please type NONE)"
+                            class="form-control"
+                            formControlName="bedImages"
+                            #bedImages/>
+                    </div>
+                </div>
+                <!-- 
+              Amenities Information
+            -->
+                <h3>Amenities</h3>
+                <!-- First Line -->
+                <div class="flex">
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Rooms:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedRooms'].invalid
+                                    &&
+                                    (angForm.controls['bedRooms'].dirty
+                                    ||
+                                    angForm.controls['bedRooms'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedRooms"
+                            #bedRooms>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Students per room:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedStudentPerRoom'].invalid
+                                    &&
+                                    (angForm.controls['bedStudentPerRoom'].dirty
+                                    ||
+                                    angForm.controls['bedStudentPerRoom'].touched)">Please
+                                    write
+                                    something or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedStudentPerRoom"
+                            #bedStudentPerRoom>
+                            <option disabled selected value> -- select an option  -- </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Bathrooms:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedBathroom'].invalid
+                                    &&
+                                    (angForm.controls['bedBathroom'].dirty
+                                    ||
+                                    angForm.controls['bedBathroom'].touched)">Please
+                                    write
+                                    something or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedBathroom"
+                            #bedBathroom>
+                            <option disabled selected value> -- select an option  -- </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Second Line -->
+                <div class="flex">
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Internet Access:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedInternetAccess'].invalid
+                                    &&
+                                    (angForm.controls['bedInternetAccess'].dirty
+                                    ||
+                                    angForm.controls['bedInternetAccess'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedInternetAccess"
+                            #bedInternetAccess>
+                            <option disabled selected value> -- select an option  -- </option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Television:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedTelevision'].invalid
+                                    &&
+                                    (angForm.controls['bedTelevision'].dirty
+                                    ||
+                                    angForm.controls['bedTelevision'].touched)">Please
+                                    write
+                                    something or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedTelevision"
+                            #bedTelevision>
+                            <option disabled selected value> -- select an option  -- </option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Third Line -->
+                
+                <div class="flex">
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Air condition:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedAircondition'].invalid
+                                    &&
+                                    (angForm.controls['bedAircondition'].dirty
+                                    ||
+                                    angForm.controls['bedAircondition'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedAircondition"
+                            #bedAircondition>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Electric Fan:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedElectricFan'].invalid
+                                    &&
+                                    (angForm.controls['bedElectricFan'].dirty
+                                    ||
+                                    angForm.controls['bedElectricFan'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedElectricFan"
+                            #bedElectricFan>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="info-container grid">
+                        <div class="flex">
+                            <img src="apartment.logo" alt="">
+                            <label>Kitchen:
+                                <label class="alert"
+                                    *ngIf="angForm.controls['bedKitchen'].invalid
+                                    &&
+                                    (angForm.controls['bedKitchen'].dirty
+                                    ||
+                                    angForm.controls['bedKitchen'].touched)">Please
+                                    write something
+                                    or NONE</label>
+                            </label>
+                        </div>
+                        <select class="form-control"
+                            formControlName="bedKitchen"
+                            #bedKitchen>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Description -->
+                <h3>Bed Spacer Description</h3>
+                <div class="info-container">
+                    <textarea name="bedDescription" id="bedDescription"
+                        placeholder="Please describe your home for additional references."
+                        formControlName="bedDescription"
+                        #bedDescription>
+                    </textarea>
+                </div>
+            </div>
+            <!-- 
+            Dormitory Owner Information
+          -->
+            <div class="owner-info">
+                <h3>Owner Information</h3>
+                <div class="info-container grid">
+                    <div class="flex">
+                        <img src="apartment.logo" alt="">
+                        <label>Full Name:
+                            <label class="alert"
+                                *ngIf="angForm.controls['bedOwnerName'].invalid
+                                &&
+                                (angForm.controls['bedOwnerName'].dirty ||
+                                angForm.controls['bedOwnerName'].touched)">Please
+                                write
+                                something</label>
+                        </label>
+                    </div>
+                    <input type="text" placeholder="What is the name of the Home Owner?" class="form-control"
+                        formControlName="bedOwnerName"
+                        #bedOwnerName/>
+                </div>
+                <div class="info-container grid">
+                    <div class="flex">
+                        <img src="apartment.logo" alt="">
+                        <label>Owner Image:
+                            <label class="alert"
+                                *ngIf="angForm.controls['bedOwnerImage'].invalid
+                                &&
+                                (angForm.controls['bedOwnerImage'].dirty ||
+                                angForm.controls['bedOwnerImage'].touched)">Please
+                                write
+                                something</label>
+                        </label>
+                    </div>
+                    <input type="text" placeholder="Please add an URL img of the Home Owner(If no url please type NONE)"
+                        class="form-control"
+                        formControlName="bedOwnerImage"
+                        #bedOwnerImage/>
+                </div>
+                <div class="info-container grid">
+                    <div class="flex">
+                        <img src="apartment.logo" alt="">
+                        <label>Age:
+                            <label class="alert"
+                                *ngIf="angForm.controls['bedOwnerAge'].invalid
+                                &&
+                                (angForm.controls['bedOwnerAge'].dirty ||
+                                angForm.controls['bedOwnerAge'].touched)">Please
+                                write something</label>
+                        </label>
+                    </div>
+                    <input type="text" placeholder="What is the Age of the owner? (Ex.'40')" class="form-control"
+                        formControlName="bedOwnerAge"
+                        #bedOwnerAge/>
+                </div>
+                <div class="info-container grid">
+                    <div class="flex">
+                        <img src="apartment.logo" alt="">
+                        <label>Gender:
+                            <label class="alert"
+                                *ngIf="angForm.controls['bedOwnerGender'].invalid
+                                &&
+                                (angForm.controls['bedOwnerGender'].dirty ||
+                                angForm.controls['bedOwnerGender'].touched)">Please
+                                select</label>
+                        </label>
+                    </div>
+                    <select name="cars" class="form-control"
+                        formControlName="bedOwnerGender"
+                        #bedOwnerGender>
+                        <option disabled selected value> -- select an option --
+                        </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="info-container grid">
+                    <div class="flex">
+                        <img src="apartment.logo" alt="">
+                        <label>Phone Number:
+                            <label class="alert"
+                                *ngIf="angForm.controls['bedOwnerPhoneNumber'].invalid
+                                &&
+                                (angForm.controls['bedOwnerPhoneNumber'].dirty
+                                ||
+                                angForm.controls['bedOwnerPhoneNumber'].touched)">Please
+                                write
+                                something</label>
+                        </label>
+                    </div>
+                    <input type="text" placeholder="What is the phone number of the owner?" class="form-control"
+                        formControlName="bedOwnerPhoneNumber"
+                        #bedOwnerPhoneNumber/>
+                </div>
+
+                <div class="info-container grid">
+                    <div class="flex">
+                        <img src="apartment.logo" alt="">
+                        <label>Email Address:
+                            <label class="alert"
+                                *ngIf="angForm.controls['bedOwnerEmailAddress'].invalid
+                                &&
+                                (angForm.controls['bedOwnerEmailAddress'].dirty
+                                ||
+                                angForm.controls['bedOwnerEmailAddress'].touched)">Please
+                                write something</label>
+                        </label>
+                    </div>
+                    <input id="bedOwnerEmailAddress" type="text"
+                        placeholder="What is the email address of the owner?"
+                        class="form-control"
+                        formControlName="bedOwnerEmailAddress"
+                        #bedOwnerEmailAddress/>
+                </div>
+            </div>
+        </div>
+        <!-- 
+          Submit Button
+        -->
+        <div class="button">
+            <button type="submit" class="btn btn-primary"
+                [disabled]="angForm.pristine
+                || angForm.invalid"
+                (click)="addBedspacer(bedHomeName.value, bedAdress.value, bedImage.value,
+                bedImages.value, bedRooms.value,
+                bedStudentPerRoom.value, bedBathroom.value, bedTelevision.value,
+                bedInternetAccess.value, bedAircondition.value,
+                bedElectricFan.value, bedKitchen.value ,bedMonthlyFee.value, bedDescription.value,
+                bedOwnerName.value,
+                bedOwnerImage.value,bedOwnerAge.value, bedOwnerGender.value, bedOwnerPhoneNumber.value,
+                bedOwnerEmailAddress.value)">Enlist
+                Dormitory</button>
+            <h6>These Terms will be applied fully and affect to your use of
+                RoomAdvisor.com. By using this RoomAdvisor.com, you agreed to
+                accept all
+                terms and conditions written in here. You must not use this
+                RoomAdvisor.com if you
+                disagree with any of these RoomAdvisor.com Standard Terms and
+                Conditions.</h6>
+        </div>
+    </div>
+</form>

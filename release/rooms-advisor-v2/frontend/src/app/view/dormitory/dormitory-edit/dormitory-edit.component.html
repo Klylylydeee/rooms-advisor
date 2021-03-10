@@ -1,0 +1,408 @@
+<form [formGroup]="angForm" novalidate>
+    <div class="form-container">
+      <div class="form-header">
+        <div class="flex-end">
+          <h1>Dormitory Edit Form</h1>
+          <h6>Please fill up everything as it is a necessary information needed to
+            proceed in submitting your entry.</h6>
+        </div>
+      </div>
+      <div class="information">
+        <div class="app-info">
+          <!-- 
+  
+              Dormitory Information
+  
+            -->
+          <h3>Dormitory Information</h3>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Dormitory Name:
+                  <label class="alert" *ngIf="angForm.controls['dormName'].invalid
+                    && (angForm.controls['dormName'].dirty ||
+                    angForm.controls['dormName'].touched)">Please write something
+                    or NONE</label>
+                </label>
+              </div>
+              <input type="text" placeholder="What is the name of the Dormitory?"
+                class="form-control" formControlName="dormName"
+                #dormName [(ngModel)] = "dormitory.dormName">
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Dormitory Address:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormAdress'].invalid &&
+                    (angForm.controls['dormAdress'].dirty ||
+                    angForm.controls['dormAdress'].touched)">Please write
+                    something or NONE</label>
+                </label>
+              </div>
+              <input type="text" placeholder="What is the name of the Dormitory?"
+                class="form-control" formControlName="dormAdress"
+                #dormAdress [(ngModel)] = "dormitory.dormAdress">
+            </div>
+          </div>
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Dormitory Image (1):
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormImage'].invalid &&
+                    (angForm.controls['dormImage'].dirty ||
+                    angForm.controls['dormImage'].touched)">Please write something
+                    or NONE</label>
+                </label>
+              </div>
+              <input type="text" placeholder="Please add an URL img of the Dormitory(If no url please type NONE)" class="form-control"
+                formControlName="dormImage"
+                #dormImage [(ngModel)] = "dormitory.dormImage">
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Dormitory Image (2):
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormImages'].invalid &&
+                    (angForm.controls['dormImages'].dirty ||
+                    angForm.controls['dormImages'].touched)">Please write
+                    something or NONE</label>
+                </label>
+              </div>
+              <input type="text" placeholder="Please add an URL img of the Dormitory (If no url please type NONE)" class="form-control"
+                formControlName="dormImages"
+                #dormImages [(ngModel)] = "dormitory.dormImages">
+            </div>
+          </div>
+          <!-- Price -->
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Dormitory Monthly Fee:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormMonthlyFee'].invalid &&
+                    (angForm.controls['dormMonthlyFee'].dirty ||
+                    angForm.controls['dormMonthlyFee'].touched)">Please write
+                    something or NONE</label>
+                </label>
+              </div>
+              <input type="text" placeholder="How much is the Monthly Fee?" class="form-control"
+                formControlName="dormMonthlyFee"
+                #dormMonthlyFee [(ngModel)] = "dormitory.dormMonthlyFee">
+            </div>
+          </div>
+          <!-- 
+              Amenities Information
+            -->
+          <h3>Dormitory Amenities</h3>
+          <!-- First Line -->
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Dormitory Rooms:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormRooms'].invalid &&
+                    (angForm.controls['dormRooms'].dirty ||
+                    angForm.controls['dormRooms'].touched)">Please select</label>
+                </label>
+              </div>
+              <select class="form-control"
+                formControlName="dormRooms"
+                #dormRooms [(ngModel)] = "dormitory.dormRooms">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Student per Room:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormStudentPerRoom'].invalid &&
+                    (angForm.controls['dormStudentPerRoom'].dirty ||
+                    angForm.controls['dormStudentPerRoom'].touched)">Please select</label>
+                </label>
+              </div>
+              <select class="form-control"
+                formControlName="dormStudentPerRoom"
+                #dormStudentPerRoom [(ngModel)] = "dormitory.dormStudentPerRoom">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Bathroom per Room:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormBathroom'].invalid &&
+                    (angForm.controls['dormBathroom'].dirty ||
+                    angForm.controls['dormBathroom'].touched)">Please select</label>
+                </label>
+              </div>
+              <select class="form-control"
+                formControlName="dormBathroom"
+                #dormBathroom [(ngModel)] = "dormitory.dormBathroom">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </div>
+          <!-- Second Line -->
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Television:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormTelevision'].invalid &&
+                    (angForm.controls['dormTelevision'].dirty ||
+                    angForm.controls['dormTelevision'].touched)">Please select</label>
+                </label>
+              </div>
+              <select id="dormTelevision" class="form-control"
+                formControlName="dormTelevision"
+                #dormTelevision [(ngModel)] = "dormitory.dormTelevision">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Internet Connection:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormInternetAccess'].invalid &&
+                    (angForm.controls['dormInternetAccess'].dirty ||
+                    angForm.controls['dormInternetAccess'].touched)">Please select</label>
+                </label>
+              </div>
+              <select id="dormInternetAccess" class="form-control"
+                formControlName="dormInternetAccess"
+                #dormInternetAccess [(ngModel)] = "dormitory.dormInternetAccess">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+          <!-- Third Line -->
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Air Condition:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormAircondition'].invalid &&
+                    (angForm.controls['dormAircondition'].dirty ||
+                    angForm.controls['dormAircondition'].touched)">Please select</label>
+                </label>
+              </div>
+              <select id="dormAircondition" class="form-control"
+                formControlName="dormAircondition"
+                #dormAircondition [(ngModel)] = "dormitory.dormAircondition">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Electric Fan:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormElectricFan'].invalid &&
+                    (angForm.controls['dormElectricFan'].dirty ||
+                    angForm.controls['dormElectricFan'].touched)">Please select</label>
+                </label>
+              </div>
+              <select id="dormElectricFan" class="form-control"
+                formControlName="dormElectricFan"
+                #dormElectricFan [(ngModel)] = "dormitory.dormElectricFan">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+          <!-- Fourth Line -->
+          <div class="flex">
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Kitchen:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormKitchen'].invalid &&
+                    (angForm.controls['dormKitchen'].dirty ||
+                    angForm.controls['dormKitchen'].touched)">Please select</label>
+                </label>
+              </div>
+              <select id="dormKitchen" class="form-control"
+                formControlName="dormKitchen"
+                #dormKitchen [(ngModel)] = "dormitory.dormKitchen">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="info-container grid">
+              <div class="flex">
+                <img src="apartment.logo" alt="">
+                <label>Kitchen Utensils:
+                  <label class="alert"
+                    *ngIf="angForm.controls['dormKitchenUtensils'].invalid &&
+                    (angForm.controls['dormKitchenUtensils'].dirty ||
+                    angForm.controls['dormKitchenUtensils'].touched)">Please select</label>
+                </label>
+              </div>
+              <select id="dormKitchenUtensils" class="form-control"
+                formControlName="dormKitchenUtensils"
+                #dormKitchenUtensils [(ngModel)] = "dormitory.dormKitchenUtensils">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+          <!-- Description -->
+          <h3>Dormitory Description</h3>
+          <div class="info-container">
+            <textarea name="dormDescription" id="dormDescription" placeholder="Please describe your dormitory for additional references." formControlName="dormDescription"
+              #dormDescription [(ngModel)] = "dormitory.dormDescription">
+            </textarea>
+          </div>
+        </div>
+        <!-- 
+            Dormitory Owner Information
+          -->
+        <div class="owner-info">
+          <h3>Dean Information</h3>
+          <div class="info-container grid">
+            <div class="flex">
+              <img src="apartment.logo" alt="">
+              <label>Full Name:
+                <label class="alert"
+                  *ngIf="angForm.controls['dormDeanName'].invalid &&
+                  (angForm.controls['dormDeanName'].dirty ||
+                  angForm.controls['dormDeanName'].touched)">Please write
+                  something</label>
+              </label>
+            </div>
+            <input type="text" placeholder="What is the name of the Dean?" class="form-control" formControlName="dormDeanName"
+              #dormDeanName [(ngModel)] = "dormitory.dormDeanName">
+          </div>
+          <div class="info-container grid">
+            <div class="flex">
+              <img src="apartment.logo" alt="">
+              <label>Owner Image:
+                <label class="alert"
+                  *ngIf="angForm.controls['dormDeanImage'].invalid &&
+                  (angForm.controls['dormDeanImage'].dirty ||
+                  angForm.controls['dormDeanImage'].touched)">Please write
+                  something</label>
+              </label>
+            </div>
+            <input type="text" placeholder="Please add an URL img of the Dean (If no url please type NONE)" class="form-control"
+              formControlName="dormDeanImage"
+              #dormDeanImage [(ngModel)] = "dormitory.dormDeanImage">
+          </div>
+          <div class="info-container grid">
+            <div class="flex">
+              <img src="apartment.logo" alt="">
+              <label>Age:
+                <label class="alert"
+                  *ngIf="angForm.controls['dormDeanAge'].invalid &&
+                  (angForm.controls['dormDeanAge'].dirty ||
+                  angForm.controls['dormDeanAge'].touched)">Please write something</label>
+              </label>
+            </div>
+            <input type="text" id="dormDeanAge" placeholder="What is the Age of the Dean? (Ex.'40')" class="form-control"
+              formControlName="dormDeanAge"
+              #dormDeanAge [(ngModel)] = "dormitory.dormDeanAge">
+          </div>
+          <div class="info-container grid">
+            <div class="flex">
+              <img src="apartment.logo" alt="">
+              <label>Gender:
+                <label class="alert"
+                  *ngIf="angForm.controls['dormDeanGender'].invalid &&
+                  (angForm.controls['dormDeanGender'].dirty ||
+                  angForm.controls['dormDeanGender'].touched)">Please select</label>
+              </label>
+            </div>
+            <select id="dormDeanGender" name="cars" class="form-control"
+              formControlName="dormDeanGender"
+              #dormDeanGender [(ngModel)] = "dormitory.dormDeanGender">
+              <option disabled selected value> -- select an option -- </option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="info-container grid">
+            <div class="flex">
+              <img src="apartment.logo" alt="">
+              <label>Phone Number:
+                <label class="alert"
+                  *ngIf="angForm.controls['dormDeanPhoneNumber'].invalid &&
+                  (angForm.controls['dormDeanPhoneNumber'].dirty ||
+                  angForm.controls['dormDeanPhoneNumber'].touched)">Please write
+                  something</label>
+              </label>
+            </div>
+            <input type="text" placeholder="What is the phone number of the Dean?" class="form-control"
+              formControlName="dormDeanPhoneNumber"
+              #dormDeanPhoneNumber [(ngModel)] = "dormitory.dormDeanPhoneNumber"/>
+          </div>
+          
+          <div class="info-container grid">
+            <div class="flex">
+              <img src="apartment.logo" alt="">
+              <label>Email Address: 
+                <label class="alert" *ngIf="angForm.controls['dormDeanEmailAddress'].invalid && (angForm.controls['dormDeanEmailAddress'].dirty || angForm.controls['dormDeanEmailAddress'].touched)" >Please write something</label>
+              </label>
+            </div>
+            <input id="dormDeanEmailAddress"type="text" placeholder="What is the email address of the Dean?" class="form-control" formControlName="dormDeanEmailAddress"
+            #dormDeanEmailAddress [(ngModel)] = "dormitory.dormDeanEmailAddress"/>
+          </div>
+        </div>
+      </div>
+      <!-- 
+          Submit Button
+        -->
+        
+      <div class="button">
+        <button type="submit" class="btn btn-primary" [disabled]="angForm.pristine
+          || angForm.invalid" (click)="updateDormitory(dormName.value,
+          dormAdress.value, dormImage.value, dormImages.value, dormRooms.value,
+          dormStudentPerRoom.value, dormBathroom.value, dormTelevision.value,
+          dormInternetAccess.value, dormAircondition.value,
+          dormElectricFan.value, dormKitchen.value, dormKitchenUtensils.value
+          ,dormMonthlyFee.value, dormDescription.value,
+          dormDeanName.value, dormDeanImage.value, dormDeanAge.value,
+          dormDeanGender.value, dormDeanPhoneNumber.value,
+          dormDeanEmailAddress.value)">Enlist Dormitory</button>
+        <h6>These Terms will be applied fully and affect to your use of
+          RoomAdvisor.com. By using this RoomAdvisor.com, you agreed to accept all
+          terms and conditions written in here. You must not use this
+          RoomAdvisor.com if you
+          disagree with any of these RoomAdvisor.com Standard Terms and
+          Conditions.</h6>
+      </div>
+    </div>
+  </form>
