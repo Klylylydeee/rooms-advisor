@@ -21,9 +21,17 @@
     <ng-template #customLoadingTemplate>
     </ng-template>
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
-</div>
 
-<h1 *ngIf="!loading">Comments</h1>
+
+    <h1 *ngIf="!loading">Comments</h1>
+    <form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    
+        <input type="text" placeholder="reviewComment" formControlName="reviewComment" />
+        <input type="text" placeholder="reviewRate" formControlName="reviewRate" />
+        <button [disabled]="!form.valid" type="submit">Post</button>
+      </form>
+      
+</div>
 <div *ngFor="let review of reviews$ | async" >
     <span *ngIf="!loading">
     <li>{{ review.reviewId }}</li>
@@ -42,10 +50,3 @@
     </span>
 </div>
 
-
-<form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    
-  <input type="text" placeholder="reviewComment" formControlName="reviewComment" />
-  <input type="text" placeholder="reviewRate" formControlName="reviewRate" />
-  <button [disabled]="!form.valid" type="submit">Post</button>
-</form>

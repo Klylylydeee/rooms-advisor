@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.year = (new Date()).getFullYear();
+    this.year = new Date().getFullYear();
     this.totalYear = `${this.year}-${this.year+1}`; 
   }
 
