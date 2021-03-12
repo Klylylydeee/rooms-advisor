@@ -1,30 +1,53 @@
-<div class="footer-container app-padding">
-  <div class="flex">
-    <h1>RoomsAdvisor</h1>
-    <div class="flex">
-      <ul>
-        For Beginners
-        <li>Create a New Account</li>
-        <li>Usability Guidelines</li>
-      </ul>
-      <ul>
-        For Beginners
-        <li>Create a New Account</li>
-        <li>Usability Guidelines</li>
-      </ul>
-      <ul>
-        For Beginners
-        <li>Create a New Account</li>
-        <li>Usability Guidelines</li>
-      </ul>
-      <ul>
-        For Beginners
-        <li>Create a New Account</li>
-        <li>Usability Guidelines</li>
-      </ul>
+<footer class="min-h-full bg-green-500 px-16 pt-5 select-none text-white max-md:px-10">
+  <div class="max-w-full font-montserrat">
+    <p class="text-3xl font-medium">RoomsAdvisor</p>
+  </div>
+  <div class="flex flex-wrap justify-between font-mulish py-3 max-md:flex-column">
+    <div class="pb-5 pr-28">
+      <p class="text-lg font-semibold uppercase">General</p>
+      <a routerLink="about-us" class="pt-2 block">About Us</a>
+      <a routerLink="contact-us" class="pt-2 block">Contact Us</a>
+      <a routerLink="our-team" class="pt-2 block">Our Team</a>
+      <a routerLink="privacy-policy" class="pt-2 block">Privacy Policy</a>
+    </div>
+    <div class="pb-5">
+      <p class="text-lg font-semibold uppercase">Documentation</p>
+      <div class="flex flex-wrap">
+        <a href="https://github.com/Klylylydeee/rooms-advisor" target="_blank" class="pt-2 w-1/2 max-sm:w-full max-sm:block">
+            Project Repository
+        </a>
+        <a href="https://rooms-advisor.netlify.app/" target="_blank" class="pt-2 w-1/2 max-sm:w-full max-sm:block">
+            Hosting Server
+        </a>
+        <a href="https://github.com/Klylylydeee/rooms-advisor/issues" target="_blank" class="pt-2 w-1/2 max-sm:w-full max-sm:block">
+            Bug Report
+        </a>
+        <a href="https://rooms-advisor.herokuapp.com/" target="_blank" class="pt-2 w-1/2 max-sm:w-full max-sm:block">
+            API Server
+        </a>
+      </div>
+    </div>
+    <div class="">
+      <p class="text-lg font-semibold uppercase">Follow us on</p>
+      <div class="flex flex-wrap">
+        <a href="https://www.facebook.com/roomsadvisor/" target="_blank" class="flex pt-2 w-1/2 max-sm:w-full">
+            <img class="h-8 -mt-1 -ml-2" src="https://i.ibb.co/xqVgrzc/25231-github-cat-in-a-circle-icon-vector-icon-vector-eps.png"/>
+            Facebook
+        </a>
+        <a href="https://twitter.com/roomsadvisor/" target="_blank" class="flex pt-2 w-1/2 max-sm:w-full">
+            <img class="h-8 -mt-1 -ml-2" src="https://i.ibb.co/xqVgrzc/25231-github-cat-in-a-circle-icon-vector-icon-vector-eps.png"/>
+            Twitter
+        </a>
+        <a href="https://instagram.com/roomsadvisor/" target="_blank" class="flex pt-2 w-1/2 max-sm:w-full">
+            <img class="h-8 -mt-1 -ml-2" src="https://i.ibb.co/xqVgrzc/25231-github-cat-in-a-circle-icon-vector-icon-vector-eps.png"/>
+            Instagram
+        </a>
+      </div>
     </div>
   </div>
-  <div>
-    <h1>Copyright {{ totalYear }} • All rights reserved • RoomsAdvisor</h1>
+  <div class="flex justify-between pb-5 font-mulish max-sm:flex-col">
+      <a href="#">
+        <p class="max-sm:w-1/2 max-sm:min-w-full text-center">© {{ totalYear }} RoomsAdvisor</p>
+      </a>
   </div>
-</div>
+</footer>
