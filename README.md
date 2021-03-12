@@ -34,6 +34,11 @@ While the Backend/Server side of the project is created with:
 
 
 ## Prerequisite
+Install the following:
+* [@angular/cli](https://www.npmjs.com/package/@angular/cli)
+* [node.js](https://nodejs.org/en/)
+* [tailwind css intellisense](https://marketplace.visualstudio.com/itemsitemName=bradlcvscode-tailwindcss)
+
 Clone the repository
 ```
 git clone https://github.com/your_username_/Project-Name.git

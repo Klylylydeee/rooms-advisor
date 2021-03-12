@@ -9,6 +9,15 @@
 @import 'tailwindcss/utilities';
 @import '~ngx-toastr/toastr';
 
+html {
+    height: 100%
+}
+.back{
+    background-image:url("https://i.ibb.co/bQz2rRj/Desktop-1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -20,7 +29,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    color: black;
     // used in posts view component
     .small{
         height: 100px;
