@@ -1,14 +1,5 @@
-.footer-container{
-    background-color: rgb(185, 141, 141);
-    .flex{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        ul{
-            padding: 0 1rem;
-        }
-        ul:last-child{
-            padding: 0;
-        }
+.color-hover{
+    a{
+        @apply hover:text-gray-600;  
     }
 }
