@@ -13,11 +13,20 @@ import { CreatePropertyComponent } from './Routes/Properties/create-property/cre
 import { ViewPropertyIdComponent } from './Routes/Properties/view-property-id/view-property-id.component';
 import { ViewPropertyComponent } from './Routes/Properties/view-property/view-property.component';
 
+import { AboutUsComponent } from './Routes/General/about-us/about-us.component';
+import { ContactUsComponent } from './Routes/General/contact-us/contact-us.component';
+import { OurTeamComponent } from './Routes/General/our-team/our-team.component';
+import { PrivacyPolicyComponent } from './Routes/General/privacy-policy/privacy-policy.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'signup', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'our-team', component: OurTeamComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'posts', canActivate: [AuthGuard], 
     children: [
       { path: 'view', component: ViewPropertyComponent }, 

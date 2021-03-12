@@ -36,6 +36,11 @@ import { CreatePropertyComponent } from './Routes/Properties/create-property/cre
 import { ViewPropertyIdComponent } from './Routes/Properties/view-property-id/view-property-id.component';
 import { ViewPropertyComponent } from './Routes/Properties/view-property/view-property.component';
 
+import { AboutUsComponent } from './Routes/General/about-us/about-us.component';
+import { ContactUsComponent } from './Routes/General/contact-us/contact-us.component';
+import { OurTeamComponent } from './Routes/General/our-team/our-team.component';
+import { PrivacyPolicyComponent } from './Routes/General/privacy-policy/privacy-policy.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +52,11 @@ import { ViewPropertyComponent } from './Routes/Properties/view-property/view-pr
     RegisterComponent,
     CreatePropertyComponent,
     ViewPropertyIdComponent,
-    ViewPropertyComponent, 
+    ViewPropertyComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    OurTeamComponent,
+    PrivacyPolicyComponent, 
   ],
   imports: [
     BrowserModule,
