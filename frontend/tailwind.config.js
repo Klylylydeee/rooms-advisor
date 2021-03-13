@@ -17,6 +17,8 @@ module.exports = {
         'green-dark': '#013A51',
         'green-dark-subtile': '#0C4B58',
         'green-light': '#04C790',
+        'white-dark': '#F2F4E8',
+        'white-light': '#FBFCF5'
       },
       fontFamily: {
         montserrat: ["Montserrat"],
@@ -40,5 +42,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/forms"), 
-    require("@tailwindcss/typography")],
+    require("@tailwindcss/typography"),
+    require("kutty")
+  ]  
 };

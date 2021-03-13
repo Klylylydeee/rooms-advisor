@@ -41,6 +41,7 @@ import { OurTeamComponent } from './Routes/General/our-team/our-team.component';
 import { PrivacyPolicyComponent } from './Routes/General/privacy-policy/privacy-policy.component';
 
 import { NotFoundComponent } from './Routes/not-found/not-found.component';
+import { FeaturesComponent } from './Components/Landing/features/features.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NotFoundComponent } from './Routes/not-found/not-found.component';
     ContactUsComponent,
     OurTeamComponent,
     PrivacyPolicyComponent,
-    NotFoundComponent, 
+    NotFoundComponent,
+    FeaturesComponent, 
   ],
   imports: [
     BrowserModule,
