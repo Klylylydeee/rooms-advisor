@@ -26,7 +26,6 @@ import { NgxLoadingModule } from 'ngx-loading';
 // Created Components
 import { NavigationComponent } from './Components/navigation/navigation.component';
 import { HomeComponent } from './Components/home/home.component';
-import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { FooterComponent } from './Components/footer/footer.component';
 
 import { LoginComponent } from './Routes/Auth/login/login.component';
@@ -41,12 +40,13 @@ import { ContactUsComponent } from './Routes/General/contact-us/contact-us.compo
 import { OurTeamComponent } from './Routes/General/our-team/our-team.component';
 import { PrivacyPolicyComponent } from './Routes/General/privacy-policy/privacy-policy.component';
 
+import { NotFoundComponent } from './Routes/not-found/not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     HomeComponent,
-    NotfoundComponent,
     FooterComponent,
     LoginComponent,
     RegisterComponent,
@@ -56,7 +56,8 @@ import { PrivacyPolicyComponent } from './Routes/General/privacy-policy/privacy-
     AboutUsComponent,
     ContactUsComponent,
     OurTeamComponent,
-    PrivacyPolicyComponent, 
+    PrivacyPolicyComponent,
+    NotFoundComponent, 
   ],
   imports: [
     BrowserModule,

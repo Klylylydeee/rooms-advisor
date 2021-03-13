@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Client/auth/auth-guard.service';
 // Created Components
 import { HomeComponent } from './Components/home/home.component';
-import { NotfoundComponent } from './Components/notfound/notfound.component';
 
 import { LoginComponent } from './Routes/Auth/login/login.component';
 import { RegisterComponent } from './Routes/Auth/register/register.component';
@@ -17,6 +16,8 @@ import { AboutUsComponent } from './Routes/General/about-us/about-us.component';
 import { ContactUsComponent } from './Routes/General/contact-us/contact-us.component';
 import { OurTeamComponent } from './Routes/General/our-team/our-team.component';
 import { PrivacyPolicyComponent } from './Routes/General/privacy-policy/privacy-policy.component';
+
+import { NotFoundComponent } from './Routes/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -34,7 +35,7 @@ const routes: Routes = [
       { path: 'create', component: CreatePropertyComponent }
     ]
   },
-  { path: '**', component: NotfoundComponent }
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
