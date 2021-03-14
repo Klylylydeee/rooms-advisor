@@ -1,10 +1,10 @@
 <section class="min-h-screen bg-green-light flex text-white select-none">
 
-    <div class="h-full flex flex-col self-center w-4/12 max-md:w-full px-16 max-lg:px-10 max-md:py-10" *ngIf="router.url != '/auth/signup'">
+    <div class="h-full flex flex-col self-center w-5/12 max-md:w-full px-16 max-lg:px-10 max-md:py-10" *ngIf="router.url != '/auth/signup'">
       <router-outlet></router-outlet>
     </div>
 
-    <div class="h-full flex flex-col self-center w-6/12 max-md:w-full px-16 max-lg:px-10 max-md:py-10" *ngIf="router.url === '/auth/signup'">
+    <div class="h-full flex flex-col self-center w-5/12 max-md:w-full px-16 max-lg:px-10 max-md:py-10" *ngIf="router.url === '/auth/signup'">
       <router-outlet></router-outlet>
     </div>
 
