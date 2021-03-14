@@ -78,6 +78,13 @@ export class RegisterComponent implements OnInit {
   onSelect(event) {
     // console.log(event);
     this.files.push(...event.addedFiles);
+    if(this.files.length > 1){ 
+      this.replaceFile();
+    }
+  }
+
+  replaceFile(){
+    this.files.splice(0,1);
   }
 
   onRemove(event) {

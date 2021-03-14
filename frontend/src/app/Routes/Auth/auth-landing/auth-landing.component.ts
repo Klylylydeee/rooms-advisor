@@ -6,6 +6,8 @@ import { AuthService } from '../../../Client/service/auth.service';
 
 import { LoadToastrService } from '../../../Client/webpack/load-toastr.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'auth',
   templateUrl: './auth-landing.component.html',
@@ -16,7 +18,9 @@ export class AuthLandingComponent implements OnInit {
   loginMessage: any;
   loading: boolean = false;
 
-  constructor(private authService: AuthService, private loadToastrService: LoadToastrService) { }
+  constructor(private authService: AuthService, 
+    private loadToastrService: LoadToastrService, 
+    public router: Router) { }
 
   // assigns the loginForm into a createFormGroup function
   ngOnInit(): void {

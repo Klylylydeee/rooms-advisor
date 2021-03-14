@@ -1,0 +1,19 @@
+ngx-dropzone,
+.custom-dropzone {  
+}
+
+.custom-dropzone {
+    max-height: 140px;
+	width: 100%;
+	background-color: white;
+	color: gray;
+	border: 1px solid gray;
+	border-radius: 5px;
+	font-size: 20px;
+	overflow-y: hidden; 
+	overflow-x: hidden; 
+}
+
+.custom-dropzone.ngx-dz-hovered {
+  border: 5px solid rgb(235, 79, 79);
+}	

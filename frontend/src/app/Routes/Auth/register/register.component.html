@@ -1,26 +1,72 @@
-<!-- [formGroup] is a reactive form group which uses signUpForm -->
-<!-- novalidate is a reactive form validation -->
-<h1>Sign up Form</h1>
-<!-- <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
-  <input type="text" placeholder="firstName" formControlName="firstName"/>
-  <label class="alert" *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">Please enter your firstName</label>
-  <input type="text" placeholder="lastName" formControlName="lastName"/>
-  <label class="alert" *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">Please enter your lastname</label>
-  <input type="text" placeholder="username" formControlName="username" />
-  <label class="alert" *ngIf="signupForm.controls['username'].invalid && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched)">Please enter username</label>
-  <ngx-dropzone (change)="onSelect($event)">
-    <ngx-dropzone-label>Upload image</ngx-dropzone-label>
+<a routerLink="/home" class="font-montserrat text-3xl py-3"> RoomsAdvisor </a>
+
+<h1 class="text-xl font-light text-left">Signup an account</h1>
+
+<form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate class="">
+  
+  <div class="flex justify-between max-sm:flex-col">
+    <label class="w-1/2 pt-3 pr-2 ">
+      <div class="flex justify-between">
+      <span class="mb-1 text-xs font-medium">Your First name</span>
+      <span class="mb-1 text-xs font-medium text-green-dark" *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">Missing</span>
+      </div>
+      <input class="form-test w-full text-green-dark appearance-none rounded border border-solid" type="email" placeholder="John" formControlName="firstName" inputmode="text" required/>
+    </label>
+    <label class="w-1/2 pt-3 pl-2">
+      <div class="flex justify-between">
+        <span class="mb-1 text-xs font-medium">Your Last name</span>
+        <span class="mb-1 text-xs font-medium text-green-dark" *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">Missing</span>
+      </div>
+      <input class="form-test w-full text-green-dark appearance-none rounded border border-solid" type="email" placeholder="Doe" formControlName="lastName" inputmode="text" required/>
+    </label>
+  </div>
+  
+  <label class="block pt-3">
+    <div class="flex justify-between">
+      <span class="mb-1 text-xs font-medium">Your Username</span>
+      <span class="mb-1 text-xs font-medium text-green-dark" *ngIf="signupForm.controls['username'].invalid && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched)">Please enter a valid username</span>
+    </div>
+    <input class="form-test w-full text-green-dark appearance-none rounded border border-solid" type="email" placeholder="JohnDoe69" formControlName="username" inputmode="text" required/>
+  </label>
+
+  <span class="mb-1 text-xs font-medium">Upload image</span>
+  <div ngx-dropzone [multiple]="false"[accept]="'image/*'" (change)="onSelect($event)" class="custom-dropzone scrollHide" required>
+    <ngx-dropzone-label class="text-lg">Drag and drop or select an image</ngx-dropzone-label>
     <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
           <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
     </ngx-dropzone-image-preview>
-  </ngx-dropzone>
-  <input type="text" placeholder="email" formControlName="email" />
-  <label class="alert" *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">Please enter email</label>
-  <input type="password" placeholder="password" formControlName="password" />
-  <label class="alert" *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">Please enter password</label>
-  <button [disabled]="!signupForm.valid" type="submit" >Submit</button>
+  </div>
   
-  <ng-template #customLoadingTemplate>
-  </ng-template>
-  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
-</form> -->
+  <label class="block pt-3">
+    <div class="flex justify-between">
+      <span class="mb-1 text-xs font-medium">Your email</span>
+      <span class="mb-1 text-xs font-medium text-green-dark" *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">Please enter a valid email</span>
+    </div>
+    <input class="form-test w-full text-green-dark appearance-none rounded border border-solid" type="email" placeholder="JohnDoe69@zoho.com" formControlName="email" inputmode="email" required/>
+  </label>
+  
+  <label class="block pt-3">
+    <div class="flex justify-between">
+      <span class="mb-1 text-xs font-medium">Your password</span>
+      <span class="mb-1 text-xs font-medium text-green-dark" *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">Please enter a valid password</span>
+    </div>
+    <input class="form-test w-full text-green-dark appearance-none rounded border border-solid" type="password" placeholder="••••••••" formControlName="password" id="myInput" required/>
+  </label>
+
+  <div class="flex items-center justify-between py-3">
+    <label class="">
+      <span class="block ml-2 text-xs font-medium cursor-pointer" required>
+        All users are inclined to abide upon the <a href="#" class="underline text-green-dark">
+        Terms & Agreement</a> of the RoomsAdvisor platform.
+      </span>
+    </label>
+    <button class="btn bg-green-dark ml-12 max-sm:ml-10" [disabled]="!signupForm.valid" type="submit">
+      Signup
+    </button>
+  </div>
+
+</form>
+
+<ng-template #customLoadingTemplate></ng-template>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate">
+</ngx-loading>
