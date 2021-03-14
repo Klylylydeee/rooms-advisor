@@ -63,7 +63,7 @@ import { AuthLandingComponent } from './Routes/Auth/auth-landing/auth-landing.co
     NotFoundComponent,
     FeaturesComponent,
     BenefitsComponent,
-    AuthLandingComponent, 
+    AuthLandingComponent,
   ],
   imports: [
     BrowserModule,

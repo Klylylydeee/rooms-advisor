@@ -1,0 +1,17 @@
+.test-me{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    min-height: 500px;
+    background: linear-gradient(134deg, rgb(1, 58, 81) 0%, rgb(12, 75, 88) 99%);
+    transform: skewY(-3deg);
+    z-index: -1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (max-width: 768px){
+    .test-me{
+    transform: skewY(-9deg);
+    }
+}
