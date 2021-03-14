@@ -1,0 +1,16 @@
+// 1.1 Make Image erfectly adapt to parents height and width
+// 1.2 on hover:image zoom in effect
+
+.divImage:hover{
+    img{
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+} 
+
+.divText:hover{
+    h2:hover{
+        @apply text-green-neon-light;
+    }
+} 
