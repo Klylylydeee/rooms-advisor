@@ -16,13 +16,14 @@ RoomsAdvisor is a Web Application that aims to connect end users and property ow
 
 ## Technologies
 The Frontend/Client side of the project is created with:
-* [@angular/cli](https://www.npmjs.com/package/@angular/cli)
+* [kutty](https://kutty.netlify.app/docs/)
 * [ngx-dropzone](https://www.npmjs.com/package/ngx-dropzone)
 * [ngx-loading](https://www.npmjs.com/package/ngx-loading)
 * [ngx-pagination](https://www.npmjs.com/package/ngx-pagination)
 * [ngx-pipes](https://www.npmjs.com/ngx-pipes)
 * [ngx-skeleton-loader](https://www.npmjs.com/package/ngx-skeleton-loader)
 * [ngx-toastr](https://www.npmjs.com/package/ngx-toastr)
+* [tailwind-css](https://github.com/ngneat/tailwind)
 
 
 While the Backend/Server side of the project is created with:
