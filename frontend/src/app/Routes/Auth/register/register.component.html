@@ -1,7 +1,7 @@
 <!-- [formGroup] is a reactive form group which uses signUpForm -->
 <!-- novalidate is a reactive form validation -->
 <h1>Sign up Form</h1>
-<form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+<!-- <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
   <input type="text" placeholder="firstName" formControlName="firstName"/>
   <label class="alert" *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">Please enter your firstName</label>
   <input type="text" placeholder="lastName" formControlName="lastName"/>
@@ -23,4 +23,4 @@
   <ng-template #customLoadingTemplate>
   </ng-template>
   <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
-</form>
+</form> -->

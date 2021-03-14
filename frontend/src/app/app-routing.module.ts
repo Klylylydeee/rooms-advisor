@@ -5,6 +5,7 @@ import { AuthGuard } from './Client/auth/auth-guard.service';
 // Created Components
 import { HomeComponent } from './Components/home/home.component';
 
+import { AuthLandingComponent } from './Routes/Auth/auth-landing/auth-landing.component';
 import { LoginComponent } from './Routes/Auth/login/login.component';
 import { RegisterComponent } from './Routes/Auth/register/register.component';
 
@@ -22,14 +23,20 @@ import { NotFoundComponent } from './Routes/not-found/not-found.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'signup', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'auth', component: AuthLandingComponent,
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full'},
+      { path: 'signup', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+    ]
+  },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'our-team', component: OurTeamComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'posts', canActivate: [AuthGuard], 
     children: [
+      { path: '', redirectTo: 'view', pathMatch: 'full'},
       { path: 'view', component: ViewPropertyComponent }, 
       { path: 'view/:id', component: ViewPropertyIdComponent }, 
       { path: 'create', component: CreatePropertyComponent }

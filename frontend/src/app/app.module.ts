@@ -43,6 +43,7 @@ import { PrivacyPolicyComponent } from './Routes/General/privacy-policy/privacy-
 import { NotFoundComponent } from './Routes/not-found/not-found.component';
 import { FeaturesComponent } from './Components/Landing/features/features.component';
 import { BenefitsComponent } from './Components/Landing/benefits/benefits.component';
+import { AuthLandingComponent } from './Routes/Auth/auth-landing/auth-landing.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { BenefitsComponent } from './Components/Landing/benefits/benefits.compon
     PrivacyPolicyComponent,
     NotFoundComponent,
     FeaturesComponent,
-    BenefitsComponent, 
+    BenefitsComponent,
+    AuthLandingComponent, 
   ],
   imports: [
     BrowserModule,

@@ -6,13 +6,12 @@ import { AuthService } from '../../../Client/service/auth.service';
 
 import { LoadToastrService } from '../../../Client/webpack/load-toastr.service';
 
-
 @Component({
-  selector: 'login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'auth',
+  templateUrl: './auth-landing.component.html',
+  styleUrls: ['./auth-landing.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class AuthLandingComponent implements OnInit {
   loginForm: FormGroup; // variable loginForm is in type of FormGroup
   loginMessage: any;
   loading: boolean = false;

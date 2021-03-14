@@ -1,14 +1,36 @@
-<!-- [formGroup] is a reactive form group which uses signUpForm -->
-<!-- novalidate is a reactive form validation -->
-<h1>Login Form</h1>
-<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
-    <input type="text" placeholder="username" formControlName="username" />
-    <input type="password" placeholder="password" formControlName="password" />
-    <button [disabled]="!loginForm.valid" type="submit">Submit</button>
-    
-    <ng-template #customLoadingTemplate>
-    </ng-template>
-    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
-  
-</form>
-  
+
+
+      <a routerLink="/home" class="font-montserrat text-3xl py-3">
+        RoomsAdvisor
+      </a>
+
+      <h1 class="text-xl font-light text-left">Log in to your account</h1>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate class="">
+
+        <label class="block pt-3">
+          <span class="block mb-1 text-xs font-medium ">Your Username</span>
+          <input class="form-test w-full text-green-dark appearance-none rounded border border-solid" type="email" placeholder="Username" formControlName="username" inputmode="email" required />
+        </label>
+        
+        <label class="block">
+          <span class="block mb-1 text-xs font-medium ">Your Password</span>
+          <input class="form-test w-full text-green-dark appearance-none rounded border border-solid" type="password" placeholder="••••••••" formControlName="password" required />
+        </label>
+
+        <div class="flex items-center justify-between py-3">
+          <label class="flex items-center">
+            <input type="checkbox" class="form-checkbox" />
+            <span class="block ml-2 text-xs font-medium  cursor-pointer">Remember me</span>
+          </label>
+          <button class="btn bg-green-dark" [disabled]="!loginForm.valid" type="submit">Login</button>
+        </div>
+        
+      </form>
+
+      <div class="py-3">
+        <p class="text-sm ">
+          Don't have an account?
+          <a routerLink="/auth/signup" class="text-green-dark hover:text-green-dark">Signup an account</a>
+        </p>
+      </div>
