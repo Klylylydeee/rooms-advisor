@@ -1,17 +1,16 @@
-.test-me{
+.background-shade {
     position: absolute;
     left: 0px;
     width: 100%;
     min-height: 500px;
     background: linear-gradient(134deg, rgb(1, 58, 81) 0%, rgb(12, 75, 88) 99%);
     transform: skewY(-3deg);
-    z-index: -1;
     pointer-events: none;
     z-index: 1;
 }
 
-@media (max-width: 768px){
-    .test-me{
-    transform: skewY(-9deg);
+@media (max-height: 520px) and (max-width: 768px) {
+    .customPad{
+        padding: 5rem 2.5rem;
     }
 }
