@@ -1,22 +1,23 @@
-// Selected component
-.active-link{
-    color: white;
+.hoverable {
+    position: static;
 }
 
-.navigation-container{
-    background-color: rgb(185, 141, 141);
-    min-height: 12.5vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .navigation-buttons{
-        a{
-            padding: 0 1rem;
-        }
-    }
+.hoverable > a:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
 }
 
-.profile{
-    height: 50px;
-    width: 50px;
+.hoverable:hover .mega-menu {
+    display: block;
+}
+
+.mega-menu {
+    display: none;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    width: 100%;
 }
